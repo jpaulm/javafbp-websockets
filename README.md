@@ -64,22 +64,17 @@ This uses an additional jar file: `Java-WebSocket-1.3.0.jar`, available in the c
 
 You can now run the test server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
 
-    java -cp "build\libs\javafbp-websockets-1.0.1.jar;lib\JavaFBP-3.0.1.jar;lib\Java-WebSocket-1.3.0.jar" com.jpmorrsn.fbp.websockets.networks.TestWebSockets
+     java -cp "build/libs/javafbp-websockets-1.0.1.jar;../javafbp/build/libs/javafbp-3.0.1.jar;
+     lib/java-websocket-1.3.0.jar" com.jpmorrsn.fbp.examples.networks.Test
+     WebSockets
     
 (note the double quotes).
 
-There is a very simple client script called `chat1` in `com/jpmorrsn/fbp/websockets/script`:  open `chat1` with your favorite web browser while server is running; enter `complist` in input field; click on `send`. You should see all the entries in the jar file.  Click on `Stop WS` to bring down the server.  An identical script has also been provided called `chat2` to allow testing of multiple clients.
+There is a very simple client script called `chat1` in `com/jpmorrsn/fbp/websockets/script`:  open `chat1` with your favorite web browser while server is running; enter `complist` in input field; click on `send`. 
 
-If running this test under Eclipse, you can add `Java-WebSocket-1.3.0.jar` to Run/Debug Settings/Launch Configuration for `TestWebSockets`.
-For running the example use the following command:
+You should see all the entries in the JavaFBP jar file.   An identical script has also been provided called `chat2` to allow testing of multiple clients.
 
-    java -cp build/libs/javafbp-websockets-1.0.1.jar  com.jpmorrsn.fbp.examples.networks.TestWebSockets
-    
-Now go to `chat1` in com.jpmorrsn.fbp.examples.scripts and open with Web Browser
-
-Enter `complist` in the input field, and click on `Send`.
-
-You should see a listing of all the entries in the `JavaFBP` jar file.  The debug log has been switched on, so you will also see on the console all the frames being transmitted.
+If running this test under Eclipse, you can add `Java-WebSocket-1.3.0.jar` and `javafbp-3.0.1.jar` to Run/Debug Settings/Launch Configuration for `TestWebSockets`.
 
 Now go back to the input form, and click on `Stop WS`, and the server should come down (not very cleanly, I'm afraid).
 
