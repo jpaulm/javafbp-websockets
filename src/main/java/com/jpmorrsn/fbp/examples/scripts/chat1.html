@@ -45,7 +45,7 @@
             }
 
             function send() {
-            //for (i = 0; i < 1; i++) {
+           
                 var input = document.getElementById("message");
                 var p = document.createElement("p");
                 p.setAttribute("class", "client");
@@ -55,7 +55,7 @@
                 chatClient.send("Client1: " + input.value);
                 //input.value = "";
                 console.log('Send');
-                //}
+               
             }
             
          // Listen for socket closes
@@ -69,7 +69,8 @@
         	}
         	
             function closeme() {   
-                 chatClient.close(1000);
+                 //chatClient.close(1000);
+                 chatClient.send("@close");
                 }                        
             
             function stopws() { 
@@ -84,7 +85,7 @@
         <h1>WebSockets Example - Chat1</h1>
         <input type="text" id="message" name="message" />
         <button type="button" id="send" onclick="send()">Send</button>
-        <button type="button" id="close" onclick="closeme()">Close</button>     
+        <!--<button type="button" id="close" onclick="closeme()">Close</button>  -->   
         <button type="button" id="stopws" onclick="stopws()">Stop WS</button>
         <ul id="container">
             

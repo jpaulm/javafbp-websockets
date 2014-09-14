@@ -27,15 +27,16 @@ package com.jpmorrsn.fbp.components;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
-import java.util.Collections;
+import java.nio.channels.ClosedByInterruptException;
 
 import org.java_websocket.WebSocket;
 import org.java_websocket.WebSocketImpl;
 import org.java_websocket.drafts.Draft;
-import org.java_websocket.drafts.Draft_10;
+//import org.java_websocket.drafts.Draft_10;
 //import org.java_websocket.drafts.Draft_17;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidHandshakeException;
+import org.java_websocket.framing.CloseFrame;
 //import org.java_websocket.framing.CloseFrame;
 import org.java_websocket.framing.FrameBuilder;
 import org.java_websocket.framing.Framedata;
@@ -181,6 +182,8 @@ public class WebSocketReceive extends Component {
 
     @Override
     public void onError(final WebSocket conn, final Exception ex) {
+    	if (ex instanceof ClosedByInterruptException)
+    		return;
       System.out.println("Error:");
       ex.printStackTrace();
     }
@@ -189,7 +192,8 @@ public class WebSocketReceive extends Component {
 	 * Make sure that the substream comes out of a single port of a single process, all together...
 	 */
     
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public void onMessage(final WebSocket conn, final String message) {
 
     System.out.println(message);
@@ -197,7 +201,9 @@ public class WebSocketReceive extends Component {
           //conn.close(CloseFrame.NORMAL, "Close message"); (caused 1005 errors)
           putGlobal("killsw", new Boolean(true));
           }
-          else{
+          else if (message.equals("@close")){       	  
+              conn.close(CloseFrame.NORMAL, "Close message");            
+              } else {
 
       Packet p1 = comp.create(conn);
       Packet p2 = comp.create(message);
@@ -219,8 +225,7 @@ public class WebSocketReceive extends Component {
     	System.out.println(blob);
       conn.send(blob);
     }
-
-    @SuppressWarnings({"unused"})
+    
     public void onWebsocketMessageFragment(final WebSocket conn, final Framedata frame) {
     	System.out.println(frame);
       FrameBuilder builder = (FrameBuilder) frame;
@@ -230,10 +235,7 @@ public class WebSocketReceive extends Component {
 
     @Override
     public void start() {
-      //Object selectorthread = null;
-      //if (selectorthread != null) {
-      //  throw new IllegalStateException(getClass().getName() + " can only be started once.");
-      //}
+      
       comp = (Component) Thread.currentThread();
 
       new Thread(this).start();
