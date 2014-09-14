@@ -62,7 +62,7 @@ Running a test
 ----
 
 
-This uses an additional jar file: `Java-WebSocket-1.3.0.jar`, available in the central Maven repository, and also requires the javafbp-3.0.1.jar file, available in javafbp/build/libs, provided that you have built JavaFBP first.
+This uses an additional jar file: `Java-WebSocket-1.3.0.jar`, available in the central Maven repository, and also requires the `javafbp-3.0.1.jar` file, available in `javafbp/build/libs`, provided that you have built the JavaFBP project first, or have the jar file otherwise available.
 
 You can now run the test server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
 
