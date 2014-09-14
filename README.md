@@ -7,6 +7,8 @@ JavaFBP Support for WebSockets
 General
 ---
 
+This project comprises some components which support WebSockets in Java, plus a test case to illustrate their use.  The components are basically @tootallnate's AutobahnServerTest code, split into two FBP components: WebSocketReceive and WebSocketRespond.
+
 For more background information, see the README on https://github.com/jpaulm/javafbp .
 
 Web sites for FBP: 
