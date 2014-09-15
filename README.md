@@ -89,3 +89,7 @@ where the counts are respectively: creates, normal drops, sends, non-null receiv
 
 An identical script has also been provided called `chat2` to allow testing of multiple clients.
 
+Here is a diagram of this simple server network, together with the client, shown schematically:
+
+![ClientServer](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/ClientServer.png "Diagram of Client and Server Network")
+
