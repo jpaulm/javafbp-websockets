@@ -24,7 +24,8 @@
             }
         </style>
         <script>
-        if ("WebSocket" in window)
+        //if ("WebSocket" in window)
+        	if (window.WebSocket)
   {
      //alert("WebSocket is supported by your Browser!");
             //var chatClient = new WebSocket("ws://localhost:8080/websocket/chat");
