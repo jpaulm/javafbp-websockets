@@ -84,11 +84,12 @@ public class WebSocketReceive extends Component {
     while (true) {
 
       try {
-        Thread.sleep(500); // sleep for 1/2 sec
+        sleep(500); // sleep for 1/2 sec
       } catch (InterruptedException e) {
         e.printStackTrace();
+        wss.stop();
         // handle the exception...        
-        // For example consider calling Thread.currentThread().interrupt(); here.
+        return;
       }
       Boolean killsw = (Boolean) getGlobal("killsw");
       if (killsw.booleanValue()) {

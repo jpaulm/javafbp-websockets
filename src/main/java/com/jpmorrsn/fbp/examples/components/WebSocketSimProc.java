@@ -63,6 +63,10 @@ public class WebSocketSimProc extends Component {
 	@Override
 	protected void execute() {
 
+		Packet q = jarport.receive();
+		String jarfilename = (String) q.getContent(); 
+		drop(q);
+		jarport.close();
 		
 		Packet lbr = inport.receive();		
 		Packet p1 = inport.receive();		
@@ -77,16 +81,16 @@ public class WebSocketSimProc extends Component {
 		//Random rand = new Random();
 		//int j = rand.nextInt(20);
 
-		/*
+		
 		if (s.endsWith("namelist")) {
-			
+	/*		
 			try {
 				sleep(j * 500);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
+*/
 		outport.send(lbr);
 
 		outport.send(p1);  // contains Connection
@@ -98,11 +102,9 @@ public class WebSocketSimProc extends Component {
 		
 		}
 		else
-			*/
+			
 			if (s.endsWith("complist")) {
-			Packet q = jarport.receive();
-			String jarfilename = (String) q.getContent(); 
-			drop(q);
+			
 			outport.send(lbr);
 
 			outport.send(p1);  // contains Connection
@@ -164,8 +166,7 @@ public class WebSocketSimProc extends Component {
 			outport.send(create("unknown keyword"));
 			
 			outport.send(rbr);
-		}
-			
+		}		
 
 	}
 
