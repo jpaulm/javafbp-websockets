@@ -21,9 +21,9 @@ JavaFBP Syntax and Component API:
 Prerequisites
 ---
 
+This project requires JavaFBP to be installed - see https://github.com/jpaulm/javafbp .
 
-The project requires Gradle for building (tested with version 2.0). You can download the corresponding package from the following URL: 
-http://www.gradle.org
+It also requires Gradle for building (tested with version 2.0). You can download the corresponding package from the following URL: http://www.gradle.org
 
 Windows and Linux users should follow the installation instructions on the Maven website (URL provided above).
 
