@@ -69,7 +69,7 @@ public class WebSocketSimProc extends Component {
 		jarport.close();
 		
 		Packet lbr = inport.receive();		
-		Packet p1 = inport.receive();		
+		Packet p1 = inport.receive();		// contains Connection
 		Packet p2 = inport.receive();	 
 		Packet rbr = inport.receive();
 
@@ -122,7 +122,7 @@ public class WebSocketSimProc extends Component {
 				while (entries.hasMoreElements()) {
 					JarEntry entry = (JarEntry) entries.nextElement();
 					//System.out.println(entry);
-					outport.send(create(t + entry));
+					outport.send(create(t + " " + entry));
 
 					if (!(entry.isDirectory())) {
 						s = entry.getName();
@@ -138,9 +138,9 @@ public class WebSocketSimProc extends Component {
 									next.add(child);
 									break;
 								} else {
-									t = s.substring(0, i);
-									if (null == (child = findChild(next, t))) {
-										child = new DefaultMutableTreeNode(t);
+									String u = s.substring(0, i);
+									if (null == (child = findChild(next, u))) {
+										child = new DefaultMutableTreeNode(u);
 										next.add(child);
 									}
 									s = s.substring(i + 1);
