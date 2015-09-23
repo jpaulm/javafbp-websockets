@@ -48,15 +48,14 @@
             function send() {
            
                 var input = document.getElementById("message");
-                var p = document.createElement("p");
-                p.setAttribute("class", "client");
-                p.innerHTML = "Client1: " + input.value;
-                var container = document.getElementById("container");
-                container.appendChild(p);
-                chatClient.send("Client1: " + input.value);
-                //input.value = "";
-                console.log('Send');
-               
+                var jarfile = document.getElementById("jarfile");
+                //var p = document.createElement("p");
+                //p.setAttribute("class", "client");
+                //p.innerHTML = "Client1: " + input.value;
+                //var container = document.getElementById("container");
+                //container.appendChild(p);
+                chatClient.send("{Client1: " + input.value + "|" + 
+                    jarfile.value + "}");                                
             }
             
          // Listen for socket closes
@@ -87,9 +86,9 @@
         <ul id="container">
             
         </ul>
-        <input type="text" id="message" name="message" />
-        <button type="button" id="send" onclick="send()">Send</button>
-        <!--<button type="button" id="close" onclick="closeme()">Close</button>  -->   
+        <p>Command:  <input type="text" id="message" name="message" /> </p>
+        <p>Data:  <input type="text" id="jarfile" name="jarfile" /> </p>
+        <button type="button" id="send" onclick="send()">Send</button>        
         <button type="button" id="stopws" onclick="stopws()">Stop WS</button>
         
         

@@ -193,33 +193,47 @@ public class WebSocketReceive extends Component {
 	 * Make sure that the substream comes out of a single port of a single process, all together...
 	 */
     
-    @SuppressWarnings("rawtypes")
-	@Override
-    public void onMessage(final WebSocket conn, final String message) {
+		@SuppressWarnings("rawtypes")
+		@Override
+		public void onMessage(final WebSocket conn, final String message) {
 
-    System.out.println(message);
-       if (message.equals("@kill")){       	  
-          //conn.close(CloseFrame.NORMAL, "Close message"); (caused 1005 errors)
-          putGlobal("killsw", new Boolean(true));
-          }
-          else if (message.equals("@close")){       	  
-              conn.close(CloseFrame.NORMAL, "Close message");            
-              } else {
+			System.out.println(message);
+			if (message.equals("@kill")) {
+				putGlobal("killsw", new Boolean(true));
+			} else if (message.equals("@close")) {
+				conn.close(CloseFrame.NORMAL, "Close message");
+			} else {
+				Packet lbr = comp.create(Packet.OPEN, "pdata");
+				WebSocketReceive wsr = (WebSocketReceive) comp;
+				wsr.getOutport().send(lbr);
+				Packet p1 = comp.create(conn);
+				wsr.getOutport().send(p1); // conn
+				Packet p2 = null;
+				int cur = 0;
+				String part = message;
+				if (message.substring(0, 1).equals("{")) {
+					cur = 1;
+					for (int i = cur; i < message.length(); i++) {
+						if (message.substring(i, i + 1).equals("}")) {
+							part = message.substring(cur, i);
+							break;
+						}
+						if (message.substring(i, i + 1).equals("|")) {
+							part = message.substring(cur, i);
+							p2 = comp.create(part);
+							wsr.getOutport().send(p2);
+							cur = i + 1;
+						}
+					}
+				}
+				p2 = comp.create(part);
+				wsr.getOutport().send(p2);
 
-      Packet p1 = comp.create(conn);
-      Packet p2 = comp.create(message);
-      Packet lbr = comp.create(Packet.OPEN, "pdata");
-      Packet rbr = comp.create(Packet.CLOSE, "pdata");
+				Packet rbr = comp.create(Packet.CLOSE, "pdata");
+				wsr.getOutport().send(rbr);
+			}
 
-      WebSocketReceive wsr = (WebSocketReceive) comp;
-
-      wsr.getOutport().send(lbr);
-      wsr.getOutport().send(p1);  // conn
-      wsr.getOutport().send(p2);  // data
-      wsr.getOutport().send(rbr);
-      }
-
-    }
+		}
 
     @Override
     public void onMessage(final WebSocket conn, final ByteBuffer blob) {

@@ -38,7 +38,7 @@ public class TestWebSockets extends Network {
     connect("WSRcv.OUT", "Process.IN", 40);
     connect("Process.OUT", "WSRsp.IN", 40);
     
-    initialize("C:\\Users\\Paul\\Documents\\GitHub\\javafbp\\build\\libs\\javafbp-3.0.2.jar", "Process.JARFILE");
+    //initialize("C:\\Users\\Paul\\Documents\\GitHub\\javafbp\\build\\libs\\javafbp-3.0.2.jar", "Process.JARFILE");
   }
 
   public static void main(final String[] argv) throws Exception {
