@@ -51,21 +51,21 @@ Then import a generated project in Eclipse, right (ctrl for OSX) click on the pr
 Building from command line
 ---
 
-**Latest release: `javafbp-websockets-1.0.2`**.
+**Latest release: `javafbp-websockets-1.0.3`**.
 
 For building the project simply run the following command:
 
     gradle build
 
-As a result a `javafbp-websockets-1.0.2.jar` file will be created in the `build/libs` directory. This will include two core components, and an example network plus associated test component, and some HTML and JavaScript files.
+As a result a `javafbp-websockets-1.0.3.jar` file will be created in the `build/libs` directory. This will include two core components, and an example network plus associated test component, and some HTML and JavaScript files.
 
 
 Running a test
 ----
 
-Currently the test must be run under Eclipse, as you will have to modify the JavaFBP jar file location, specified in the network definition.  You will also need to add an additional jar file: `Java-WebSocket-1.3.0.jar`, available in the central Maven repository, to the Project/Properties/Java Build Path.  It also requires the `javafbp-3.0.2.jar` file, available in `javafbp/build/libs`, provided that you have built the JavaFBP project first, or have the jar file otherwise available.
+This project has one test network, which runs as a server, communicating with the client, which is `chat1.html` or `chat2.html`. This test can either be run under Eclipse, or can be run using the project jar file and the jar file for JavaFBP.  You will also need to add an additional jar file: `Java-WebSocket-1.3.0.jar`, available in the central Maven repository, to the Project/Properties/Java Build Path.  The current JavaFBP jar file is `javafbp-3.0.2.jar`, available in `javafbp/build/libs`, so this assumes that you have built the JavaFBP project first, or have the jar file otherwise available.
 
-Note: if your default browser gives you a message saying it does not support Websockets, use Chrome.
+Note: if your default browser gives you a message saying it does not support Websockets, try using Chrome.
 
 You can now run the command-line test Server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
 
@@ -76,12 +76,14 @@ You can now run the command-line test Server code in com.jpmorrsn.fbp.websockets
 
 This will display the message `WebSocketServer starting` on the console.
 
-There is a very simple client script called `chat1` in `com/jpmorrsn/fbp/websockets/script`: 
-- open `chat1` or `chat2` with your favorite web browser while server is running
-- enter `complist` in input field (just below the output container)
+There are two simple client scripts called `chat1.html` and `chat2.html` in `com/jpmorrsn/fbp/websockets/script`, which will display the contents of any selected jar file.  To run the test:
+- make sure server is running (`TestWebSockets`)
+- open `chat1` or `chat2` with your favorite web browser 
+- enter `complist` in the field prefixed with `Command`
+- enter the file name of the jar file whose contents you wish to display, in the field prefixed with `Data`
 - click on `Send`. 
 
-You should see all the entries in the JavaFBP jar file, whose location is given in the network definition.  `chat1` and `chat2` are identical scripts provided to allow concurrent testing of multiple clients.
+You should see all the entries in the selected jar file.  `chat1` and `chat2` are identical scripts provided to allow concurrent testing of multiple clients.
 
 If running this test under Eclipse, you can add `Java-WebSocket-1.3.0.jar` and `javafbp-3.0.2.jar` to Run/Debug Settings/Launch Configuration for `TestWebSockets`.
 
