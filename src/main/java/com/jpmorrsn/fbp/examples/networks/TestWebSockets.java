@@ -10,10 +10,10 @@ package com.jpmorrsn.fbp.examples.networks;
  */
 
 
-import java.io.File;
-
+import com.jpmorrsn.fbp.components.LoadBalance;
 import com.jpmorrsn.fbp.components.WebSocketReceive;
 import com.jpmorrsn.fbp.components.WebSocketRespond;
+import com.jpmorrsn.fbp.components.WriteToConsole;
 import com.jpmorrsn.fbp.engine.Network;
 import com.jpmorrsn.fbp.examples.components.WebSocketSimProc;
 
@@ -30,15 +30,24 @@ public class TestWebSockets extends Network {
   protected void define() {
 
     component("WSRcv", WebSocketReceive.class);
-    component("Process", WebSocketSimProc.class);
-    component("WSRsp", WebSocketRespond.class);
+    component("LBal", LoadBalance.class);
+    component("Process0", WebSocketSimProc.class);
+    component("WSRsp0", WebSocketRespond.class);
+    component("Process1", WebSocketSimProc.class);
+    component("WSRsp1", WebSocketRespond.class);
+    component("Process2", WebSocketSimProc.class);
+    component("WSRsp2", WebSocketRespond.class);
     
     initialize(new Integer(9003), "WSRcv.PORT");
 
-    connect("WSRcv.OUT", "Process.IN", 40);
-    connect("Process.OUT", "WSRsp.IN", 40);
+    connect("WSRcv.OUT", "LBal.IN", 4);    
+    connect("LBal.OUT[0]", "Process0.IN", 4);
+    connect("Process0.OUT", "WSRsp0.IN", 4);   
+    connect("LBal.OUT[1]", "Process1.IN", 4);
+    connect("Process1.OUT", "WSRsp1.IN", 4); 
+    connect("LBal.OUT[2]", "Process2.IN", 4);
+    connect("Process2.OUT", "WSRsp2.IN", 4); 
     
-    //initialize("C:\\Users\\Paul\\Documents\\GitHub\\javafbp\\build\\libs\\javafbp-3.0.2.jar", "Process.JARFILE");
   }
 
   public static void main(final String[] argv) throws Exception {
