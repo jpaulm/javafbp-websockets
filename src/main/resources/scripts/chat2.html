@@ -26,9 +26,7 @@
         <script>
         if (window.WebSocket)
   {
-            //var chatClient = new WebSocket("ws://localhost:8080/websocket/chat");
             var chatClient = new WebSocket("ws://localhost:9003/websocket/chat");
-
             
             chatClient.onmessage = function(evt) {
                 var p = document.createElement("li");
@@ -46,11 +44,7 @@
            
             	 var input = document.getElementById("message");
                  var jarfile = document.getElementById("jarfile");
-                 //var p = document.createElement("p");
-                 //p.setAttribute("class", "client");
-                 //p.innerHTML = "Client2: " + input.value;
-                 //var container = document.getElementById("container");
-                 //container.appendChild(p);
+                
                  chatClient.send("{Client2: " + input.value + "|" + 
                      jarfile.value + "}");     
             }
