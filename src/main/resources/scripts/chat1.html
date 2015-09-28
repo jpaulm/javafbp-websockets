@@ -27,11 +27,8 @@
         //if ("WebSocket" in window)
         	if (window.WebSocket)
   {
-     //alert("WebSocket is supported by your Browser!");
-            //var chatClient = new WebSocket("ws://localhost:8080/websocket/chat");
+     
             var chatClient = new WebSocket("ws://localhost:9003/websocket/chat");
-            
-
             
             chatClient.onmessage = function(evt) {
                 var p = document.createElement("li");
@@ -49,11 +46,7 @@
            
                 var input = document.getElementById("message");
                 var jarfile = document.getElementById("jarfile");
-                //var p = document.createElement("p");
-                //p.setAttribute("class", "client");
-                //p.innerHTML = "Client1: " + input.value;
-                //var container = document.getElementById("container");
-                //container.appendChild(p);
+               
                 chatClient.send("{Client1: " + input.value + "|" + 
                     jarfile.value + "}");                                
             }
@@ -90,7 +83,6 @@
         <p>Data:  <input type="text" id="jarfile" name="jarfile" /> </p>
         <button type="button" id="send" onclick="send()">Send</button>        
         <button type="button" id="stopws" onclick="stopws()">Stop WS</button>
-        
         
     </body>
 </html>
