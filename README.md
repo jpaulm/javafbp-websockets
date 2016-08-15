@@ -94,6 +94,9 @@ OR
 
 Add these two jar files to the Properties/Java Build Path/Libraries for your project.
 
+Closing down
+---------
+
 Now go back to the input form, and click on `Stop WS`, and the server should come down, terminating the Web Server.
 
 At the end of the run, you should see:
