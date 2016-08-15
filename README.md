@@ -25,13 +25,6 @@ This project requires JavaFBP to be installed - see https://github.com/jpaulm/ja
 
 It also requires Gradle for building (tested with version 2.0). You can download the corresponding package from the following URL: http://www.gradle.org
 
-Windows and Linux users should follow the installation instructions on the Maven website (URL provided above).
-
-OSX users (using Brew, http://brew.sh) can install Maven by executing the following command:
-
-    brew install gradle
-
-
 Eclipse IDE Integration
 ---
 
@@ -43,7 +36,7 @@ If you already created an Eclipse project you can run:
 
     gradle cleanEclipse Eclipse
 
-You need to install a Gradle plugin for Eclipse as explain here:
+You need to install a Gradle plugin for Eclipse as explained here:
 https://github.com/spring-projects/eclipse-integration-gradle/
 Then import a generated project in Eclipse, right (ctrl for OSX) click on the project in Eclipse -> Configure -> Convert to Gradle Project. After the conversion you can Right (ctrl for OSX) click on the project -> Gradle -> Task Quick Launcher and type `build`.
 
@@ -90,11 +83,11 @@ Eclipse
 
 If running this test under Eclipse, you can add `Java-WebSocket-1.3.0.jar` and `javafbp-4.0.1.jar` to Run/Debug Settings/Launch Configuration for `TestWebSockets`.
 
-OR
+**OR**
 
 Add these two jar files to the Properties/Java Build Path/Libraries for your project.
 
-Closing down
+Closing down your test
 ---------
 
 Now go back to the input form, and click on `Stop WS`, and the server should come down, terminating the Web Server.
