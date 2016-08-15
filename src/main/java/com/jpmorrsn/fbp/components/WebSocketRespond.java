@@ -6,10 +6,7 @@ package com.jpmorrsn.fbp.components;
 
 import org.java_websocket.WebSocket;
 
-import com.jpmorrsn.fbp.engine.Component;
-import com.jpmorrsn.fbp.engine.InPort;
-import com.jpmorrsn.fbp.engine.InputPort;
-import com.jpmorrsn.fbp.engine.Packet;
+import com.jpmorrsn.fbp.core.engine.*;
 
 
 @InPort("IN")

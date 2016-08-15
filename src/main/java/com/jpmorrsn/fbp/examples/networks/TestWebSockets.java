@@ -10,11 +10,10 @@ package com.jpmorrsn.fbp.examples.networks;
  */
 
 
-import com.jpmorrsn.fbp.components.LoadBalance;
+import com.jpmorrsn.fbp.core.components.routing.LoadBalance;
 import com.jpmorrsn.fbp.components.WebSocketReceive;
 import com.jpmorrsn.fbp.components.WebSocketRespond;
-import com.jpmorrsn.fbp.components.WriteToConsole;
-import com.jpmorrsn.fbp.engine.Network;
+import com.jpmorrsn.fbp.core.engine.Network;
 import com.jpmorrsn.fbp.examples.components.WebSocketSimProc;
 
 

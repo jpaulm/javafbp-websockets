@@ -12,14 +12,7 @@ import java.util.jar.JarFile;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import com.jpmorrsn.fbp.engine.Component;
-import com.jpmorrsn.fbp.engine.ComponentDescription;
-import com.jpmorrsn.fbp.engine.InPort;
-import com.jpmorrsn.fbp.engine.InputPort;
-import com.jpmorrsn.fbp.engine.OutPort;
-import com.jpmorrsn.fbp.engine.OutputPort;
-import com.jpmorrsn.fbp.engine.Packet;
-
+import com.jpmorrsn.fbp.core.engine.*;
 /**
  * Sample web socket request processor
  * 

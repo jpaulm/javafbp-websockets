@@ -43,12 +43,7 @@ import org.java_websocket.framing.Framedata;
 import org.java_websocket.handshake.*;
 import org.java_websocket.server.WebSocketServer;
 
-import com.jpmorrsn.fbp.engine.Component;
-import com.jpmorrsn.fbp.engine.InPort;
-import com.jpmorrsn.fbp.engine.InputPort;
-import com.jpmorrsn.fbp.engine.OutPort;
-import com.jpmorrsn.fbp.engine.OutputPort;
-import com.jpmorrsn.fbp.engine.Packet;
+import com.jpmorrsn.fbp.core.engine.*;
 
 @InPort("PORT")
 @OutPort("OUT")
