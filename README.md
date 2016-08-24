@@ -62,7 +62,7 @@ Note: if your default browser gives you a message saying it does not support Web
 
 You can now run the command-line test Server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
 
-     java -cp "build/libs/javafbp-websockets-1.0.2.jar;../javafbp/build/libs/javafbp-4.0.1.jar;
+     java -cp "build/libs/javafbp-websockets-1.0.3.jar;../javafbp/build/libs/javafbp-4.0.1.jar;
      lib/java-websocket-1.3.0.jar" com.jpmorrsn.fbp.examples.networks.TestWebSockets
     
 (note the double quotes).
