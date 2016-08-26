@@ -1,7 +1,7 @@
 /*
  * Copyright (C) J.P. Morrison, Enterprises, Ltd. 2009, 2012 All Rights Reserved. 
  */
-package com.jpmorrsn.fbp.examples.components;
+package com.jpaulmorrison.fbp.examples.components;
 
 //import java.io.File;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.util.jar.JarFile;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import com.jpmorrsn.fbp.core.engine.*;
+import com.jpaulmorrison.fbp.core.engine.*;
 /**
  * Sample web socket request processor
  * 

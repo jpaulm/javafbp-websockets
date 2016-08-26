@@ -1,20 +1,20 @@
 /*
  * Copyright (C) J.P. Morrison, Enterprises, Ltd. 2009, 2014 All Rights Reserved. 
  */
-package com.jpmorrsn.fbp.examples.networks;
+package com.jpaulmorrison.fbp.examples.networks;
 
 /* 
  * Useful info:  http://stackoverflow.com/questions/18900187/processing-how-to-send-data-through-websockets-to-javascript-application
  * 
- * This project requires java_websocket.jar - obtainable from https://github.com/TooTallNate/Java-WebSocket/tree/master/dist
+ * This project requires java_websocket.jar - obtainable from Maven java-websocket 
  */
 
 
-import com.jpmorrsn.fbp.core.components.routing.LoadBalance;
-import com.jpmorrsn.fbp.components.WebSocketReceive;
-import com.jpmorrsn.fbp.components.WebSocketRespond;
-import com.jpmorrsn.fbp.core.engine.Network;
-import com.jpmorrsn.fbp.examples.components.WebSocketSimProc;
+import com.jpaulmorrison.fbp.core.components.routing.LoadBalance;
+import com.jpaulmorrison.fbp.components.WebSocketReceive;
+import com.jpaulmorrison.fbp.components.WebSocketRespond;
+import com.jpaulmorrison.fbp.core.engine.Network;
+import com.jpaulmorrison.fbp.examples.components.WebSocketSimProc;
 
 
 /**

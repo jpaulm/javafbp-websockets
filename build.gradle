@@ -4,7 +4,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven'
 
 
-version = '1.0.3'
+version = '1.1.0'
 
 description = 'JavaFBP support for WebSockets'
 
@@ -29,8 +29,8 @@ dependencies {
 //compile files('lib/javafbp-3.0.2.jar')
 //<!-- https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket -->
  
-      compile  'com.jpaulmorrison:javafbp:4.0.1',  'org.java-websocket:Java-WebSocket:1.3.0'      
-      runtime  'com.jpaulmorrison:javafbp:4.0.1',  'org.java-websocket:Java-WebSocket:1.3.0'      
+      compile  'com.jpaulmorrison:javafbp:4.1.0',  'org.java-websocket:Java-WebSocket:1.3.0'      
+      runtime  'com.jpaulmorrison:javafbp:4.1.0',  'org.java-websocket:Java-WebSocket:1.3.0'      
             }
    
  
@@ -40,7 +40,7 @@ task writeNewPom << {
         project {
             groupId 'com.jpaulmorrison'
             artifactId 'javafbp-websockets'
-            version '1.0.3'
+            version '1.1.0'
         
             inceptionYear '2016'
             licenses {

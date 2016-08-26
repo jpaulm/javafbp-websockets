@@ -1,12 +1,12 @@
 /*
  * Copyright (C) J.P. Morrison, Enterprises, Ltd. 2009, 2012 All Rights Reserved. 
  */
-package com.jpmorrsn.fbp.components;
+package com.jpaulmorrison.fbp.components;
 
 
 import org.java_websocket.WebSocket;
 
-import com.jpmorrsn.fbp.core.engine.*;
+import com.jpaulmorrison.fbp.core.engine.*;
 
 
 @InPort("IN")
@@ -55,7 +55,7 @@ public class WebSocketRespond extends Component {
   }
 
   /* (non-Javadoc)
-   * @see com.jpmorrsn.fbp.engine.Component#openPorts()
+   * @see com.jpaulmorrison.fbp.core.engine.Component#openPorts()
    */
   @Override
   protected void openPorts() {

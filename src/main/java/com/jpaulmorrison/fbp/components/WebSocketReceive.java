@@ -1,7 +1,7 @@
 /*
  * Copyright (C) J.P. Morrison, Enterprises, Ltd. 2009, 2014 All Rights Reserved. 
  */
-package com.jpmorrsn.fbp.components;
+package com.jpaulmorrison.fbp.components;
 
 /**
  * General component to receive sequence of data chunks from a web socket and convert them
@@ -43,7 +43,7 @@ import org.java_websocket.framing.Framedata;
 import org.java_websocket.handshake.*;
 import org.java_websocket.server.WebSocketServer;
 
-import com.jpmorrsn.fbp.core.engine.*;
+import com.jpaulmorrison.fbp.core.engine.*;
 
 @InPort("PORT")
 @OutPort("OUT")
@@ -53,7 +53,7 @@ public class WebSocketReceive extends Component {
   private OutputPort outport;
 
   /* (non-Javadoc)
-   * @see com.jpmorrsn.fbp.engine.Component#execute()
+   * @see com.jpaulmorrison.fbp.core.engine.Component#execute()
    */
   @Override
   protected void execute() throws Exception {
@@ -97,7 +97,7 @@ public class WebSocketReceive extends Component {
   }
 
   /* (non-Javadoc)
-   * @see com.jpmorrsn.fbp.engine.Component#openPorts()
+   * @see com.jpaulmorrison.fbp.core.engine.Component#openPorts()
    */
   @Override
   protected void openPorts() {
