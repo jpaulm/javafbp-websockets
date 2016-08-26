@@ -11,9 +11,8 @@ This project comprises some components which support WebSockets for JavaFBP, plu
 
 For more background information on JavaFBP, see the README on https://github.com/jpaulm/javafbp .
 
-Web sites for FBP: 
+Web site for FBP: 
 * http://www.jpaulmorrison.com/fbp/
-* https://github.com/flowbased/flowbased.org/wiki
  
 JavaFBP Syntax and Component API:
 * http://www.jpaulmorrison.com/fbp/jsyntax.htm
