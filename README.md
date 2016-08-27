@@ -65,6 +65,8 @@ You can now run the command-line test Server code in com.jpmorrsn.fbp.websockets
     
 (note the double quotes).
 
+In this example, the `javafbp-4.1.0` jar file has been copied into the JavaFBP-WebSockets `lib` folder for ease of use.
+
 This will display the message `WebSocketServer starting` on the console.
 
 There are two simple client scripts called `chat1.html` and `chat2.html` in `com/jpaulmorrison/fbp/websockets/script`, which will display the contents of any selected jar file.  To run the test:
