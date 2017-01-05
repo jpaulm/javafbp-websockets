@@ -107,6 +107,6 @@ The test application has now been modified to add a (substream-sensitive) Load B
 
 ![ClientServerMultiplex](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/ClientServerMultiplex.png "Diagram of Client and Server Network")
 
-
+Note that LoadBalance in JavaFBP has been updated to be sensitive to substreams - see https://github.com/jpaulm/javafbp/blob/master/src/main/java/com/jpaulmorrison/fbp/core/components/routing/LoadBalance.java .
 
 
