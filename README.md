@@ -55,7 +55,7 @@ As a result a `javafbp-websockets-1.1.0.jar` file will be created in the `build/
 Running a test
 ----
 
-This project has one test network, which runs as a server, communicating with the client, which is `chat1.html` or `chat2.html`. This test can either be run under Eclipse, or can be run using the project jar file and the jar file for JavaFBP.  You will also need to add an additional jar file: `Java-WebSocket-1.3.0.jar`, available in the central Maven repository, to the Project/Properties/Java Build Path.  The current JavaFBP jar file is `javafbp-4.1.0.jar`, available in the latest release of JavaFBP on GitHub, so this assumes that you have built the JavaFBP project first, or have the jar file otherwise available.
+This project has one test network, which runs as a server, communicating with the client, which is `chat1.html` or `chat2.html`. This test can either be run under Eclipse, or can be run using the project jar file and the jar file for JavaFBP.  You will also need to add an additional jar file: `Java-WebSocket-1.3.0.jar`, available in the central Maven repository, to the Project/Properties/Java Build Path.  The current JavaFBP jar file is `javafbp-4.1.0.jar`, available in the latest release of JavaFBP on GitHub, and on Maven - `https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22javafbp%22` - so this assumes that you have built the JavaFBP project first, or have the jar file otherwise available.
 
 Note: if your default browser gives you a message saying it does not support Websockets, try using Chrome.
 
