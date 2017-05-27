@@ -7,7 +7,9 @@ JavaFBP Support for WebSockets
 General
 ---
 
-This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code, split into two JavaFBP components: WebSocketReceive and WebSocketRespond.
+This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see https://github.com/TooTallNate/Java-WebSocket - split into two JavaFBP components: WebSocketReceive and WebSocketRespond.
+
+*Java-WebSocket release 1.3.0 is now on Maven - groupid: org.java-websocket, artifactid: Java-WebSocket, so the build.gradle file will have to be changed accordingly.*
 
 For more background information on JavaFBP, see the README on https://github.com/jpaulm/javafbp .
 
@@ -55,7 +57,7 @@ As a result a `javafbp-websockets-1.1.0.jar` file will be created in the `build/
 Running a test
 ----
 
-This project has one test network, which runs as a server, communicating with the client, which is `chat1.html` or `chat2.html`. This test can either be run under Eclipse, or can be run using the project jar file and the jar file for JavaFBP.  You will also need to add an additional jar file: `Java-WebSocket-1.3.0.jar`, available in the central Maven repository, to the Project/Properties/Java Build Path.  The current JavaFBP jar file is `javafbp-4.1.0.jar`, available in the latest release of JavaFBP on GitHub, so this assumes that you have built the JavaFBP project first, or have the jar file otherwise available.
+This project has one test network, which runs as a server, communicating with the client, which is `chat1.html` or `chat2.html`. This test can either be run under Eclipse, or can be run using the project jar file and the jar file for JavaFBP.  You will also need to add an additional jar file: `Java-WebSocket-1.3.0.jar`, available in the central Maven repository, to the Project/Properties/Java Build Path.  The current JavaFBP jar file is `javafbp-4.1.0.jar`, available in the latest release of JavaFBP on GitHub, and on Maven - https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22javafbp%22 - so this assumes that you have built the JavaFBP project first, or have the jar file otherwise available.
 
 Note: if your default browser gives you a message saying it does not support Websockets, try using Chrome.
 
@@ -64,6 +66,8 @@ You can now run the command-line test Server code in com.jpmorrsn.fbp.websockets
      java -cp "build/libs/javafbp-websockets-1.1.0.jar;lib/javafbp-4.1.0.jar;lib/java-websocket-1.3.0.jar" com.jpaulmorrison.fbp.examples.networks.TestWebSockets
     
 (note the double quotes).
+
+In this example, the `javafbp-4.1.0` jar file has been copied into the JavaFBP-WebSockets `lib` folder for ease of use.
 
 This will display the message `WebSocketServer starting` on the console.
 
@@ -105,6 +109,6 @@ The test application has now been modified to add a (substream-sensitive) Load B
 
 ![ClientServerMultiplex](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/ClientServerMultiplex.png "Diagram of Client and Server Network")
 
-
+Note that LoadBalance in JavaFBP has been updated to be sensitive to substreams - see https://github.com/jpaulm/javafbp/blob/master/src/main/java/com/jpaulmorrison/fbp/core/components/routing/LoadBalance.java .
 
 
