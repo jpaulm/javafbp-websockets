@@ -45,13 +45,13 @@ Then import a generated project in Eclipse, right (ctrl for OSX) click on the pr
 Building from command line
 ---
 
-**Latest release: `javafbp-websockets-1.1.0`**.
+**Latest release: `javafbp-websockets-1.1.1`**.
 
 For building the project simply run the following command:
 
     gradle build
 
-As a result a `javafbp-websockets-1.1.0.jar` file will be created in the `build/libs` directory. This will include two core components, and an example network plus associated test component, and some HTML and JavaScript files.
+As a result a `javafbp-websockets-1.1.1.jar` file will be created in the `build/libs` directory, and `java-websocket-1.3.0.jar` will be coopied into `lib`. This jar file includes two core components, and an example network plus associated test component, and some HTML and JavaScript files. ** Check this **
 
 
 Running a test
@@ -63,11 +63,11 @@ Note: if your default browser gives you a message saying it does not support Web
 
 You can now run the command-line test Server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
 
-     java -cp "build/libs/javafbp-websockets-1.1.0.jar;lib/javafbp-4.1.0.jar;lib/java-websocket-1.3.0.jar" com.jpaulmorrison.fbp.examples.networks.TestWebSockets
+     java -cp "build/libs/javafbp-websockets-1.1.1.jar;lib/javafbp-4.1.0.jar;lib/java-websocket-1.3.0.jar" com.jpaulmorrison.fbp.examples.networks.TestWebSockets
     
 (note the double quotes).
 
-In this example, the `javafbp-4.1.0` jar file has been copied into the JavaFBP-WebSockets `lib` folder for ease of use.
+In this example, the `javafbp-4.1.0` jar file has been copied into the JavaFBP-WebSockets `lib` folder for ease of use with Eclipse.
 
 This will display the message `WebSocketServer starting` on the console.
 
