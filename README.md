@@ -61,6 +61,8 @@ You can run the command-line test Server code in com.jpmorrsn.fbp.websockets.net
     
 (note the double quotes).
 
+In *nix, replace the ; with :.
+
 This will display the message `WebSocketServer starting` on the console.
 
 There are two simple client scripts called `chat1.html` and `chat2.html` in `com/jpaulmorrison/fbp/websockets/script`, which will display the contents of any selected jar file.  To run the test:
