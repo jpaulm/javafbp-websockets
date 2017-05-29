@@ -41,10 +41,12 @@ You need to install a Gradle plugin for Eclipse as explained here:
 https://github.com/spring-projects/eclipse-integration-gradle/
 Then import a generated project in Eclipse, right (ctrl for OSX) click on the project in Eclipse -> Configure -> Convert to Gradle Project. After the conversion you can Right (ctrl for OSX) click on the project -> Gradle -> Task Quick Launcher and type `build`.
 
+You should also make sure that the current Java JDK `tools.jar` file is in your project's `lib/` directory.
+
 Building project from command line
 ---
 
-Run `gradle build` in your JavaFBP-WebSockets directory - this will download `Java-WebSocket-1.3.0.jar`and `javafbp-4.1.0.jar` from Maven into the `lib/` directory.  This will also create a `javafbp-websockets-1.1.1.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java`.
+Run `gradle build` in your JavaFBP-WebSockets directory - this will download `Java-WebSocket-1.3.0.jar`and `javafbp-4.1.0.jar` from Maven into the `lib/` directory.  This will also create a `javafbp-websockets-1.1.1.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java` and a couple of "chat" HTML files.
 
 Running a test
 ----
