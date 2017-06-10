@@ -45,8 +45,10 @@
             	 var input = document.getElementById("message");
                  var jarfile = document.getElementById("jarfile");
                 
+                 chatClient.send("@{");
                  chatClient.send("{Client2: " + input.value + "|" + 
-                     jarfile.value + "}");     
+                     jarfile.value + "}"); 
+                 chatClient.send("@}");
             }
             
          // Listen for socket closes

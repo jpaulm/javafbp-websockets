@@ -197,7 +197,11 @@ public class WebSocketReceive extends Component {
 				putGlobal("killsw", new Boolean(true));
 			} else if (message.equals("@close")) {
 				conn.close(CloseFrame.NORMAL, "Close message");
-			} else {
+			} else if (message.equals("@{") ||
+					message.equals("@}"))
+					return;
+			else
+			{
 				Packet lbr = comp.create(Packet.OPEN, "pdata");
 				WebSocketReceive wsr = (WebSocketReceive) comp;
 				wsr.getOutport().send(lbr);
