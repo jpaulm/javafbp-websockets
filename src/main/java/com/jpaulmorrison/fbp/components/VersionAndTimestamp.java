@@ -15,7 +15,7 @@
  * License along with this library; if not, see the GNU Library General Public License v3
  * at https://www.gnu.org/licenses/lgpl-3.0.en.html for more details.
  */
-package com.jpaulmorrison.fbp.components;;
+package com.jpaulmorrison.fbp.components; 
 
 
 public final class VersionAndTimestamp {
