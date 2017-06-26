@@ -82,7 +82,7 @@ Or enter `namelist` which will show three names on the user screen.
 Eclipse
 -------
 
-If you need to rebuild the project under Eclipse, you will need to add `tools.jar` to the `Properties/Java Build Path/Libraries`.
+If you need to rebuild the project under Eclipse, you will need to add `tools.jar` from your current Java JDK `lib` directory to the `Properties/Java Build Path/Libraries`.
 
 If running this test under Eclipse, you can add `Java-WebSocket-1.3.0.jar` and `javafbp-4.1.0.jar` to Run/Debug Settings/Launch Configuration for `TestWebSockets`.
 
