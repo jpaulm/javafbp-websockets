@@ -65,27 +65,30 @@ In *nix, replace the ; with :.
 
 This will display the message `WebSocketServer starting` on the console.
 
-There are two simple client scripts called `chat1.html` and `chat2.html` in `com/jpaulmorrison/fbp/websockets/script`, which will display the contents of any selected jar file.  To run the test:
+There are two simple client scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts`, which will display the contents of any selected jar file.  To run the test:
 - make sure server is running (`TestWebSockets`)
+- download `chat1` or `chat2`
 - open `chat1` or `chat2` with your favorite web browser 
 - enter `complist` in the field prefixed with `Command`
-- enter the file name of the jar file whose contents you wish to display, in the field prefixed with `Data`, e.g. `C:\Users\Paul\Documents\GitHub\javafbp-websockets\lib\javafbp-4.1.0.jar`
+- enter the file name of any jar file whose contents you wish to display, in the field prefixed with `Data`, e.g. `C:\Users\Paul\Documents\GitHub\javafbp-websockets\lib\javafbp-4.1.0.jar`
 - click on `Send`. 
 
 You should see all the entries in the selected jar file.  
 
-Or enter `namelist` which will show three names on the user screen
+Or enter `namelist` which will show three names on the user screen.
 
 `chat1` and `chat2` are identical scripts provided to allow concurrent testing of multiple clients.
 
 Eclipse
 -------
 
+If you need to rebuild the project under Eclipse, you will need to add `tools.jar` to the `Properties/Java Build Path/Libraries`.
+
 If running this test under Eclipse, you can add `Java-WebSocket-1.3.0.jar` and `javafbp-4.1.0.jar` to Run/Debug Settings/Launch Configuration for `TestWebSockets`.
 
 **OR**
 
-Add these two jar files to the Properties/Java Build Path/Libraries for your project.
+Add these two jar files to the `Properties/Java Build Path/Libraries` for your project.
 
 Closing down your test
 ---------
