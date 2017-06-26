@@ -33,10 +33,11 @@ public class WebSocketRespond extends Component {
       if (lbr == null) {
         break;
       }
-      drop(lbr);
+      drop(lbr);      
       Packet p1 = inport.receive();
-      WebSocket conn = (WebSocket) p1.getContent();
+      WebSocket conn = (WebSocket) p1.getContent();      
       drop(p1);
+      conn.send("@{");
       
       Packet p2 = inport.receive();
       while (p2.getType() != Packet.CLOSE) {
@@ -49,6 +50,7 @@ public class WebSocketRespond extends Component {
       }
       
       drop(p2);
+      conn.send("@}");
       
 
     }

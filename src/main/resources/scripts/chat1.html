@@ -28,57 +28,65 @@ button {
 }
 </style>
 <script>
-        //if ("WebSocket" in window)
-        	if (window.WebSocket)
-  {
-     
-            var chatClient = new WebSocket("ws://localhost:9003/websocket/chat");
-            
-            chatClient.onmessage = function(evt) {
-                var p = document.createElement("li");
-                p.setAttribute("class", "server");
-                p.innerHTML = "Server: " + evt.data;
-                var container = document.getElementById("container");
-                container.appendChild(p);
-            }
-            }
-            else {
-            alert("WebSocket NOT supported by your Browser!");
-            }
+	//if ("WebSocket" in window)
+	if (window.WebSocket) {
 
-            function send() {
-           
-                var input = document.getElementById("message");
-                var jarfile = document.getElementById("jarfile");
-                chatClient.send("@{");
-               
-                chatClient.send("{Client1: " + input.value + "|" + 
-                    jarfile.value + "}"); 
-                chatClient.send("@}");
-            }
-            
-         // Listen for socket closes
-        	chatClient.onclose = function(event) {
-        		console.log('Client notified socket has closed',event);
-        	}
-         
-        	window.onbeforeunload = function() {
-        	    chatClient.onclose = function () {}; // disable onclose handler first
-        	    chatClient.close();
-        	}
-        	
-            function closeme() {   
-                 //chatClient.close(1000);
-                 chatClient.send("@close");
-                }                        
-            
-            function stopws() { 
-           	 
-                chatClient.send("@kill");
-                
-            	
-                }
-        </script>
+		var chatClient = new WebSocket("ws://localhost:9003/websocket/chat");
+
+		chatClient.onmessage = function(evt) {
+			var container = document.getElementById("container");
+			//console.log(typeof evt.data);			
+
+			if (evt.data === "@{")  {
+				while(container.firstChild){
+					container.removeChild(container.firstChild);
+				}
+			} else if (evt.data === "@}") {
+				console.log('End of substream');
+			} else {
+				var p = document.createElement("li");
+				p.setAttribute("class", "server");
+				p.innerHTML = "Server: " + evt.data;
+
+				container.appendChild(p);
+			}
+		}
+	} else {
+		alert("WebSocket NOT supported by your Browser!");
+	}
+
+	function send() {
+
+		var input = document.getElementById("message");
+		var jarfile = document.getElementById("jarfile");
+		chatClient.send("@{");
+
+		chatClient.send("{Client1: " + input.value + "|" + jarfile.value + "}");
+		chatClient.send("@}");
+	}
+
+	// Listen for socket closes
+	chatClient.onclose = function(event) {
+		console.log('Client notified socket has closed', event);
+	}
+
+	window.onbeforeunload = function() {
+		chatClient.onclose = function() {
+		}; // disable onclose handler first
+		chatClient.close();
+	}
+
+	function closeme() {
+		//chatClient.close(1000);
+		chatClient.send("@close");
+	}
+
+	function stopws() {
+
+		chatClient.send("@kill");
+
+	}
+</script>
 </head>
 <body>
 	<h1>WebSockets Example - Chat1</h1>
