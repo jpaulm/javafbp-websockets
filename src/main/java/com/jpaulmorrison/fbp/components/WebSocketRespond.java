@@ -6,6 +6,7 @@ package com.jpaulmorrison.fbp.components;
 
 import org.java_websocket.WebSocket;
 
+import com.jpaulmorrison.fbp.components.WebSocketReceive.MyWebSocketServer;
 import com.jpaulmorrison.fbp.core.engine.*;
 
 
@@ -51,9 +52,10 @@ public class WebSocketRespond extends Component {
       
       drop(p2);
       conn.send("@}");
-      
 
     }
+    WebSocketReceive.MyWebSocketServer wss = (MyWebSocketServer) getGlobal("WebSocketServer");
+    wss.stop();
   }
 
   /* (non-Javadoc)

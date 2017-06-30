@@ -31,7 +31,8 @@ button {
 	//if ("WebSocket" in window)
 	if (window.WebSocket) {
 
-		var chatClient = new WebSocket("ws://localhost:9003/websocket/chat");
+		var portno = "9003";
+		var chatClient = new WebSocket("ws://localhost:" + portno + "/websocket/chat");
 
 		chatClient.onmessage = function(evt) {
 			var container = document.getElementById("container");

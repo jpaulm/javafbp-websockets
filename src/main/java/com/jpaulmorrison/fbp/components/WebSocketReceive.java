@@ -3,6 +3,8 @@
  */
 package com.jpaulmorrison.fbp.components;
 
+import java.net.BindException;
+
 /**
  * General component to receive sequence of data chunks from a web socket and convert them
  *  into a series of substreams suitable for processing by custom components  
@@ -72,16 +74,20 @@ public class WebSocketReceive extends Component {
     // Draft 17 - Hybi 17/RFC 6455 and is currently supported by Chrome16+ and IE10.
     // Draft 10 -  Hybi 10. This draft is supported by Chrome15 and Firefox6-9.
 
+    //wss.setReuseAddress(true);
     //wss.stop();
     System.out.println("WebSocketServer starting");
+    putGlobal("WebSocketServer", wss);
+    
     wss.start();
-
+    
     while (true) {
 
       try {
         sleep(500); // sleep for 1/2 sec
       } catch (InterruptedException e) {
         e.printStackTrace();
+        outport.close();
         wss.stop();
         // handle the exception...        
         return;
@@ -121,7 +127,7 @@ public class WebSocketReceive extends Component {
     this.outport = outport;
   }
 
-  private class MyWebSocketServer extends WebSocketServer {
+  class MyWebSocketServer extends WebSocketServer {
 
     //private static int counter = 0;
 
