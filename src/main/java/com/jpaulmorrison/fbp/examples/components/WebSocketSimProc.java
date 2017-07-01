@@ -62,8 +62,10 @@ public class WebSocketSimProc extends Component {
 		Packet lbr = inport.receive(); // open bracket
 		Packet p1 = inport.receive(); // contains Connection
 		Packet p2 = inport.receive();
+				
 		while (p2.getType() != Packet.CLOSE) {
-			String message = (String) p2.getContent();
+			String message = (String) p2.getContent();		
+			message = message.substring(0,  message.length() - 1);  // drop squiggly bracket
 			l.add(message);
 			drop(p2);
 			p2 = inport.receive();
@@ -98,6 +100,7 @@ public class WebSocketSimProc extends Component {
 			s = (String) l.get(1);
 			i = s.indexOf(":");
 			String jarfilename = s.substring(i + 1);
+			jarfilename = jarfilename.trim();
 
 			Enumeration<?> entries;
 

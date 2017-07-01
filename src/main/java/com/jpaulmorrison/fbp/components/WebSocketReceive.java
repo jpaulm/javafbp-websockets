@@ -3,7 +3,6 @@
  */
 package com.jpaulmorrison.fbp.components;
 
-import java.net.BindException;
 
 /**
  * General component to receive sequence of data chunks from a web socket and convert them
@@ -198,21 +197,37 @@ public class WebSocketReceive extends Component {
 		@Override
 		public void onMessage(final WebSocket conn, final String message) {
 
+			WebSocketReceive wsr = (WebSocketReceive) comp;
+			OutputPort outPort = wsr.getOutport();
+			
 			System.out.println(message);
 			if (message.equals("@kill")) {
 				putGlobal("killsw", new Boolean(true));
-			} else if (message.equals("@close")) {
+				return;
+			}
+			
+			if (message.equals("@close")) {
 				conn.close(CloseFrame.NORMAL, "Close message");
-			} else if (message.equals("@{") ||
-					message.equals("@}"))
-					return;
-			else
-			{
-				Packet lbr = comp.create(Packet.OPEN, "pdata");
-				WebSocketReceive wsr = (WebSocketReceive) comp;
-				wsr.getOutport().send(lbr);
+				return;
+			} 
+			
+			if (message.equals("@{")) {
+				Packet lbr = comp.create(Packet.OPEN, "pdata");				
+				outPort.send(lbr);
 				Packet p1 = comp.create(conn);
 				wsr.getOutport().send(p1); // conn
+				return;
+			}
+			
+			if (message.equals("@}")) {
+				Packet rbr = comp.create(Packet.CLOSE, "pdata");
+				outPort.send(rbr);
+				return;
+			}
+			
+			Packet p2 = comp.create(message);
+			outPort.send(p2);
+				/*
 				Packet p2 = null;
 				int cur = 0;
 				String part = message;
@@ -225,20 +240,19 @@ public class WebSocketReceive extends Component {
 						}
 						if (message.substring(i, i + 1).equals("|")) {
 							part = message.substring(cur, i);
-							p2 = comp.create(part);
-							wsr.getOutport().send(p2);
+							
 							cur = i + 1;
 						}
 					}
 				}
 				p2 = comp.create(part);
 				wsr.getOutport().send(p2);
+				*/
 
-				Packet rbr = comp.create(Packet.CLOSE, "pdata");
-				wsr.getOutport().send(rbr);
+				
 			}
 
-		}
+		 
 
     @Override
     public void onMessage(final WebSocket conn, final ByteBuffer blob) {

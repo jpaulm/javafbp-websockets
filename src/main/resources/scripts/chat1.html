@@ -62,7 +62,8 @@ button {
 		var jarfile = document.getElementById("jarfile");
 		chatClient.send("@{");
 
-		chatClient.send("{Client1: " + input.value + "|" + jarfile.value + "}");
+		chatClient.send("{Client1: " + input.value + "}");
+		chatClient.send("{Client1: " + jarfile.value + "}");
 		chatClient.send("@}");
 	}
 
