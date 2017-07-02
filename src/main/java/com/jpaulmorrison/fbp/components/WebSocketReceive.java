@@ -29,6 +29,7 @@ import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 import java.nio.channels.ClosedByInterruptException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -55,7 +56,8 @@ public class WebSocketReceive extends Component {
   private InputPort portPort;
   private OutputPort outPort;
   AtomicBoolean killsw;
-  LinkedList<Packet<?>> ll = null;
+  //LinkedList<Packet<?>> ll = null;
+  HashMap <WebSocket, LinkedList<Packet<?>>> hm = null;
 
   /* (non-Javadoc)
    * @see com.jpaulmorrison.fbp.core.engine.Component#execute()
@@ -67,7 +69,8 @@ public class WebSocketReceive extends Component {
     WebSocketImpl.DEBUG = true; /// tracing for socket stuff
     killsw = new AtomicBoolean();
     
-    ll = new LinkedList<Packet<?>>(); 
+    //ll = new LinkedList<Packet<?>>(); 
+    hm = new HashMap <WebSocket, LinkedList<Packet<?>>>();
     
     Packet<?> p = portPort.receive();
     Integer i = (Integer) p.getContent();
@@ -83,7 +86,7 @@ public class WebSocketReceive extends Component {
     //wss.setReuseAddress(true);
     //wss.stop();
     System.out.println("WebSocketServer starting");
-    //putGlobal("WebSocketServer", wss);
+    putGlobal("WebSocketServer", wss);
     
     wss.start();
     
@@ -192,6 +195,11 @@ public class WebSocketReceive extends Component {
 
 			//WebSocketReceive wsr = (WebSocketReceive) comp;
 			//OutputPort outPort = wsr.getOutport();
+			LinkedList<Packet<?>> ll = hm.get(conn);
+			if (ll == null) {
+				ll = new LinkedList<Packet<?>>();
+				hm.put(conn, ll);
+			}
 			
 			System.out.println(message);
 			if (message.equals("@kill")) {
@@ -206,6 +214,8 @@ public class WebSocketReceive extends Component {
 			} 
 			
 			if (message.equals("@{")) {
+				ll = hm.get(conn); 
+				ll.clear();
 				Packet lbr = comp.create(Packet.OPEN, "pdata");	
 				ll.add(lbr);
 				//outPort.send(lbr);
