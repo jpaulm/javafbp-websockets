@@ -51,7 +51,7 @@ import com.jpaulmorrison.fbp.core.engine.*;
 public class WebSocketReceive extends Component {
 
   private InputPort portPort;
-  private OutputPort outport;
+  private OutputPort outPort;
 
   /* (non-Javadoc)
    * @see com.jpaulmorrison.fbp.core.engine.Component#execute()
@@ -86,7 +86,7 @@ public class WebSocketReceive extends Component {
         sleep(500); // sleep for 1/2 sec
       } catch (InterruptedException e) {
         e.printStackTrace();
-        outport.close();
+        outPort.close();
         wss.stop();
         // handle the exception...        
         return;
@@ -94,7 +94,7 @@ public class WebSocketReceive extends Component {
       Boolean killsw = (Boolean) getGlobal("killsw");
       if (killsw.booleanValue()) {
     	// see also http://stackoverflow.com/questions/4812686/closing-websocket-correctly-html5-javascript
-    	outport.close();
+    	outPort.close();
         wss.stop();
         return;
       }
@@ -108,23 +108,9 @@ public class WebSocketReceive extends Component {
   protected void openPorts() {
 
 	portPort = openInput("PORT");
-    setOutport(openOutput("OUT"));
+    outPort = openOutput("OUT");
 
-  }
-
-  /**
-   * @return the outport
-   */
-  public OutputPort getOutport() {
-    return outport;
-  }
-
-  /**
-   * @param outport the outport to set
-   */
-  public void setOutport(final OutputPort outport) {
-    this.outport = outport;
-  }
+  }  
 
   class MyWebSocketServer extends WebSocketServer {
 
@@ -197,8 +183,8 @@ public class WebSocketReceive extends Component {
 		@Override
 		public void onMessage(final WebSocket conn, final String message) {
 
-			WebSocketReceive wsr = (WebSocketReceive) comp;
-			OutputPort outPort = wsr.getOutport();
+			//WebSocketReceive wsr = (WebSocketReceive) comp;
+			//OutputPort outPort = wsr.getOutport();
 			
 			System.out.println(message);
 			if (message.equals("@kill")) {
@@ -215,7 +201,7 @@ public class WebSocketReceive extends Component {
 				Packet lbr = comp.create(Packet.OPEN, "pdata");				
 				outPort.send(lbr);
 				Packet p1 = comp.create(conn);
-				wsr.getOutport().send(p1); // conn
+				outPort.send(p1); // conn
 				return;
 			}
 			
