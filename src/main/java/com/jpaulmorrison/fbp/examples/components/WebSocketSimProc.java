@@ -155,7 +155,7 @@ public class WebSocketSimProc extends Component {
 			outport.send(lbr);
 
 			outport.send(p1);
-			outport.send(create("unknown keyword"));
+			outport.send(create("Unknown keyword: " + s));
 
 			outport.send(create(Packet.CLOSE, ""));
 		}

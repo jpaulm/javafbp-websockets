@@ -227,29 +227,7 @@ public class WebSocketReceive extends Component {
 			
 			Packet p2 = comp.create(message);
 			outPort.send(p2);
-				/*
-				Packet p2 = null;
-				int cur = 0;
-				String part = message;
-				if (message.substring(0, 1).equals("{")) {
-					cur = 1;
-					for (int i = cur; i < message.length(); i++) {
-						if (message.substring(i, i + 1).equals("}")) {
-							part = message.substring(cur, i);
-							break;
-						}
-						if (message.substring(i, i + 1).equals("|")) {
-							part = message.substring(cur, i);
 							
-							cur = i + 1;
-						}
-					}
-				}
-				p2 = comp.create(part);
-				wsr.getOutport().send(p2);
-				*/
-
-				
 			}
 
 		 
