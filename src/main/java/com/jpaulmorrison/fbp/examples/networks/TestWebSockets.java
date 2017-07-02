@@ -32,20 +32,20 @@ public class TestWebSockets extends Network {
     component("LBal", LoadBalance.class);
     component("Process0", WebSocketSimProc.class);
     component("WSRsp0", WebSocketRespond.class);
-    component("Process1", WebSocketSimProc.class);
-    component("WSRsp1", WebSocketRespond.class);
-    component("Process2", WebSocketSimProc.class);
-    component("WSRsp2", WebSocketRespond.class);
+    //component("Process1", WebSocketSimProc.class);
+    //component("WSRsp1", WebSocketRespond.class);
+    //component("Process2", WebSocketSimProc.class);
+    //component("WSRsp2", WebSocketRespond.class);
     
     initialize(new Integer(9003), "WSRcv.PORT");
 
     connect("WSRcv.OUT", "LBal.IN", 4);    
     connect("LBal.OUT[0]", "Process0.IN", 4);
     connect("Process0.OUT", "WSRsp0.IN", 4);   
-    connect("LBal.OUT[1]", "Process1.IN", 4);
-    connect("Process1.OUT", "WSRsp1.IN", 4); 
-    connect("LBal.OUT[2]", "Process2.IN", 4);
-    connect("Process2.OUT", "WSRsp2.IN", 4); 
+    //connect("LBal.OUT[1]", "Process1.IN", 4);
+    //connect("Process1.OUT", "WSRsp1.IN", 4); 
+    //connect("LBal.OUT[2]", "Process2.IN", 4);
+    //connect("Process2.OUT", "WSRsp2.IN", 4); 
     
   }
 

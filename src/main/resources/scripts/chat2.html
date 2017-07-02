@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>WebSocket Example - Chat1</title>
+<title>WebSocket Example - Chat2</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="shortcut icon" href="/websocket/favicon.ico">
 <style>
@@ -62,8 +62,8 @@ button {
 		var jarfile = document.getElementById("jarfile");
 		chatClient.send("@{");		
 
-		chatClient.send("{Client1: " + input.value + "}");
-		chatClient.send("{Client1: " + jarfile.value + "}");
+		chatClient.send("{Client2: " + ":" + input.value + "}");
+		chatClient.send("{Client2: " + ":" + jarfile.value + "}");
 		
 		chatClient.send("@}");
 	}
@@ -92,7 +92,7 @@ button {
 </script>
 </head>
 <body>
-	<h1>WebSockets Example - Chat1</h1>
+	<h1>WebSockets Example - Chat2</h1>
 	
 	<p>
 		Command: <input type="text" id="message" name="message" />
@@ -102,10 +102,8 @@ button {
 	</p>
 	<button type="button" id="send" onclick="send()">Send</button>
 	<button type="button" id="stopws" onclick="stopws()">Stop WS</button>
-	
 	<ul id="container">
 
 	</ul>
-
 </body>
 </html>
