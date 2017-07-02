@@ -29,6 +29,7 @@ import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 import java.nio.channels.ClosedByInterruptException;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.java_websocket.WebSocket;
 import org.java_websocket.WebSocketImpl;
@@ -52,6 +53,7 @@ public class WebSocketReceive extends Component {
 
   private InputPort portPort;
   private OutputPort outPort;
+  AtomicBoolean killsw;
 
   /* (non-Javadoc)
    * @see com.jpaulmorrison.fbp.core.engine.Component#execute()
@@ -59,10 +61,11 @@ public class WebSocketReceive extends Component {
   @Override
   protected void execute() throws Exception {
 
-    putGlobal("killsw", new Boolean(false));
+    //putGlobal("killsw", new Boolean(false));
     WebSocketImpl.DEBUG = true; /// tracing for socket stuff
+    killsw = new AtomicBoolean();
     
-    Packet p = portPort.receive();
+    Packet<?> p = portPort.receive();
     Integer i = (Integer) p.getContent();
     int port = i.intValue();
     drop (p);
@@ -76,7 +79,7 @@ public class WebSocketReceive extends Component {
     //wss.setReuseAddress(true);
     //wss.stop();
     System.out.println("WebSocketServer starting");
-    putGlobal("WebSocketServer", wss);
+    //putGlobal("WebSocketServer", wss);
     
     wss.start();
     
@@ -91,8 +94,8 @@ public class WebSocketReceive extends Component {
         // handle the exception...        
         return;
       }
-      Boolean killsw = (Boolean) getGlobal("killsw");
-      if (killsw.booleanValue()) {
+      //Boolean killsw = (Boolean) getGlobal("killsw");
+      if (killsw.get()) {
     	// see also http://stackoverflow.com/questions/4812686/closing-websocket-correctly-html5-javascript
     	outPort.close();
         wss.stop();
@@ -188,7 +191,8 @@ public class WebSocketReceive extends Component {
 			
 			System.out.println(message);
 			if (message.equals("@kill")) {
-				putGlobal("killsw", new Boolean(true));
+				//putGlobal("killsw", new Boolean(true));
+				killsw.set(true);
 				return;
 			}
 			
