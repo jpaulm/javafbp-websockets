@@ -29,6 +29,7 @@ import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 import java.nio.channels.ClosedByInterruptException;
+import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.java_websocket.WebSocket;
@@ -54,6 +55,7 @@ public class WebSocketReceive extends Component {
   private InputPort portPort;
   private OutputPort outPort;
   AtomicBoolean killsw;
+  LinkedList<Packet<?>> ll = null;
 
   /* (non-Javadoc)
    * @see com.jpaulmorrison.fbp.core.engine.Component#execute()
@@ -64,6 +66,8 @@ public class WebSocketReceive extends Component {
     //putGlobal("killsw", new Boolean(false));
     WebSocketImpl.DEBUG = true; /// tracing for socket stuff
     killsw = new AtomicBoolean();
+    
+    ll = new LinkedList<Packet<?>>(); 
     
     Packet<?> p = portPort.receive();
     Integer i = (Integer) p.getContent();
@@ -202,21 +206,27 @@ public class WebSocketReceive extends Component {
 			} 
 			
 			if (message.equals("@{")) {
-				Packet lbr = comp.create(Packet.OPEN, "pdata");				
-				outPort.send(lbr);
+				Packet lbr = comp.create(Packet.OPEN, "pdata");	
+				ll.add(lbr);
+				//outPort.send(lbr);
 				Packet p1 = comp.create(conn);
-				outPort.send(p1); // conn
+				ll.add(p1);
+				//outPort.send(p1); // conn
 				return;
 			}
 			
 			if (message.equals("@}")) {
 				Packet rbr = comp.create(Packet.CLOSE, "pdata");
-				outPort.send(rbr);
+				ll.add(rbr);
+				//outPort.send(rbr);
+				for (Packet<?> p : ll) 
+					outPort.send(p); 
 				return;
 			}
 			
 			Packet p2 = comp.create(message);
-			outPort.send(p2);
+			ll.add(p2);
+			//outPort.send(p2);
 							
 			}
 
