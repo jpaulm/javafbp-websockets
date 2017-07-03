@@ -51,7 +51,9 @@ Run `gradle build` in your JavaFBP-WebSockets directory - this will download `Ja
 Running a test
 ----
 
-This project has one test network, which runs as a server, communicating with the client, which is `chat1.html` or `chat2.html`. This test can either be run under Eclipse, or can be run from the command line.
+This project has one test network, which runs as a server, communicating with the client, which is `chat1.html` and/or `chat2.html`. This test can either be run under Eclipse, or can be run from the command line.
+
+*Two HTML5 scripts are provided to allow the software to be tested using multiple concurrent users.*
 
 Note: if your default browser gives you a message saying it does not support Websockets, try using Chrome.
 
@@ -65,16 +67,23 @@ In *nix, replace the ; with :.
 
 This will display the message `WebSocketServer starting` on the console.
 
-There is a simple client scripts called `chat1.html` in `src/main/resources/scripts`, which will display the contents of any selected jar file.  To run the test:
-- make sure server is running (`TestWebSockets`)
-- open `chat1` with your favorite web browser 
+There are two simple, almost identical client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts`, which support two commands:
+
+- `complist` will display the contents of any selected jar file (specified in the `Data` field), and
+- `namelist` which just outputs 3 names.
+
+To run the test:
+- start `TestWebSockets`
+- open `chat1` or `chat2` with your favorite web browser 
 - enter `complist` in the field prefixed with `Command`
 - enter the file name of any jar file whose contents you wish to display, in the field prefixed with `Data`, e.g. `C:\Users\Paul\Documents\GitHub\javafbp-websockets\lib\javafbp-4.1.0.jar`
 - click on `Send`. 
 
 You should see all the entries in the selected jar file.  
 
-Or enter `namelist` which will show three names on the user screen.
+**OR** 
+
+Enter `namelist` in the `Command` field, which will show three names on the user screen.
 
 Eclipse
 -------
