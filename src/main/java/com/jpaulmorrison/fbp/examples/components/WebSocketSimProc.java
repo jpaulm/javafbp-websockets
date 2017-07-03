@@ -159,12 +159,7 @@ public class WebSocketSimProc extends Component {
 
 			outport.send(create(Packet.CLOSE, ""));
 		}
-        //try {
-		//	sleep(2000);
-		//} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-		//	e.printStackTrace();
-		//}
+        
 	}
 
 	@SuppressWarnings("unchecked")

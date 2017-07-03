@@ -39,7 +39,7 @@ button {
 			//console.log(typeof evt.data);			
 
 			if (evt.data === "@{")  {
-				while(container.firstChild){
+				while(container.firstChild){                      // clear container
 					container.removeChild(container.firstChild);
 				}
 			} else if (evt.data === "@}") {
@@ -62,8 +62,8 @@ button {
 		var jarfile = document.getElementById("jarfile");
 		chatClient.send("@{");		
 
-		chatClient.send("{Client2: " + ":" + input.value + "}");
-		chatClient.send("{Client2: " + ":" + jarfile.value + "}");
+		chatClient.send("{Client2: " + input.value + "}");
+		chatClient.send("{Client2: " + jarfile.value + "}");
 		
 		chatClient.send("@}");
 	}
