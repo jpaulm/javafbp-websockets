@@ -46,7 +46,7 @@ You should also make sure that the current Java JDK `tools.jar` file is in your 
 Building project from command line
 ---
 
-Run `gradle build` in your JavaFBP-WebSockets directory - this will download `Java-WebSocket-1.3.0.jar`and `javafbp-4.1.0.jar` from Maven into the `lib/` directory.  This will also create a `javafbp-websockets-1.1.2.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java` and a couple of "chat" HTML files.
+Run `gradle build` in your JavaFBP-WebSockets directory - this will download `Java-WebSocket-1.3.4.jar`and `javafbp-4.1.0.jar` from Maven into the `lib/` directory.  This will also create a `javafbp-websockets-1.1.2.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java` and a couple of "chat" HTML files.
 
 Running a test
 ----
@@ -59,7 +59,7 @@ Note: if your default browser gives you a message saying it does not support Web
 
 You can run the command-line test Server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
 
-     java -cp "build/libs/javafbp-websockets-1.2.0.jar;lib/javafbp-4.1.0.jar;lib/java-websocket-1.3.0.jar" com.jpaulmorrison.fbp.examples.networks.TestWebSockets
+     java -cp "build/libs/javafbp-websockets-1.2.0.jar;lib/javafbp-4.1.0.jar;lib/java-websocket-1.3.4.jar" com.jpaulmorrison.fbp.examples.networks.TestWebSockets
     
 (note the double quotes).
 
@@ -74,7 +74,7 @@ There are two simple, almost identical client HTML5 scripts called `chat1.html` 
 
 To run the test:
 - start `TestWebSockets`
-- open `chat1` or `chat2` with your favorite web browser 
+- open `chat1` and/or `chat2` with your favorite web browser 
 - enter `complist` in the field prefixed with `Command`
 - enter the file name of any jar file whose contents you wish to display, in the field prefixed with `Data`, e.g. `C:\Users\Paul\Documents\GitHub\javafbp-websockets\lib\javafbp-4.1.0.jar`
 - click on `Send`. 
@@ -90,7 +90,7 @@ Eclipse
 
 If you need to rebuild the project under Eclipse, you will need to add `tools.jar` from your current Java JDK `lib` directory to the `Properties/Java Build Path/Libraries`.
 
-If running this test under Eclipse, you can add `Java-WebSocket-1.3.0.jar` and `javafbp-4.1.0.jar` to Run/Debug Settings/Launch Configuration for `TestWebSockets`.
+If running this test under Eclipse, you can add `Java-WebSocket-1.3.4.jar` and `javafbp-4.1.0.jar` to Run/Debug Settings/Launch Configuration for `TestWebSockets`, once you have downloaded them.
 
 **OR**
 
