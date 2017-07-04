@@ -42,7 +42,7 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.framing.CloseFrame;
 //import org.java_websocket.framing.CloseFrame;
-import org.java_websocket.framing.FrameBuilder;
+//import org.java_websocket.framing.FrameBuilder;
 import org.java_websocket.framing.Framedata;
 import org.java_websocket.handshake.*;
 import org.java_websocket.server.WebSocketServer;
@@ -147,6 +147,10 @@ public class WebSocketReceive extends Component {
     public void onOpen(final WebSocket conn, final ClientHandshake handshake) {
     	System.out.println("open");
 		}
+    
+    public void onStart(){
+    	System.out.println("open");
+    }
 
     
 	public ServerHandshakeBuilder onWebsocketHandshakeReceivedAsServer(
@@ -248,12 +252,12 @@ public class WebSocketReceive extends Component {
       conn.send(blob);
     }
     
-    public void onWebsocketMessageFragment(final WebSocket conn, final Framedata frame) {
-    	System.out.println(frame);
-      FrameBuilder builder = (FrameBuilder) frame;
-      builder.setTransferemasked(false);
-      conn.sendFrame(frame);
-    }
+    //public void onWebsocketMessageFragment(final WebSocket conn, final Framedata frame) {
+    //	System.out.println(frame);
+    //  FrameBuilder builder = (FrameBuilder) frame;
+    //  builder.setTransferemasked(false);
+    //  conn.sendFrame(frame);
+    //}
 
     @Override
     public void start() {
