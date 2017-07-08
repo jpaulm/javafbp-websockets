@@ -46,7 +46,7 @@ You should also make sure that the current Java JDK `tools.jar` file is in your 
 Building project from command line
 ---
 
-Run `gradle build` in your JavaFBP-WebSockets directory - this will download `Java-WebSocket-1.3.4.jar`and `javafbp-4.1.0.jar` from Maven into the `lib/` directory.  This will also create a `javafbp-websockets-1.1.2.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java` and a couple of "chat" HTML files.
+Run `gradle build` in your JavaFBP-WebSockets directory - this will download `Java-WebSocket-1.3.4.jar`and `javafbp-4.1.0.jar` from Maven into the `lib/` directory.  This will also create a `javafbp-websockets-1.2.0.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java` and a couple of "chat" HTML files.
 
 Running a test
 ----
