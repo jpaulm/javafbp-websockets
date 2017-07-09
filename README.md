@@ -22,7 +22,7 @@ JavaFBP Syntax and Component API:
 Prerequisites
 ---
 
-This project requires JavaFBP and Java-WebSocket to execute. Recent jar files for these projects are provided in the `lib` directory.
+This project requires JavaFBP and Java-WebSocket to execute. Recent jar files for these projects will be zipped into the JavaFBP-WebSockets jar file, and will also be in the `lib` directory.
 
 It also requires Gradle for (re)building (tested with version 2.0). You can download the corresponding package from the following URL: http://www.gradle.org
 
@@ -46,7 +46,7 @@ You should also make sure that the current Java JDK `tools.jar` file is in your 
 Building project from command line
 ---
 
-Run `gradle build` in your JavaFBP-WebSockets directory - this will create a `javafbp-websockets-1.2.0.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java` and a couple of "chat" HTML5 scripts.
+Run `gradle build` in your JavaFBP-WebSockets directory - this will create a `javafbp-websockets-1.2.0.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java`, the two prerequisite jar files, and a couple of "chat" HTML5 scripts.  This only has to be done once.
 
 Running a test
 ----
@@ -59,7 +59,7 @@ Note: if your default browser gives you a message saying it does not support Web
 
 You can run the command-line test Server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
 
-     java -cp "build/libs/javafbp-websockets-1.2.0.jar;lib/javafbp-4.1.0.jar;lib/java-websocket-1.3.4.jar" com.jpaulmorrison.fbp.examples.networks.TestWebSockets
+     java -cp "build/libs/javafbp-websockets-1.2.0.jar" com.jpaulmorrison.fbp.examples.networks.TestWebSockets
     
 (note the double quotes).
 
