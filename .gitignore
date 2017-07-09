@@ -13,7 +13,6 @@ build
 # Eclipse project
 bin
 
-
 # IDEA project
 .idea/
 *.iml
