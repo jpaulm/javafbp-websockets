@@ -9,25 +9,7 @@ buildscript {
     }
 }
 
-
-subprojects {
-       
-
-        task javadocJar(type: Jar) {
-            classifier = 'javadoc'
-            from javadoc
-        }
-
-        task sourcesJar(type: Jar) {
-            classifier = 'sources'
-            from sourceSets.main.allSource
-        }
-
-        artifacts {
-            archives javadocJar, sourcesJar
-        }
-    }
-
+ 
 allprojects {
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -55,7 +37,6 @@ repositories {
     mavenCentral()
 }
 
-//configurations {jarfiles}
 
 dependencies {
 	//compile files('C:/Program Files/Java/jdk1.8.0_101/lib/tools.jar')
@@ -68,6 +49,7 @@ jar {
     manifest {
         attributes 'Implementation-Title': 'JavaFBP-WebSockets', 'Implementation-Version': version
     }
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
 }
 
 if (JavaVersion.current().isJava8Compatible()) {   
@@ -92,11 +74,11 @@ task "create-dirs" { description = "Create default maven directory structure" } 
     sourceSets*.resources.srcDirs*.each { it.mkdirs() }
 }
 
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'JavaFBP-WebSockets', 'Implementation-Version': version
-    }
-}
+//jar {
+//    manifest {
+//       attributes 'Implementation-Title': 'JavaFBP-WebSockets', 'Implementation-Version': version
+//    }
+//}
 
 // following 6 statements suppressed - lib will be held on GitHub as of version 1.2.0
 
@@ -111,11 +93,13 @@ jar {
 task javadocJar(type: Jar) {
     classifier = 'javadoc'
     from javadoc
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
 }
 
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.allSource
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
 }
 
 artifacts {
@@ -125,26 +109,9 @@ artifacts {
 signing {
     sign configurations.archives
 } 
-
-task writeNewPom << {
-    pom {
-        project {
-            groupId 'com.jpaulmorrison'
-            artifactId 'javafbp-websockets'
-            version '1.2.0'
-        
-            inceptionYear '2016'
-            licenses {
-                license {
-                    name 'GNU Lesser General Public License, Version 3.0'
-                    url 'https://www.gnu.org/licenses/lgpl-3.0.txt'
-                }
-            }
-           
-   
-        }
-    }.writeTo("pom.xml")
 }
+
+
 
 uploadArchives {
   repositories {
@@ -191,5 +158,4 @@ uploadArchives {
       }
     }
   }
-}
 }
