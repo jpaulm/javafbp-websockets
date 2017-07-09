@@ -98,13 +98,14 @@ jar {
     }
 }
 
-task copyJars(type: Copy) {
- copy {
-    from configurations.compile
-    into "lib"
-    }
-    
-}
+// following 6 statements suppressed - lib will be held on GitHub as of version 1.2.0
+
+//task copyJars(type: Copy) {
+// copy {
+//    from configurations.compile
+//    into "lib"
+ //   }    
+// }
 
    
 task javadocJar(type: Jar) {
