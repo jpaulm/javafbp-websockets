@@ -22,9 +22,9 @@ JavaFBP Syntax and Component API:
 Prerequisites
 ---
 
-This project requires JavaFBP to be installed - see https://github.com/jpaulm/javafbp .
+This project requires JavaFBP and Java-WebSocket to execute. Recent jar files for these projects are provided in the `lib` directory.
 
-It also requires Gradle for building (tested with version 2.0). You can download the corresponding package from the following URL: http://www.gradle.org
+It also requires Gradle for (re)building (tested with version 2.0). You can download the corresponding package from the following URL: http://www.gradle.org
 
 Eclipse IDE Integration
 ---
@@ -46,7 +46,7 @@ You should also make sure that the current Java JDK `tools.jar` file is in your 
 Building project from command line
 ---
 
-Run `gradle build` in your JavaFBP-WebSockets directory - this will download `Java-WebSocket-1.3.4.jar`and `javafbp-4.1.0.jar` from Maven into the `lib/` directory.  This will also create a `javafbp-websockets-1.2.0.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java` and a couple of "chat" HTML files.
+Run `gradle build` in your JavaFBP-WebSockets directory - this will create a `javafbp-websockets-1.2.0.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java` and a couple of "chat" HTML5 scripts.
 
 Running a test
 ----
@@ -67,7 +67,7 @@ In *nix, replace the ; with :.
 
 This will display the message `WebSocketServer starting` on the console.
 
-There are two simple, almost identical client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts`, which support two commands:
+There are two simple, almost identical, client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts`, which support two commands:
 
 - `complist` will display the contents of any selected jar file (specified in the `Data` field), and
 - `namelist` which just outputs 3 names.
@@ -88,18 +88,14 @@ Enter `namelist` in the `Command` field, which will show three names on the user
 Eclipse
 -------
 
-If you need to rebuild the project under Eclipse, you will need to add `tools.jar` from your current Java JDK `lib` directory to the `Properties/Java Build Path/Libraries`.
+To run or rebuild the project under Eclipse, you will need to add the JavaFBP and Java-WebSocket jar files in the `lib` directory to the `Properties/Java Build Path/Libraries` using the `Add JARs` function.
 
-If running this test under Eclipse, you can add `Java-WebSocket-1.3.4.jar` and `javafbp-4.1.0.jar` to Run/Debug Settings/Launch Configuration for `TestWebSockets`, once you have downloaded them.
-
-**OR**
-
-Add these two jar files to the `Properties/Java Build Path/Libraries` for your project.
+To rebuild the project under Eclipse, you will also need to add `tools.jar` from your current Java JDK. 
 
 Closing down your test
 ---------
 
-Now go back to the input form, and click on `Stop WS`, and the server should come down, terminating the Web Server.
+Go back to the input form, and click on `Stop WS`, and the server should come down, terminating the Web Server.
 
 At the end of the run, you should see:
 
