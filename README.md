@@ -9,8 +9,6 @@ General
 
 **Latest release: `javafbp-websockets-1.2.0`** 
 
-**Not running under Eclipse - command line works!**
-
 This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see https://github.com/TooTallNate/Java-WebSocket - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`.
 
 For more background information on JavaFBP, see the README on https://github.com/jpaulm/javafbp .
@@ -45,18 +43,16 @@ Then import a generated project in Eclipse, right (ctrl for OSX) click on the pr
 
 You should also make sure that the current Java JDK `tools.jar` file is in your project's `lib/` directory.
 
-Do a `git init`. ????????????
-
-
-
 Building project from command line
 ---
+Run `git init` to create the `.git` directory.
+
+Run `git clone https://github.com/jpaulm/javafbp-websockets.git`
 
 Run `gradle build` in your JavaFBP-WebSockets directory - this will create a `javafbp-websockets-1.2.0.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java`, the two prerequisite jar files, and a couple of "chat" HTML5 scripts.  This only has to be done once.
 
 Running a test
 ----
-
 This project has one test network, which runs as a server, communicating with the client, which is `chat1.html` and/or `chat2.html`. This test can either be run under Eclipse, or can be run from the command line.
 
 *Two HTML5 scripts are provided to allow the software to be tested using multiple concurrent users.*
@@ -65,7 +61,7 @@ Note: if your default browser gives you a message saying it does not support Web
 
 You can run the command-line test Server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
     
-     java -cp "build/libs/javafbp-websockets-1.2.0.jar;lib/javafbp-4.1.0.jar;lib/Java-WebSocket-1.3.4.jar" com.jpaulmorrison.fbp.examples.networks.TestWebSockets
+     java -cp "build/libs/javafbp-websockets-1.2.0.jar"  com.jpaulmorrison.fbp.examples.networks.TestWebSockets
     
 (note the double quotes).
 
