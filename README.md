@@ -9,6 +9,8 @@ General
 
 **Latest release: `javafbp-websockets-1.2.0`** 
 
+**Not running under Eclipse - command line works!**
+
 This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see https://github.com/TooTallNate/Java-WebSocket - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`.
 
 For more background information on JavaFBP, see the README on https://github.com/jpaulm/javafbp .
@@ -42,6 +44,10 @@ https://github.com/spring-projects/eclipse-integration-gradle/
 Then import a generated project in Eclipse, right (ctrl for OSX) click on the project in Eclipse -> Configure -> Convert to Gradle Project. After the conversion you can Right (ctrl for OSX) click on the project -> Gradle -> Task Quick Launcher and type `build`.
 
 You should also make sure that the current Java JDK `tools.jar` file is in your project's `lib/` directory.
+
+Do a `git init`. ????????????
+
+
 
 Building project from command line
 ---
