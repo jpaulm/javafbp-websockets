@@ -1,0 +1,160 @@
+apply plugin: 'io.codearte.nexus-staging'
+
+buildscript {  
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3"        
+    }
+}
+
+ 
+allprojects {
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+
+version = '1.2.0'
+group = 'com.jpaulmorrison'
+
+description = 'JavaFBP support for WebSockets'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+nexusStaging {
+    //packageGroup = "com.jpaulmorrison.javafbp" 
+    username = ossrhUser
+    password = ossrhPassword
+    
+}
+
+
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+	//compile files('C:/Program Files/Java/jdk1.8.0_101/lib/tools.jar')
+		
+	compile "org.java-websocket:Java-WebSocket:1.3.4", "com.jpaulmorrison:javafbp:4.+" 	
+	runtime  "org.java-websocket:Java-WebSocket:1.3.4", "com.jpaulmorrison:javafbp:4.+"  
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'JavaFBP-WebSockets', 'Implementation-Version': version
+    }
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}
+
+if (JavaVersion.current().isJava8Compatible()) {   
+        tasks.withType(Javadoc) {
+            options.addBooleanOption('Xdoclint:none', true)
+        }  
+}
+
+ext {
+    snapshotPublicationRepository = "https://oss.sonatype.org/content/repositories/snapshots/"
+    releasePublicationRepository = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+
+    // Credentials for publication repositories (needed only for publishing)
+    // Should be set in ${HOME}/.gradle/gradle.properties
+    ossrhUser =  project.hasProperty('ossrhUser') ? project.property('ossrhUser') : ""
+    osshrPassword = project.hasProperty('osshrPassword') ? project.property('osshrPassword') : ""
+}
+
+// Used to generate initial maven-dir layout
+task "create-dirs" { description = "Create default maven directory structure" } << {
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+
+//jar {
+//    manifest {
+//       attributes 'Implementation-Title': 'JavaFBP-WebSockets', 'Implementation-Version': version
+//    }
+//}
+
+
+task copyJars(type: Copy) {
+ copy {
+    from configurations.compile
+    into "lib"
+  }    
+ }
+
+   
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+} 
+}
+
+
+
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+      repository(url: releasePublicationRepository) {
+        authentication(userName: ossrhUser, password: ossrhPassword)
+      }
+
+      snapshotRepository(url: snapshotPublicationRepository) {
+       authentication(userName: ossrhUser, password: ossrhPassword)
+      }
+
+      pom.project {
+        name 'JavaFBP-WebSockets'
+        description 'JavaFBP support for WebSockets'
+        groupId 'com.jpaulmorrison'
+        packaging 'jar'
+        artifactId 'javafbp-websockets'         
+        url 'https://github.com/jpaulm/javafbp-websockets'
+        version '1.2.0'
+
+        scm {
+          connection 'scm:git:https://github.com/jpaulm.git'
+          developerConnection 'scm:git:https://github.com/jpaulm.git'
+          url 'https://github.com/jpaulm.git'
+        }
+
+        licenses {
+          license {
+            name 'GNU Lesser General Public License, Version 3.0'
+            url 'https://www.gnu.org/licenses/lgpl-3.0.txt'
+          }
+        }
+
+        developers {
+          developer {
+            id 'jpaulmorr'
+            name 'John Paul Rodker Morrison (Software architect)'
+            email 'jpaulmorr@gmail.com'
+          }
+        }
+      }
+    }
+  }
+}
