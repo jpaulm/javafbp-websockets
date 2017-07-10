@@ -94,6 +94,8 @@ To run or rebuild the project under Eclipse, you will need to add the JavaFBP an
 
 To rebuild the project under Eclipse, you will also need to add `tools.jar` from your current Java JDK. 
 
+Apparently you may have to do a trivial edit on the `chat1.html` and `chat2.html` files - don't know why!  See #4
+
 Closing down your test
 ---------
 
