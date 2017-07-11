@@ -110,7 +110,24 @@ signing {
 } 
 }
 
-
+task writeNewPom << {
+    pom {
+        project {
+            groupId 'com.jpaulmorrison'
+            artifactId 'javafbp-websockets'
+            version '1.2.0'
+        
+            inceptionYear '2016'
+            licenses {
+                license {
+                    name 'GNU Lesser General Public License, Version 3.0'
+                    url 'https://www.gnu.org/licenses/lgpl-3.0.txt'
+                }
+            }
+   
+        }
+    }.writeTo("pom.xml")
+}
 
 uploadArchives {
   repositories {
