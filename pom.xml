@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jpaulmorrison</groupId>
   <artifactId>javafbp-websockets</artifactId>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
   <inceptionYear>2016</inceptionYear>
   <licenses>
     <license>
@@ -22,7 +22,7 @@
     <dependency>
       <groupId>com.jpaulmorrison</groupId>
       <artifactId>javafbp</artifactId>
-      <version>4.+</version>
+      <version>[4,)</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
