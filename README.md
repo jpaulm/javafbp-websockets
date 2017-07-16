@@ -11,6 +11,10 @@ General
 
 This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see https://github.com/TooTallNate/Java-WebSocket - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`.
 
+Promoted to Maven, July 12, 2017.  To locate, do http://search.maven.org/#search%7Cga%7C1%7Cjavafbp-websockets .
+
+For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
+
 For more background information on JavaFBP, see the README on https://github.com/jpaulm/javafbp .
 
 Web site for FBP: 
@@ -61,7 +65,7 @@ Note: if your default browser gives you a message saying it does not support Web
 
 You can run the command-line test Server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
     
-     java -cp "build/libs/javafbp-websockets-1.2.0.jar"  com.jpaulmorrison.fbp.examples.networks.TestWebSockets
+     java -cp "build/libs/javafbp-websockets-1.2.1.jar"  com.jpaulmorrison.fbp.examples.networks.TestWebSockets
     
 (note the double quotes).
 
