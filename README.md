@@ -53,7 +53,7 @@ Run `git init` to create the `.git` directory.
 
 Run `git clone https://github.com/jpaulm/javafbp-websockets.git`
 
-Run `gradle build` in your JavaFBP-WebSockets directory - this will create a `javafbp-websockets-1.2.0.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java`, the two prerequisite jar files, and a couple of "chat" HTML5 scripts.  This only has to be done once.
+Run `gradle build` in your JavaFBP-WebSockets directory - this will create a `javafbp-websockets-1.2.1.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java`, the various files from the two jar files listed in `build.gradle` as dependencies, and a couple of "chat" HTML5 scripts.  This only has to be done once.
 
 Running a test
 ----
