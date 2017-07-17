@@ -25,9 +25,9 @@ public final class VersionAndTimestamp {
 	 *   
 	 */
 
-  private static String version = "JavaFBP-WebSockets - version 1.2.1";
+  private static String version = "JavaFBP-WebSockets - version 1.2.2";
 
-  private static String date = "12 July, 2017";
+  private static String date = "17 July, 2017";
 
   static String getVersion() {
     return version;

@@ -7,7 +7,7 @@ JavaFBP Support for WebSockets
 General
 ---
 
-**Latest release: `javafbp-websockets-1.2.1`** 
+**Latest release: `javafbp-websockets-1.2.2`** 
 
 This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see https://github.com/TooTallNate/Java-WebSocket - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`.
 
@@ -53,7 +53,7 @@ Run `git init` to create the `.git` directory.
 
 Run `git clone https://github.com/jpaulm/javafbp-websockets.git`
 
-Run `gradle build` in your JavaFBP-WebSockets directory - this will create a `javafbp-websockets-1.2.1.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java`, the various files from the two jar files listed in `build.gradle` as dependencies, and a couple of "chat" HTML5 scripts.  This only has to be done once.
+Run `gradle build` in your JavaFBP-WebSockets directory - this will create a `javafbp-websockets-1.2.2.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java`, the various files from the two jar files listed in `build.gradle` as dependencies, and a couple of "chat" HTML5 scripts.  This only has to be done once.
 
 Running a test
 ----
@@ -65,7 +65,7 @@ Note: if your default browser gives you a message saying it does not support Web
 
 You can run the command-line test Server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
     
-     java -cp "build/libs/javafbp-websockets-1.2.1.jar"  com.jpaulmorrison.fbp.examples.networks.TestWebSockets
+     java -cp "build/libs/javafbp-websockets-1.2.2.jar"  com.jpaulmorrison.fbp.examples.networks.TestWebSockets
     
 (note the double quotes).
 
