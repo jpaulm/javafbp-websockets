@@ -99,7 +99,7 @@ To run or rebuild the project under Eclipse, you will need to add the JavaFBP an
 To rebuild the project under Eclipse, you will also need to add `tools.jar` from your current Java JDK. 
 
 
-You may have to do a trivial edit (e.g. add a blank) to the `chat1.html` and `chat2.html` files after downloading them - see issue #4.
+You may have to do a trivial edit (e.g. add a blank) to the `chat1.html` and `chat2.html` files after downloading them - see https://github.com/jpaulm/javafbp-websockets/issues/4 .
 
 
 Closing down your test
