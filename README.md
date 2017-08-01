@@ -78,6 +78,8 @@ There are two simple, almost identical, client HTML5 scripts called `chat1.html`
 - `complist` will display the contents of any selected jar file (specified in the `Data` field), and
 - `namelist` which just outputs 3 names.
 
+**If you do not see `chat1.html` and `chat2.html` in the Navigator view, click on `Link with Editor` in the Navigator tool bar.**
+
 To run the test:
 - start `TestWebSockets`
 - open `chat1` and/or `chat2` with your favorite web browser 
