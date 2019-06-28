@@ -9,9 +9,9 @@ General
 
 **Latest release: `javafbp-websockets-1.2.2`** 
 
-This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see https://github.com/TooTallNate/Java-WebSocket - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`.
+This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see [TooTallNate's Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`.
 
-Promoted to Maven, July 12, 2017.  To locate, do http://search.maven.org/#search%7Cga%7C1%7Cjavafbp-websockets .
+Promoted to Maven, July 12, 2017.  To locate, [search Maven](http://search.maven.org/#search%7Cga%7C1%7Cjavafbp-websockets).
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
