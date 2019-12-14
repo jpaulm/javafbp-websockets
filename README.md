@@ -87,14 +87,14 @@ To run the test:
 - open `chat1` and/or `chat2` with your favorite web browser 
 
 At this point you should see something like:
-![chat1](https://github.com/jpaulm/javafbp-websockets/tree/master/docs/screen.png "Initial output of chat1")
+![chat1](https://github.com/jpaulm/javafbp-websockets/tree/master/docs/Screen.png "Initial output of chat1")
 
 - enter `namelist` in the field prefixed with `Command`
 - click on `Send`. 
 
 You should see all a list of names, as follows:
 
-![output](https://github.com/jpaulm/javafbp-websockets/tree/master/docs/output.png "Run output")
+![output](https://github.com/jpaulm/javafbp-websockets/tree/master/docs/Output.png "Run output")
 
 
 Eclipse
