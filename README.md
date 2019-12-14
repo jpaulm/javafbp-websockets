@@ -118,6 +118,9 @@ At the end of the run, you should see:
     
 where the counts are respectively: creates, normal drops, sends, non-null receives, and drops done by "drop oldest".  
 
+Some diagrams
+---
+
 Here is a diagram of this simple server network, together with the client, shown schematically:
 
 ![ClientServer](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/ClientServer.png "Diagram of Client and Server Network")
@@ -127,5 +130,7 @@ The test application has now been modified to add a (substream-sensitive) Load B
 ![ClientServerMultiplex](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/ClientServerMultiplex.png "Diagram of Client and Server Network")
 
 Note that LoadBalance in JavaFBP has been updated to be sensitive to substreams - see [LoadBalance](https://github.com/jpaulm/javafbp/blob/master/src/main/java/com/jpaulmorrison/fbp/core/components/routing/LoadBalance.java) .
+
+There is also a video on [YouTube](https://youtu.be/IvTAexROKSA) . 
 
 
