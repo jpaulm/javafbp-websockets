@@ -30,17 +30,17 @@ public class WebSocketRespond extends Component {
   protected void execute() throws Exception {
 
     while (true) {
-      Packet lbr = inport.receive();
+      Packet<?> lbr = inport.receive();
       if (lbr == null) {
         break;
       }
       drop(lbr);      
-      Packet p1 = inport.receive();
+      Packet<?> p1 = inport.receive();
       WebSocket conn = (WebSocket) p1.getContent();      
       drop(p1);
       conn.send("@{");
       
-      Packet p2 = inport.receive();
+      Packet<?> p2 = inport.receive();
       while (p2.getType() != Packet.CLOSE) {
 
           String message = (String) p2.getContent();
