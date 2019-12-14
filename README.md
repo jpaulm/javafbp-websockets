@@ -85,15 +85,17 @@ There are two simple, almost identical, client HTML5 scripts called `chat1.html`
 To run the test:
 - start `TestWebSockets`
 - open `chat1` and/or `chat2` with your favorite web browser 
-- enter `complist` in the field prefixed with `Command`
-- enter the file name of any jar file whose contents you wish to display, in the field prefixed with `Data`, e.g. `C:\Users\Paul\Documents\GitHub\javafbp-websockets\lib\javafbp-4.1.0.jar`
+
+At this point you should see something like:
+![chat1](https://github.com/jpaulm/javafbp-websockets/tree/master/docs/screen.png "Initial output of chat1")
+
+- enter `namelist` in the field prefixed with `Command`
 - click on `Send`. 
 
-You should see all the entries in the selected jar file.  
+You should see all a list of names, as follows:
 
-**OR** 
+![output](https://github.com/jpaulm/javafbp-websockets/tree/master/docs/output.png "Run output")
 
-Enter `namelist` in the `Command` field, which will show three names on the user screen.
 
 Eclipse
 -------
