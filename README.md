@@ -92,9 +92,11 @@ At this point you should see something like:
 - enter `namelist` in the field prefixed with `Command`
 - click on `Send`. 
 
-You should see all a list of names, as follows:
+You should see a list of names, as follows:
 
 ![output](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Output.png "Run output")
+
+(`Server` and `chat1` have been prepended to the output to show visually where the data comes from and which client the data has to be sent back to)
 
 
 Eclipse
