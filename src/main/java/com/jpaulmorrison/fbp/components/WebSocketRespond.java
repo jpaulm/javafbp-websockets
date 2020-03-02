@@ -5,6 +5,9 @@ package com.jpaulmorrison.fbp.components;
 
 
 import org.java_websocket.WebSocket;
+import org.java_websocket.server.WebSocketServer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jpaulmorrison.fbp.components.WebSocketReceive.MyWebSocketServer;
 import com.jpaulmorrison.fbp.core.engine.*;
@@ -29,6 +32,7 @@ public class WebSocketRespond extends Component {
   @Override
   protected void execute() throws Exception {
 
+	final Logger log = LoggerFactory.getLogger(WebSocketRespond.class);
     while (true) {
       Packet<?> lbr = inport.receive();
       if (lbr == null) {
@@ -39,12 +43,15 @@ public class WebSocketRespond extends Component {
       WebSocket conn = (WebSocket) p1.getContent();      
       drop(p1);
       conn.send("@{");
+      log.info("@{");
       
       Packet<?> p2 = inport.receive();
       while (p2.getType() != Packet.CLOSE) {
 
           String message = (String) p2.getContent();
-          conn.send(message);          
+          conn.send(message);    
+          //log.trace(message);
+          log.info(message);
           drop(p2);
       
           p2 = inport.receive();
@@ -52,6 +59,7 @@ public class WebSocketRespond extends Component {
       
       drop(p2);
       conn.send("@}");
+      log.info("@}");
 
     }
     WebSocketReceive.MyWebSocketServer wss = (MyWebSocketServer) getGlobal("WebSocketServer");

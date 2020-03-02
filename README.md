@@ -7,7 +7,7 @@ JavaFBP Support for WebSockets
 General
 ---
 
-**Latest release: `javafbp-websockets-1.2.2`** 
+**Latest release: `javafbp-websockets-1.2.3`** 
 
 This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see the [Java-WebSocket](https://porter.io/github.com/TooTallNate/Java-WebSocket) web page - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`. 
 
@@ -23,7 +23,7 @@ Web site for FBP:
 * http://www.jpaulmorrison.com/fbp/
  
 JavaFBP Syntax and Component API:
-* http://www.jpaulmorrison.com/fbp/jsyntax.htm
+* http://jpaulm.github.io/fbp/jsyntax.htm
 
 Prerequisites
 ---
@@ -84,7 +84,9 @@ There are two simple, almost identical, client HTML5 scripts called `chat1.html`
 
 To run the test:
 - start `TestWebSockets`
-- open `chat1` and/or `chat2` with your favorite web browser 
+- open `src/main/resources/scripts/chat1.html` and/or `src/main/resources/scripts/chat2.html` with your favorite web browser 
+
+There are two `chatx` scripts to allow you to test multiple concurrent users.
 
 At this point you should see something like:
 ![chat1](https://github.com/jpaulm/javafbp-websockets/tree/master/docs/screen.png "Initial output of chat1")
@@ -95,6 +97,8 @@ At this point you should see something like:
 You should see all a list of names, as follows:
 
 ![output](https://github.com/jpaulm/javafbp-websockets/tree/master/docs/output.png "Run output")
+
+Now click on `Stop WS`, and the application will close down.
 
 
 Eclipse

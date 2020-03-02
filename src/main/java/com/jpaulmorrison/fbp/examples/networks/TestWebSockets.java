@@ -19,9 +19,9 @@ import com.jpaulmorrison.fbp.examples.components.WebSocketSimProc;
 
 
 /**
- * This network uses the JavaFBP WebSocketReceive and WebSocketRespond components - these are basically 
+ * This network uses the JavaFBP-WebSockets WebSocketReceive and WebSocketRespond components - these are basically 
  * TooTallNate's AutobahnServerTest code, split into two processes -
- * not to be confused with TestSockets, which uses WriteToSocket and ReadFromSocket! 
+ * not to be confused with TestSockets in JavaFBP's resourcekit/examples/networks, which uses WriteToSocket and ReadFromSocket! 
  */
 
 public class TestWebSockets extends Network {

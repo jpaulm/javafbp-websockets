@@ -23,6 +23,7 @@ package com.jpaulmorrison.fbp.components;
  *   
  *  'Kill' is signalled by the client sending the character string '@kill' 
  *  
+ *  Logging now handled by slf4j
  */
 
 import java.net.InetSocketAddress;
@@ -34,16 +35,13 @@ import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.java_websocket.WebSocket;
-import org.java_websocket.WebSocketImpl;
 import org.java_websocket.drafts.Draft;
 //import org.java_websocket.drafts.Draft_10;
 //import org.java_websocket.drafts.Draft_17;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.framing.CloseFrame;
-//import org.java_websocket.framing.CloseFrame;
-//import org.java_websocket.framing.FrameBuilder;
-import org.java_websocket.framing.Framedata;
+
 import org.java_websocket.handshake.*;
 import org.java_websocket.server.WebSocketServer;
 
@@ -66,7 +64,7 @@ public class WebSocketReceive extends Component {
   protected void execute() throws Exception {
 
     //putGlobal("killsw", new Boolean(false));
-    WebSocketImpl.DEBUG = true; /// tracing for socket stuff
+    // WebSocketImpl.DEBUG = true;   // Replaced by slf4j stuff!   
     killsw = new AtomicBoolean();
     
     //ll = new LinkedList<Packet<?>>(); 

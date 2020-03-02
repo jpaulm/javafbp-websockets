@@ -1,6 +1,6 @@
 /*
- * JavaFBP - A Java Implementation of Flow-Based Programming (FBP)
- * Copyright (C) 2009, 2016 J. Paul Morrison
+ * JavaFBP-WebSockets - JavaFBP code supporting web sockets
+ * Copyright (C) 2009, 2020 J. Paul Morrison
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -11,9 +11,6 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
  *
- * You should have received a copy of the GNU Library General Public
- * License along with this library; if not, see the GNU Library General Public License v3
- * at https://www.gnu.org/licenses/lgpl-3.0.en.html for more details.
  */
 package com.jpaulmorrison.fbp.components; 
 
@@ -25,9 +22,9 @@ public final class VersionAndTimestamp {
 	 *   
 	 */
 
-  private static String version = "JavaFBP-WebSockets - version 1.2.2";
+  private static String version = "JavaFBP-WebSockets - version 1.2.3";
 
-  private static String date = "17 July, 2017";
+  private static String date = "1 March, 2020";
 
   static String getVersion() {
     return version;

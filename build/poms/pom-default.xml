@@ -5,29 +5,39 @@
   <groupId>com.jpaulmorrison</groupId>
   <artifactId>javafbp-websockets</artifactId>
   <version>1.2.2</version>
-  <inceptionYear>2016</inceptionYear>
+  <name>JavaFBP-WebSockets</name>
+  <description>JavaFBP support for WebSockets</description>
+  <url>https://github.com/jpaulm/javafbp-websockets</url>
   <licenses>
     <license>
       <name>GNU Lesser General Public License, Version 3.0</name>
       <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
     </license>
   </licenses>
+  <developers>
+    <developer>
+      <id>jpaulmorr</id>
+      <name>John Paul Rodker Morrison (Software architect)</name>
+      <email>jpaulmorr@gmail.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:https://github.com/jpaulm.git</connection>
+    <developerConnection>scm:git:https://github.com/jpaulm.git</developerConnection>
+    <url>https://github.com/jpaulm.git</url>
+  </scm>
   <dependencies>
     <dependency>
       <groupId>org.java-websocket</groupId>
       <artifactId>Java-WebSocket</artifactId>
-      <version>1.4.0</version>
+      <version>1.3.4</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
-    	<groupId>com.jpaulmorrison</groupId>
-    	<artifactId>javafbp</artifactId>
-    	<version>4.1.1</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.slf4j</groupId>
-    	<artifactId>slf4j-simple</artifactId>
-    	<version>1.7.30</version>
+      <groupId>com.jpaulmorrison</groupId>
+      <artifactId>javafbp</artifactId>
+      <version>4.1.0</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 </project>

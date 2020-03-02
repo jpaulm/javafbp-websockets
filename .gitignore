@@ -2,13 +2,21 @@
 hs_err_pid*
 
 *-fulltrace.txt
+output
+temp.data
 
 # Gradle
 .gradle
 
 # Maven packages/etc
-target
-build
+target/
+
+
+build/tmp
+build/resources
+build/classes
+build/dependency-cache
+build/ivy.xml
 
 # Eclipse project
 bin
@@ -20,3 +28,4 @@ bin
 # System's crap
 Thumbs.db
 .DS_Store
+
