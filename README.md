@@ -102,6 +102,7 @@ You should see a list of names, as follows:
 
 Now click on `Stop WS`, and the application will close down.
 
+Some information will be logged on the console - this uses the `SLF4J` tool (http://www.slf4j.org/).  If you want to change the logging level, change the `defaultLogLevel` value in `src\main\resources\simplelogger.properties` .
 
 Eclipse
 -------
