@@ -9,7 +9,7 @@ General
 
 **Latest release: `javafbp-websockets-1.2.3`** 
 
-The jar file can be obtained from `build/libs/`, but is not yet available from Maven.
+The jar file can be obtained from `build/libs/`, the latest Release, or from Maven:
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
 
