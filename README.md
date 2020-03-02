@@ -89,14 +89,16 @@ To run the test:
 There are two `chatx` scripts to allow you to test multiple concurrent users.
 
 At this point you should see something like:
-![chat1](https://github.com/jpaulm/javafbp-websockets/tree/master/docs/screen.png "Initial output of chat1")
+![chat1](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Screen.png "Initial output of chat1")
 
 - enter `namelist` in the field prefixed with `Command`
 - click on `Send`. 
 
-You should see all a list of names, as follows:
+You should see a list of names, as follows:
 
-![output](https://github.com/jpaulm/javafbp-websockets/tree/master/docs/output.png "Run output")
+![output](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Output.png "Run output")
+
+(`Server` and `chat1` have been prepended to the output to show visually where the data comes from and which client the data has to be sent back to)
 
 Now click on `Stop WS`, and the application will close down.
 
