@@ -71,9 +71,9 @@ Note: if your default browser gives you a message saying it does not support Web
 
 You can run the command-line test Server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
     
-     java -cp "build/libs/javafbp-websockets-1.2.2.jar"  com.jpaulmorrison.fbp.examples.networks.TestWebSockets
+     java -cp "build/libs/javafbp-websockets-x.y.z.jar"  com.jpaulmorrison.fbp.examples.networks.TestWebSockets
     
-(note the double quotes).
+where `x.y.z` is the current version number (note the double quotes).
 
 In *nix, replace the ; with :.
 
@@ -89,6 +89,8 @@ There are two simple, almost identical, client HTML5 scripts called `chat1.html`
 To run the test:
 - start `TestWebSockets`
 - open `src/main/resources/scripts/chat1.html` and/or `src/main/resources/scripts/chat2.html` with your favorite web browser 
+
+Apparently selecting the browser for the `chatx` scripts has to be done from File Explorer, rather than under Eclipse.
 
 There are two `chatx` scripts to allow you to test multiple concurrent users.
 
