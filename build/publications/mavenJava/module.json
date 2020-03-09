@@ -1,0 +1,124 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.jpaulmorrison",
+    "module": "javafbp-websockets",
+    "version": "1.2.3",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.2.1",
+      "buildId": "3uwt3nw32vebbfsgajnclo7j6i"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "javafbp-websockets-1.2.3.jar",
+          "url": "javafbp-websockets-1.2.3.jar",
+          "size": 443300,
+          "sha512": "bb1ca816960c4092cac782095335227a2fdbc906d47111d38d4b85ab8fa3726801dac7f0a9c30f5f4167d8df814068e37393e171008a8e307408f880bb88b8d5",
+          "sha256": "8d6442d2f731aaed390b2001e2486a28531e93278b55de78d8e0ef4033807dd2",
+          "sha1": "371dc7d3c3d6d5f50599ba0503cd08e99ebc7848",
+          "md5": "73dceb99588a32e542285e9efad8becf"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.jpaulmorrison",
+          "module": "javafbp",
+          "version": {
+            "requires": "4.1.1"
+          }
+        },
+        {
+          "group": "org.java-websocket",
+          "module": "Java-WebSocket",
+          "version": {
+            "requires": "1.4.0"
+          }
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-simple",
+          "version": {
+            "requires": "1.7.25"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "javafbp-websockets-1.2.3.jar",
+          "url": "javafbp-websockets-1.2.3.jar",
+          "size": 443300,
+          "sha512": "bb1ca816960c4092cac782095335227a2fdbc906d47111d38d4b85ab8fa3726801dac7f0a9c30f5f4167d8df814068e37393e171008a8e307408f880bb88b8d5",
+          "sha256": "8d6442d2f731aaed390b2001e2486a28531e93278b55de78d8e0ef4033807dd2",
+          "sha1": "371dc7d3c3d6d5f50599ba0503cd08e99ebc7848",
+          "md5": "73dceb99588a32e542285e9efad8becf"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "javafbp-websockets-1.2.3-sources.jar",
+          "url": "javafbp-websockets-1.2.3-sources.jar",
+          "size": 11535,
+          "sha512": "bf69a3b2092c79f79c7a8adc6dfd7e9a3ce154b7c7752e73ad54992b28ca5c010a7ad3fe5ae49e49f117f8547b6a4bac7b4b8ca18154030d1da1b455b68347d4",
+          "sha256": "1bab34a968cf518d4a06c83fb0f8dedba47e63be8030a81767f7e509e47080a6",
+          "sha1": "d8c329d3f312a0eb048fa1a0dac756f7240067e7",
+          "md5": "4880b04661021304a658746f9a17c652"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "javafbp-websockets-1.2.3-javadoc.jar",
+          "url": "javafbp-websockets-1.2.3-javadoc.jar",
+          "size": 42693,
+          "sha512": "184ecf608ab702b3f903704e1effc799c46b2effb19dada4a88f5bc08105237324d99efde6c05896f81ea8dc30327f8d8dc9142fd5a0b049c4b729a06cf75d0b",
+          "sha256": "74a2a34a992d023776a1f62cd6850196ef3d6421c4aecaab4a70ca449fb3fc3e",
+          "sha1": "1d41ff6a449a39f9dade971991b2fd02ba106727",
+          "md5": "937eec2d38e64a04d9154c2f70c4f2b0"
+        }
+      ]
+    }
+  ]
+}
