@@ -55,9 +55,7 @@ This project has one test network, which runs as a server, communicating with th
 
 *Two HTML5 scripts (`chat1` and `chat2`) are provided to allow the software to be tested using multiple concurrent users.*
 
-Note: if your default browser gives you a message saying it does not support Websockets, try using Chrome.
-
-You can run the command-line test Server code in com.jpmorrsn.fbp.websockets.networks.TestWebSockets by entering in the project directory
+Unpack this project into a folder on your disk.  You can then run the command-line test Server code in the project directory by entering
     
      java -cp "build/libs/javafbp-websockets-x.y.z.jar"  com.jpaulmorrison.fbp.examples.networks.TestWebSockets
     
@@ -93,6 +91,10 @@ You should see a list of names, as follows:
 ![output](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Output.png "Run output")
 
 (`Server` and `chat1` have been prepended to the output to show visually where the data comes from and which client the data has to be sent back to.)
+
+Note: if your browser gives you a message saying it does not support Websockets, try using Chrome.
+
+On your DOS console, or in Eclipse, you will see some trace output, depending on the setting you choose for `SLF4J` (see below).
 
 Now click on `Stop WS`, and the application will close down.
 
