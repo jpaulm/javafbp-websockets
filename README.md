@@ -32,9 +32,9 @@ JavaFBP Syntax and Component API:
 Prerequisites
 ---
 
-This project requires JavaFBP and Java-WebSocket to execute. Recent jar files for these projects will be zipped into the JavaFBP-WebSockets jar file, and will also be in the `lib` directory.
+This project requires JavaFBP and Java-WebSocket to execute. The latest jar file for JavaFBP-WebSockets now contains these jar files, plus the recently added SLF4J folder (used by Java-WebSocket for logging). 
 
-It also requires Gradle for (re)building (tested with version 2.0). You can download the corresponding package from the following URL: http://www.gradle.org
+This project used Gradle for (re)building.
 
 Eclipse IDE Integration
 ---
@@ -47,25 +47,13 @@ If you already created an Eclipse project you can run:
 
     gradle cleanEclipse Eclipse
 
-You need to install a Gradle plugin for Eclipse as explained here:
-https://github.com/spring-projects/eclipse-integration-gradle/
-Then import a generated project in Eclipse, right (ctrl for OSX) click on the project in Eclipse -> Configure -> Convert to Gradle Project. After the conversion you can Right (ctrl for OSX) click on the project -> Gradle -> Task Quick Launcher and type `build`.
 
-You should also make sure that the current Java JDK `tools.jar` file is in your project's `lib/` directory.
-
-Building project from command line
----
-Run `git init` to create the `.git` directory.
-
-Run `git clone https://github.com/jpaulm/javafbp-websockets.git`
-
-Run `gradle build` in your JavaFBP-WebSockets directory - this will create a `javafbp-websockets-1.2.2.jar` file in the `build/libs` directory - this also contains a test network, called `TestWebSockets.java`, the various files from the two jar files listed in `build.gradle` as dependencies, and a couple of "chat" HTML5 scripts.  This only has to be done once.
 
 Running a test
 ----
 This project has one test network, which runs as a server, communicating with the client, which is `chat1.html` and/or `chat2.html`. This test can either be run under Eclipse, or can be run from the command line.
 
-*Two HTML5 scripts are provided to allow the software to be tested using multiple concurrent users.*
+*Two HTML5 scripts (`chat1` and `chat2`) are provided to allow the software to be tested using multiple concurrent users.*
 
 Note: if your default browser gives you a message saying it does not support Websockets, try using Chrome.
 
@@ -79,18 +67,18 @@ In *nix, replace the ; with :.
 
 This will display the message `WebSocketServer starting` on the console.
 
+Alternatively, select Run or Debug under Eclipse.
+
 There are two simple, almost identical, client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts`, which support two commands:
 
 - `complist` will display the contents of any selected jar file (specified in the `Data` field), and
-- `namelist` which just outputs 3 names.
-
-**If you do not see `chat1.html` and `chat2.html` in the Navigator view, click on `Link with Editor` in the Navigator tool bar.**
+- `namelist` which just outputs 3 names of restaurants!
 
 To run the test:
 - start `TestWebSockets`
 - open `src/main/resources/scripts/chat1.html` and/or `src/main/resources/scripts/chat2.html` with your favorite web browser 
 
-Apparently selecting the browser for the `chatx` scripts has to be done from File Explorer, rather than under Eclipse.
+It seems that Eclipse does not allow selecting the browser for the `chatx` scripts, so you need to go into Windows File Explorer, and select a web browser.
 
 There are two `chatx` scripts to allow you to test multiple concurrent users.
 
@@ -104,32 +92,24 @@ You should see a list of names, as follows:
 
 ![output](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Output.png "Run output")
 
-(`Server` and `chat1` have been prepended to the output to show visually where the data comes from and which client the data has to be sent back to)
+(`Server` and `chat1` have been prepended to the output to show visually where the data comes from and which client the data has to be sent back to.)
 
 Now click on `Stop WS`, and the application will close down.
 
+You can click on `Send` multiple times, before clicking on `Stop WS`.
+
 Some information will be logged on the console - this uses the `SLF4J` tool (http://www.slf4j.org/).  If you want to change the logging level, change the `defaultLogLevel` value in `src\main\resources\simplelogger.properties` .
-
-Eclipse
--------
-
-To run or rebuild the project under Eclipse, you will need to add the JavaFBP and Java-WebSocket jar files in the `lib` directory to the `Properties/Java Build Path/Libraries` using the `Add JARs` function.
-
-To rebuild the project under Eclipse, you will also need to add `tools.jar` from your current Java JDK. 
-
-
-You may have to do a trivial edit (e.g. add a blank) to the `chat1.html` and `chat2.html` files after downloading them - see https://github.com/jpaulm/javafbp-websockets/issues/4 .
 
 
 Closing down your test
 ---------
 
-Go back to the input form, and click on `Stop WS`, and the server should come down, terminating the Web Server.
+Go back to the input form, and click on `Stop WS`, and the server will come down, terminating the Web Server.
 
-At the end of the run, you should see:
+At the end of the run, you should see something along these lines:
 
     Run complete.  Time: x.xxx seconds
-    Counts: C: 586, D: 588, S: 589, R (non-null): 592, DO: 0    or something similar)
+    Counts: C: 586, D: 588, S: 589, R (non-null): 592, DO: 0    
     
 where the counts are respectively: creates, normal drops, sends, non-null receives, and drops done by "drop oldest".  
 
