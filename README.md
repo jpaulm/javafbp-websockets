@@ -17,14 +17,12 @@ This project comprises some components which support WebSockets for JavaFBP, plu
 
 The key concept here is that of "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream provides the context information, including an indication of which client sent it.
 
-Promoted to Maven, July 12, 2017.  To locate, [search Maven](http://search.maven.org/#search%7Cga%7C1%7Cjavafbp-websockets).
-
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
 For more background information on JavaFBP, see the README on https://github.com/jpaulm/javafbp .
 
 Web site for FBP: 
-* http://www.jpaulmorrison.com/fbp/
+* https://jpaulm.github.io/fbp/index.html
  
 JavaFBP Syntax and Component API:
 * http://jpaulm.github.io/fbp/jsyntax.htm
@@ -32,14 +30,14 @@ JavaFBP Syntax and Component API:
 Prerequisites
 ---
 
-This project requires JavaFBP and Java-WebSocket to execute. The latest jar file for JavaFBP-WebSockets now contains these jar files, plus the recently added SLF4J folder (used by Java-WebSocket for logging). 
+This project requires JavaFBP and Java-WebSocket to execute. The latest jar file for JavaFBP-WebSockets now contains these jar files, plus the recently added SLF4J folder (used by Java-WebSocket for logging). Renovate keeps track of the current releases of these packages, so the JavaFBP-WebSockets jar file will be automatically be kept up to date.
 
 This project used Gradle for (re)building.
 
 Eclipse IDE Integration
 ---
 
-You can generate Eclipse project using the following mvn command:
+You can generate an Eclipse project by creating a new folder, doing a `cd` to it, and using the following command:
 
     gradle eclipse
 
@@ -51,7 +49,7 @@ If you already created an Eclipse project you can run:
 
 Running a test
 ----
-This project has one test network, which runs as a server, communicating with the client, which is `chat1.html` and/or `chat2.html`. This test can either be run under Eclipse, or can be run from the command line.
+This project has one test network, which runs as a server, communicating with an HTNL5 client, which is `chat1.html` and/or `chat2.html`. This test can either be run under Eclipse, or can be run from the command line.
 
 *Two HTML5 scripts (`chat1` and `chat2`) are provided to allow the software to be tested using multiple concurrent users.*
 
@@ -67,7 +65,7 @@ This will display the message `WebSocketServer starting` on the console.
 
 Alternatively, select Run or Debug under Eclipse.
 
-There are two simple, almost identical, client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts`, which support two commands:
+The client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts` support two commands:
 
 - `complist` will display the contents of any selected jar file (specified in the `Data` field), and
 - `namelist` which just outputs 3 names of restaurants!
@@ -76,9 +74,9 @@ To run the test:
 - start `TestWebSockets`
 - open `src/main/resources/scripts/chat1.html` and/or `src/main/resources/scripts/chat2.html` with your favorite web browser 
 
-It seems that Eclipse does not allow selecting the browser for the `chatx` scripts, so you need to go into Windows File Explorer, and select a web browser.
+Eclipse does not allow selecting the browser for the `chatx` scripts, *within* Eclipse, so you need to go into Windows File Explorer, and select a web browser.
 
-There are two `chatx` scripts to allow you to test multiple concurrent users.
+There are two `chatx` scripts to allow you to test multiple concurrent users. Let's say you select `chat1.html`:
 
 At this point you should see something like:
 ![chat1](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Screen.png "Initial output of chat1")
@@ -86,7 +84,7 @@ At this point you should see something like:
 - enter `namelist` in the field prefixed with `Command`
 - click on `Send`. 
 
-You should see a list of names, as follows:
+You should see a list of names of restaurants(!), as follows:
 
 ![output](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Output.png "Run output")
 
@@ -101,6 +99,8 @@ Now click on `Stop WS`, and the application will close down.
 You can click on `Send` multiple times, before clicking on `Stop WS`.
 
 Some information will be logged on the console - this uses the `SLF4J` tool (http://www.slf4j.org/).  If you want to change the logging level, change the `defaultLogLevel` value in `src\main\resources\simplelogger.properties` .
+
+For some information on how to construct your server program, see the last section of this web page.
 
 
 Closing down your test
@@ -129,5 +129,11 @@ The test application has now been modified to add a (substream-sensitive) Load B
 Note that LoadBalance in JavaFBP has been updated to be sensitive to substreams - see [LoadBalance](https://github.com/jpaulm/javafbp/blob/master/src/main/java/com/jpaulmorrison/fbp/core/components/routing/LoadBalance.java) .
 
 There is also a video on [YouTube](https://youtu.be/IvTAexROKSA) . 
+
+
+Constructing a server program.
+---
+
+
 
 
