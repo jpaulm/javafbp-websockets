@@ -81,12 +81,16 @@ There are two `chatx` scripts to allow you to test multiple concurrent users. Le
 At this point you should see something like:
 ![chat1](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Screen.png "Initial output of chat1")
 
+Fig. 1.
+
 - enter `namelist` in the field prefixed with `Command`
 - click on `Send`. 
 
 You should see a list of names of restaurants(!), as follows:
 
 ![output](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Output.png "Run output")
+
+Fig. 2.
 
 (`Server` and `chat1` have been prepended to the output to show visually where the data comes from and which client the data has to be sent back to.)
 
@@ -122,9 +126,13 @@ Here is a diagram of this simple server network, together with the client, shown
 
 ![ClientServer](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/ClientServer.png "Diagram of Client and Server Network")
 
+Fig. 3.
+
 The test application has now been modified to add a (substream-sensitive) Load Balancer process, and the Process and WebSocketRespond processes have been multiplexed.  The result looks like this:
 
 ![ClientServerMultiplex](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/ClientServerMultiplex.png "Diagram of Client and Server Network")
+
+Fig. 4.
 
 Note that LoadBalance in JavaFBP has been updated to be sensitive to substreams - see [LoadBalance](https://github.com/jpaulm/javafbp/blob/master/src/main/java/com/jpaulmorrison/fbp/core/components/routing/LoadBalance.java) .
 
@@ -134,6 +142,12 @@ There is also a video on [YouTube](https://youtu.be/IvTAexROKSA) .
 Constructing a server program.
 ---
 
+As you can see from Fig. 3. above, the server code is basically a U-shape, with a `Receive` block at the top or start, and a `Respond` block at the bottom or end.  
 
+As described above, communication within the server is mediated by what are called "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`. The first IP of each substream provides the context information, including an indication of which client sent it.  This means that any processes within the server have to "understand" substreams.  Of course, between the `Receive` and `Respond`, you can have any pattern of processes and subnets that accepts a substream and outputs another one!
+
+There is an example of what a single substream processor might look like in https://github.com/jpaulm/javafbp-websockets/blob/master/src/main/java/com/jpaulmorrison/fbp/examples/components/WebSocketSimProc.java  in this GitHub repo. For your purposes you can ignore the logic following `if (s.endsWith("complist")) {` ...  (The commented out `sleep` after `if (s.endsWith("namelist")) {` was just inserted to do some performance testing.)  The `WebSocketSimProc.java` component receives all the non-bracket IPs of a single substream and adds them to a linked list.  On receiving the `close bracket`, it then does whatever processing is appropriate (perhaps based on information in the first IP after the `open bracket`), and outputs the output substream.
+
+Give it a try!
 
 
