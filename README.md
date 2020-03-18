@@ -128,7 +128,11 @@ Here is a diagram of this simple server network, together with the client, shown
 
 Fig. 3.
 
-The test application has now been modified to add a (substream-sensitive) Load Balancer process, and the Process and WebSocketRespond processes have been multiplexed.  The result looks like this:
+The `Process` block is shown using the "subnet" notation to suggest that any collection of processes can go here, provided they accept "substreams" from `Receive`, and send out "substreams" acceptable to `Respond`.
+
+This is the pattern used in the example code on GitHub: https://github.com/jpaulm/javafbp-websockets/blob/master/src/main/java/com/jpaulmorrison/fbp/examples/components/WebSocketSimProc.java .
+
+We next modify the test application to add a (substream-sensitive) Load Balancer process, and the Process and WebSocketRespond processes have been multiplexed.  The result looks like this:
 
 ![ClientServerMultiplex](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/ClientServerMultiplex.png "Diagram of Client and Server Network")
 
