@@ -44,7 +44,7 @@ group = 'com.jpaulmorrison'
 
               
 
-description = 'Function to generate FBP-style Javadoc for JavaFBP application source'
+description = 'Support Java-WebSocket in JavaFBP applications'
 
 compileJava.options.encoding = 'UTF-8'
 

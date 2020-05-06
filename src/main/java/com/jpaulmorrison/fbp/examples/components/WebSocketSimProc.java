@@ -39,7 +39,7 @@ public class WebSocketSimProc extends Component {
 			+ "this License may be found at http://www.jpaulmorrison.com/fbp/artistic2.htm. "
 			+ "THERE IS NO WARRANTY; USE THIS PRODUCT AT YOUR OWN RISK.";
 
-	private InputPort inport, jarport;
+	private InputPort inport;
 
 	private OutputPort outport;
 
