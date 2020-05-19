@@ -30,11 +30,11 @@ JavaFBP Syntax and Component API:
 Prerequisites
 ---
 
-This project requires JavaFBP and Java-WebSocket to execute. The latest jar file for JavaFBP-WebSockets now contains these jar files, plus the recently added SLF4J folder (used by Java-WebSocket for logging). Renovate keeps track of the current releases of these packages, so the JavaFBP-WebSockets jar file will be automatically be kept up to date.
+This project requires JavaFBP and Java-WebSocket to execute. The latest jar file for JavaFBP-WebSockets now contains these jar files, plus the recently added SLF4J folder (used by Java-WebSocket for logging). The Renovate package keeps track of the current releases of these packages, so the JavaFBP-WebSockets jar file will be automatically be kept up to date.
 
 This project used Gradle for (re)building.
 
-Eclipse IDE Integration
+<!--Eclipse IDE Integration
 ---
 
 You can generate an Eclipse project by creating a new folder, doing a `cd` to it, and using the following command:
@@ -45,13 +45,13 @@ If you already created an Eclipse project you can run:
 
     gradle cleanEclipse Eclipse
 
-
+-->
 
 Running a test
 ----
 This project has one test network, which runs as a server, communicating with an HTNL5 client, which is `chat1.html` and/or `chat2.html`. This test can either be run under Eclipse, or can be run from the command line.
 
-*Two HTML5 scripts (`chat1` and `chat2`) are provided to allow the software to be tested using multiple concurrent users.*
+<!--*Two HTML5 scripts* (`chat1` *and* `chat2`) *are provided to allow the software to be tested using multiple concurrent users.*-->
 
 Unpack this project into a folder on your disk.  You can then run the command-line test Server code in the project directory by entering
     
@@ -86,7 +86,7 @@ Fig. 1.
 - enter `namelist` in the field prefixed with `Command`
 - click on `Send`. 
 
-You should see a list of names of restaurants(!), as follows:
+You should see a list of names of 3 restaurants(!), as follows:
 
 ![output](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Output.png "Run output")
 
