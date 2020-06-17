@@ -49,7 +49,7 @@ If you already created an Eclipse project you can run:
 
 Running a test
 ----
-This project has one test network, which runs as a server, communicating with an HTNL5 client, which is `chat1.html` and/or `chat2.html`. This test can either be run under Eclipse, or can be run from the command line.
+This project has one test network, which runs as a server, communicating with an HTML5 client, which is `chat1.html` and/or `chat2.html`. This test can either be run under Eclipse, or can be run from the command line.
 
 <!--*Two HTML5 scripts* (`chat1` *and* `chat2`) *are provided to allow the software to be tested using multiple concurrent users.*-->
 
