@@ -106,6 +106,10 @@ Some information will be logged on the console - this uses the `SLF4J` tool (htt
 
 For some information on how to construct your server program, see the last section of this web page.
 
+Logging
+----
+
+Logging parameters can be specified in `simplelogger.properties`, which can be found in `src/main/resources`.
 
 Closing down your test
 ---------
