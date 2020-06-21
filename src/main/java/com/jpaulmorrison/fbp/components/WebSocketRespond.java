@@ -5,7 +5,6 @@ package com.jpaulmorrison.fbp.components;
 
 
 import org.java_websocket.WebSocket;
-import org.java_websocket.server.WebSocketServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
