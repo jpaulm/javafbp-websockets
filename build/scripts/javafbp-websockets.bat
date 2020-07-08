@@ -82,7 +82,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\javafbp-websockets-1.2.3.jar;%APP_HOME%\lib\javafbp-4.1.1.jar;%APP_HOME%\lib\Java-WebSocket-1.4.0.jar;%APP_HOME%\lib\slf4j-simple-1.7.25.jar;%APP_HOME%\lib\slf4j-api-1.7.25.jar
+set CLASSPATH=%APP_HOME%\lib\javafbp-websockets-1.2.3.jar;%APP_HOME%\lib\javafbp-4.1.1.jar;%APP_HOME%\lib\Java-WebSocket-1.5.0.jar;%APP_HOME%\lib\slf4j-simple-1.7.25.jar;%APP_HOME%\lib\slf4j-api-1.7.25.jar
 
 @rem Execute javafbp-websockets
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %JAVAFBP_WEBSOCKETS_OPTS%  -classpath "%CLASSPATH%" com.jpaulmorrison.fbp.examples.networks.TestWebSockets %CMD_LINE_ARGS%
