@@ -51,6 +51,8 @@ Running a test
 ----
 This project has one test network, which runs as a server, communicating with an HTML5 client, which is `chat1.html` and/or `chat2.html`. This test can either be run under Eclipse, or can be run from the command line.
 
+For those of you new to Flow-Based Programming, I should stress that this server network is illustrative only - this network is just intended to illustrate the concepts, although there *are* two prewritten, pretested components, which you will use to build your own JavaFBP-WebSockets server:  `WebSocketReceive` and `WebSocketRespond`.  This network also contains a single simple "processing" component - https://github.com/jpaulm/javafbp-websockets/blob/master/src/main/java/com/jpaulmorrison/fbp/examples/components/WebSocketSimProc.java - included to show how your processing logic will handle `open` and `close bracket` IPs, and of course to give you something to run!  Just for fun, I have coded two paths in this component: one which just generates 3 IPs, and one with unpacks a Java `jar` file, based on an incoming "command" string. 
+
 <!--*Two HTML5 scripts* (`chat1` *and* `chat2`) *are provided to allow the software to be tested using multiple concurrent users.*-->
 
 Unpack this project into a folder on your disk.  You can then run the command-line test Server code in the project directory by entering
@@ -65,10 +67,10 @@ This will display the message `WebSocketServer starting` on the console.
 
 Alternatively, select Run or Debug under Eclipse.
 
-The client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts` support two commands:
+The client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts` support two commands which are sent over to the server logic:
 
-- `complist` will display the contents of any selected jar file (specified in the `Data` field), and
-- `namelist` which just outputs 3 names of restaurants!
+- `complist` will cause the server to display the contents of any selected jar file (specified in the `Data` field), and
+- `namelist` will cause the server to just output 3 names of restaurants in my neighbourhood!
 
 To run the test:
 - start `TestWebSockets`
