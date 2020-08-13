@@ -85,9 +85,9 @@ dependencies {
 jar {
     archiveVersion = '1.2.3'
     manifest {
-       attributes 'Implementation-Title': 'JavaFBP-WebSockets', 'Implementation-Version': archiveVersion,
-             
-        "Class-Path": configurations.compileClasspath.collect { it.getName() }.join(' '),       
+       attributes 'Implementation-Title': 'JavaFBP-WebSockets', 
+       'Implementation-Version': project.version,             
+        'Class-Path': configurations.compileClasspath.collect { it.getName() }.join(' '),       
          'Main-Class' : mainClassName
     }
       
