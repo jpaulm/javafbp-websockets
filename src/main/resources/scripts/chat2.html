@@ -60,6 +60,15 @@ button {
 
 		var input = document.getElementById("message");
 		var jarfile = document.getElementById("jarfile");
+		if (input.value!= "namelist"  && input.value != "complist") {
+		  console.log("Command must be 'namelist' or 'complist'");
+		  return;
+		}
+		
+		if (input.value!= "complist"  && jarfile.value == "") {
+		  console.log("For 'complist' command, fill in jar file name");
+		  return;
+		}
 		chatClient.send("@{");		
 
 		chatClient.send("{Client2: " + input.value + "}");

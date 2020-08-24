@@ -143,11 +143,11 @@ public class WebSocketReceive extends Component {
 
     @Override
     public void onOpen(final WebSocket conn, final ClientHandshake handshake) {
-    	System.out.println("open");
+    	System.out.println("onOpen");
 		}
     
     public void onStart(){
-    	System.out.println("open");
+    	System.out.println("onStart");
     }
 
     
@@ -155,6 +155,7 @@ public class WebSocketReceive extends Component {
 				WebSocket conn, Draft draft, ClientHandshake request)
 				throws InvalidDataException {
 			ServerHandshakeBuilder resp = new HandshakeImpl1Server();
+			System.out.println("onWebsocketHandshakeReceivedAsServer");
 			resp.setHttpStatusMessage("HTTP/1.1 101 Switching Protocols\r\n");
 
 			String val = request.getFieldValue("sec-websocket-protocol");
