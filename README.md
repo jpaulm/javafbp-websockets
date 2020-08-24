@@ -15,6 +15,8 @@ The jar file can be obtained from `build/libs/`, the latest Release, or from Mav
 
 This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see the [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) web page - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`. 
 
+Some minor checking has been added to the source for this project, but it has not been published to Maven.
+
 The key concept here is that of "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream provides the context information, including an indication of which client sent it.
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
