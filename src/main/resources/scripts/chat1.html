@@ -66,12 +66,12 @@ button {
 		
 	 
 		if (!(message.value.trim() == "namelist")  && !(message.value.trim() == "complist")) {
-		  console.log("Command must be 'namelist' or 'complist'");
+		  alert("Command must be 'namelist' or 'complist'");
 		  return;
 		}
 		
 		if (message.value.trim() == "complist"  && jarfile.value.trim() == "") {
-		  console.log("For 'complist' command, fill in jar file name");
+		  alert("For 'complist' command, fill in jar file name");
 		  return;
 		}
 		  

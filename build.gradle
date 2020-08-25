@@ -1,9 +1,4 @@
-// Gradle migrated to v6.3
 
-//When rebuilding JavaFBP-WebSockets, use parameter 
-//   -Dorg.gradle.internal.publish.checksums.insecure=true
-// or add systemProp.org.gradle.internal.publish.checksums.insecure=true to gradle.properties
-// until this problem is fixed - see https://github.com/gradle/gradle/issues/11308
 
 buildscript {  
     repositories {
@@ -41,7 +36,7 @@ apply plugin: 'java-library'
    
 }
 
-version = '1.2.3'
+version = '1.2.4'
 
 group = 'com.jpaulmorrison'
 
@@ -83,7 +78,7 @@ dependencies {
 }
 
 jar {
-    archiveVersion = '1.2.3'
+    //archiveVersion = '1.2.4'
     manifest {
        attributes 'Implementation-Title': 'JavaFBP-WebSockets', 
        'Implementation-Version': project.version,             
@@ -149,7 +144,7 @@ description = "Create default maven directory structure"
         
             groupId = 'com.jpaulmorrison'
             artifactId = 'javafbp-websockets'       
-            version = '1.2.3'
+            version = '1.2.4'
            
             from components.java
            
