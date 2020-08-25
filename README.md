@@ -96,7 +96,7 @@ You should see a list of names of 3 restaurants(!), as follows:
 
 Fig. 2.
 
-(`Server` and `chat1` have been prepended to the output to show visually where the data comes from and which client the data has to be sent back to.)
+(`Server` and `Client1` have been prepended to the output to show visually where the data comes from and which client the data has to be sent back to.)
 
 Note: if your browser gives you a message saying it does not support Websockets, try using Chrome.
 
