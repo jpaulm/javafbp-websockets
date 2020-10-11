@@ -56,6 +56,8 @@ Using SSL
 
 https://stackoverflow.com/questions/5874390/how-do-you-use-https-ssl-on-localhost
 
+Suggestion: submit `chatx` script using Chrome; do `chrome://flags/#allow-insecure-localhost` in Chrome first
+
 Running a test
 ----
 This project has one test network, which runs as a server, communicating with an HTML5 client, which is `chat1.html` and/or `chat2.html`. This test can either be run under Eclipse, or can be run from the command line.
