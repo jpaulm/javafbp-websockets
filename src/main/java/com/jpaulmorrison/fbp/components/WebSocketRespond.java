@@ -5,6 +5,7 @@ package com.jpaulmorrison.fbp.components;
 
 
 import org.java_websocket.WebSocket;
+import org.java_websocket.exceptions.WebsocketNotConnectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,14 +42,22 @@ public class WebSocketRespond extends Component {
       Packet<?> p1 = inport.receive();
       WebSocket conn = (WebSocket) p1.getContent();      
       drop(p1);
+      try {
       conn.send("@{");
+      } catch(WebsocketNotConnectedException e) {
+    	  log.warn(conn + " not connected");
+      }
       log.info("@{");
       
       Packet<?> p2 = inport.receive();
       while (p2.getType() != Packet.CLOSE) {
 
           String message = (String) p2.getContent();
-          conn.send(message);    
+          try {
+              conn.send(message);
+              } catch(WebsocketNotConnectedException e) {
+            	  log.warn(conn + " not connected");
+              }  
           //log.trace(message);
           log.info(message);
           drop(p2);
@@ -57,7 +66,11 @@ public class WebSocketRespond extends Component {
       }
       
       drop(p2);
-      conn.send("@}");
+      try {
+          conn.send("@}");
+          } catch(WebsocketNotConnectedException e) {
+        	  log.warn(conn + " not connected");
+          }
       log.info("@}");
 
     }

@@ -3,15 +3,15 @@
   "component": {
     "group": "com.jpaulmorrison",
     "module": "javafbp-websockets",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "attributes": {
       "org.gradle.status": "release"
     }
   },
   "createdBy": {
     "gradle": {
-      "version": "6.2.1",
-      "buildId": "3uwt3nw32vebbfsgajnclo7j6i"
+      "version": "6.5.1",
+      "buildId": "zbmrdratrfb2pbxofngimwt6hm"
     }
   },
   "variants": [
@@ -26,13 +26,13 @@
       },
       "files": [
         {
-          "name": "javafbp-websockets-1.2.3.jar",
-          "url": "javafbp-websockets-1.2.3.jar",
-          "size": 443300,
-          "sha512": "bb1ca816960c4092cac782095335227a2fdbc906d47111d38d4b85ab8fa3726801dac7f0a9c30f5f4167d8df814068e37393e171008a8e307408f880bb88b8d5",
-          "sha256": "8d6442d2f731aaed390b2001e2486a28531e93278b55de78d8e0ef4033807dd2",
-          "sha1": "371dc7d3c3d6d5f50599ba0503cd08e99ebc7848",
-          "md5": "73dceb99588a32e542285e9efad8becf"
+          "name": "javafbp-websockets-1.2.4.jar",
+          "url": "javafbp-websockets-1.2.4.jar",
+          "size": 4750838,
+          "sha512": "902c6796bb6792639fa5adcbe3a47d5c165fe885c4bb021f2236b9a4f2816beb43b5175f6c762dafcbf67b57ca0104c48cb15a71e722f4b692cff8eb33777dee",
+          "sha256": "645ca3c1cf3ca881a84c4568e7e47056350e673b7945db390ccbbd325c4e0675",
+          "sha1": "e60eeb0f8b6dcc5446187faeb2869fbf00bafcf3",
+          "md5": "71b052a63e9a53484e3a6c22419487ad"
         }
       ]
     },
@@ -50,14 +50,14 @@
           "group": "com.jpaulmorrison",
           "module": "javafbp",
           "version": {
-            "requires": "4.1.1"
+            "requires": "4.1.5"
           }
         },
         {
           "group": "org.java-websocket",
           "module": "Java-WebSocket",
           "version": {
-            "requires": "1.4.0"
+            "requires": "1.5.0"
           }
         },
         {
@@ -70,13 +70,13 @@
       ],
       "files": [
         {
-          "name": "javafbp-websockets-1.2.3.jar",
-          "url": "javafbp-websockets-1.2.3.jar",
-          "size": 443300,
-          "sha512": "bb1ca816960c4092cac782095335227a2fdbc906d47111d38d4b85ab8fa3726801dac7f0a9c30f5f4167d8df814068e37393e171008a8e307408f880bb88b8d5",
-          "sha256": "8d6442d2f731aaed390b2001e2486a28531e93278b55de78d8e0ef4033807dd2",
-          "sha1": "371dc7d3c3d6d5f50599ba0503cd08e99ebc7848",
-          "md5": "73dceb99588a32e542285e9efad8becf"
+          "name": "javafbp-websockets-1.2.4.jar",
+          "url": "javafbp-websockets-1.2.4.jar",
+          "size": 4750838,
+          "sha512": "902c6796bb6792639fa5adcbe3a47d5c165fe885c4bb021f2236b9a4f2816beb43b5175f6c762dafcbf67b57ca0104c48cb15a71e722f4b692cff8eb33777dee",
+          "sha256": "645ca3c1cf3ca881a84c4568e7e47056350e673b7945db390ccbbd325c4e0675",
+          "sha1": "e60eeb0f8b6dcc5446187faeb2869fbf00bafcf3",
+          "md5": "71b052a63e9a53484e3a6c22419487ad"
         }
       ]
     },
@@ -90,13 +90,13 @@
       },
       "files": [
         {
-          "name": "javafbp-websockets-1.2.3-sources.jar",
-          "url": "javafbp-websockets-1.2.3-sources.jar",
-          "size": 11535,
-          "sha512": "bf69a3b2092c79f79c7a8adc6dfd7e9a3ce154b7c7752e73ad54992b28ca5c010a7ad3fe5ae49e49f117f8547b6a4bac7b4b8ca18154030d1da1b455b68347d4",
-          "sha256": "1bab34a968cf518d4a06c83fb0f8dedba47e63be8030a81767f7e509e47080a6",
-          "sha1": "d8c329d3f312a0eb048fa1a0dac756f7240067e7",
-          "md5": "4880b04661021304a658746f9a17c652"
+          "name": "javafbp-websockets-1.2.4-sources.jar",
+          "url": "javafbp-websockets-1.2.4-sources.jar",
+          "size": 11844,
+          "sha512": "778ed197397d3910629d305651d7d1d9e38164133385d387ac352ba5dbaf9285c3e0592701ae7b154626584a1333587b4a40a77d21d780b20874cd5dbcaedb5f",
+          "sha256": "d5e1929f6ca4771ebfe166f58dc29a0b406a560e3d41861a69a8e4f376493e54",
+          "sha1": "d78511f9fc12f7e468a1a7909297edbcb954ebd6",
+          "md5": "4fe8a5daed1d9b7a1683a4c056b79d54"
         }
       ]
     },
@@ -110,13 +110,13 @@
       },
       "files": [
         {
-          "name": "javafbp-websockets-1.2.3-javadoc.jar",
-          "url": "javafbp-websockets-1.2.3-javadoc.jar",
-          "size": 42693,
-          "sha512": "184ecf608ab702b3f903704e1effc799c46b2effb19dada4a88f5bc08105237324d99efde6c05896f81ea8dc30327f8d8dc9142fd5a0b049c4b729a06cf75d0b",
-          "sha256": "74a2a34a992d023776a1f62cd6850196ef3d6421c4aecaab4a70ca449fb3fc3e",
-          "sha1": "1d41ff6a449a39f9dade971991b2fd02ba106727",
-          "md5": "937eec2d38e64a04d9154c2f70c4f2b0"
+          "name": "javafbp-websockets-1.2.4-javadoc.jar",
+          "url": "javafbp-websockets-1.2.4-javadoc.jar",
+          "size": 42695,
+          "sha512": "bc078ab3db774081084547589ec4fa1987cf39f7a278644a657beef02d3d5e01379610a93a8308ba55de7324361dc6f9b78c56833e6614b779019a0009f2cf0a",
+          "sha256": "97875f368e63d815b718ce9345d5c6f57b65342656505c562724d18313165fe9",
+          "sha1": "81f077819524aaf96633cff19e0903c07610658d",
+          "md5": "46c72975c7097b7671deea84c0e2d261"
         }
       ]
     }

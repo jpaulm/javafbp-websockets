@@ -3,7 +3,7 @@
 <head>
 <title>WebSocket Example - Chat2</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="shortcut icon" href="/websocket/favicon.ico">
+//<link rel="shortcut icon" href="favicon.ico">
 <style>
 #container {
 	border: 1px #999999 solid;
@@ -31,12 +31,14 @@ button {
 	//if ("WebSocket" in window)
 	if (window.WebSocket) {
 
-		var portno = "9003";
-		var chatClient = new WebSocket("ws://localhost:" + portno + "/websocket/chat");
+		//var portno = "9003";
+		var portno = "8887";
+		var chatClient = new WebSocket("wss://localhost:" + portno  + "/websocket/chat" );
+		//alert(chatClient);
 
 		chatClient.onmessage = function(evt) {
 			var container = document.getElementById("container");
-			//console.log(typeof evt.data);			
+			//alert(typeof evt.data);			
 
 			if (evt.data === "@{")  {
 				while(container.firstChild){                      // clear container
@@ -55,13 +57,16 @@ button {
 	} else {
 		alert("WebSocket NOT supported by your Browser!");
 	}
+	
+
 
 	function send() {
 
-		var input = document.getElementById("message");
+		var message = document.getElementById("message");
 		var jarfile = document.getElementById("jarfile");
+		//debugger;
 		if (!(message.value.trim() == "namelist")  && !(message.value.trim() == "complist")) {
-		  alert("Command must be 'namelist' or 'complist'");
+		 alert("Command must be 'namelist' or 'complist'");
 		  return;
 		}
 		
@@ -69,14 +74,23 @@ button {
 		  alert("For 'complist' command, fill in jar file name");
 		  return;
 		}
+		
+		//alert("Sent");
+		
+		//alert("Sent1");
 		chatClient.send("@{");		
+		//alert("Sent2");
 
-		chatClient.send("{Client2: " + input.value + "}");
+		chatClient.send("{Client2: " + message.value + "}");
 		chatClient.send("{Client2: " + jarfile.value + "}");
 		
 		chatClient.send("@}");
 	}
 
+    chatClient.onopen = function(event) {
+		console.log('Connection opened ', event);
+	}
+	
 	// Listen for socket closes
 	chatClient.onclose = function(event) {
 		console.log('Client notified socket has closed', event);

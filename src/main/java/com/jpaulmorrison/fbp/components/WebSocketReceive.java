@@ -4,6 +4,9 @@
 package com.jpaulmorrison.fbp.components;
 
 
+import java.io.File;
+import java.io.FileInputStream;
+
 /**
  * General component to receive sequence of data chunks from a web socket and convert them
  *  into a series of substreams suitable for processing by custom components  
@@ -24,25 +27,37 @@ package com.jpaulmorrison.fbp.components;
  *  'Kill' is signalled by the client sending the character string '@kill' 
  *  
  *  Logging now handled by slf4j
+ *  
+ *  See https://github.com/TooTallNate/Java-WebSocket
  */
 
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 import java.nio.channels.ClosedByInterruptException;
+import java.nio.file.Paths;
+import java.security.KeyStore;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
+
 import org.java_websocket.WebSocket;
+
 import org.java_websocket.drafts.Draft;
+import org.java_websocket.drafts.Draft_6455;
 //import org.java_websocket.drafts.Draft_10;
 //import org.java_websocket.drafts.Draft_17;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidHandshakeException;
+//import org.java_websocket.exceptions.InvalidDataException;
+//import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.framing.CloseFrame;
 
 import org.java_websocket.handshake.*;
+import org.java_websocket.server.DefaultSSLWebSocketServerFactory;
 import org.java_websocket.server.WebSocketServer;
 
 import com.jpaulmorrison.fbp.core.engine.*;
@@ -56,14 +71,15 @@ public class WebSocketReceive extends Component {
   AtomicBoolean killsw;
   //LinkedList<Packet<?>> ll = null;
   HashMap <WebSocket, LinkedList<Packet<?>>> hm = null;
-
-  /* (non-Javadoc)
-   * @see com.jpaulmorrison.fbp.core.engine.Component#execute()
-   */
+  
+  Component comp = null;
+  
   @Override
   protected void execute() throws Exception {
+	  
+	comp = this;  
 
-    //putGlobal("killsw", new Boolean(false));
+	//putGlobal("killsw", new Boolean(false));
     // WebSocketImpl.DEBUG = true;   // Replaced by slf4j stuff!   
     killsw = new AtomicBoolean();
     
@@ -76,17 +92,47 @@ public class WebSocketReceive extends Component {
     drop (p);
     portPort.close();
 
-    //WebSocketServer wss = new MyWebSocketServer(port, new Draft_10());
-    WebSocketServer wss = new MyWebSocketServer(port);
+    //WebSocketServer test = new MyWebSocketServer(port, new Draft_10());
+    WebSocketServer test = new MyWebSocketServer(port, new Draft_6455());
     // Draft 17 - Hybi 17/RFC 6455 and is currently supported by Chrome16+ and IE10.
     // Draft 10 -  Hybi 10. This draft is supported by Chrome15 and Firefox6-9.
-
+    
     //wss.setReuseAddress(true);
     //wss.stop();
     System.out.println("WebSocketServer starting");
-    putGlobal("WebSocketServer", wss);
-    
-    wss.start();
+    putGlobal("WebSocketServer", test);
+   
+    try {
+        // load up the key store
+        String STORETYPE = "JKS";
+        String KEYSTORE = Paths.get("src", "test", "java", "org", "java_websocket", "keystore.jks")
+            .toString();
+        String STOREPASSWORD = "storepassword";
+        String KEYPASSWORD = "keypassword";
+
+        KeyStore ks = KeyStore.getInstance(STORETYPE);
+        File kf = new File(KEYSTORE);
+        ks.load(new FileInputStream(kf), STOREPASSWORD.toCharArray());
+
+        KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
+        kmf.init(ks, KEYPASSWORD.toCharArray());
+        TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509");
+        tmf.init(ks);
+
+        SSLContext sslContext = null;
+        sslContext = SSLContext.getInstance("TLS");
+        sslContext.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);
+        
+
+        test.setWebSocketFactory(new DefaultSSLWebSocketServerFactory(sslContext));
+        
+        test.start();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+   test.setConnectionLostTimeout(0);
+ 
+   // test.start();
     
     while (true) {
 
@@ -95,7 +141,7 @@ public class WebSocketReceive extends Component {
       } catch (InterruptedException e) {
         e.printStackTrace();
         outPort.close();
-        wss.stop();
+        test.stop();
         // handle the exception...        
         return;
       }
@@ -103,10 +149,11 @@ public class WebSocketReceive extends Component {
       if (killsw.get()) {
     	// see also http://stackoverflow.com/questions/4812686/closing-websocket-correctly-html5-javascript
     	outPort.close();
-        wss.stop();
+        test.stop();
         return;
       }
     }
+   
   }
 
   /* (non-Javadoc)
@@ -124,23 +171,25 @@ public class WebSocketReceive extends Component {
 
     //private static int counter = 0;
 
-    Component comp = null;
+	//  Component comp = null;
     
-    //public MyWebSocketServer(final int port, final Draft d) throws UnknownHostException {
-     //   super(new InetSocketAddress(port), Collections.singletonList(d));
+   
+    
+    public MyWebSocketServer(final int port, final Draft d) throws UnknownHostException {
+        super(new InetSocketAddress(port), Collections.singletonList(d));
+      }
 
-     // }
+   // public MyWebSocketServer(final int port) throws UnknownHostException {
+   //   super(new InetSocketAddress(port));
+   // }
 
-    public MyWebSocketServer(final int port) throws UnknownHostException {
-      super(new InetSocketAddress(port));
-
+    
+	public MyWebSocketServer(final InetSocketAddress address, final Draft d) {
+     super(address, Collections.singletonList(d));
     }
 
     
-	//public MyWebSocketServer(final InetSocketAddress address, final Draft d) {
-     // super(address, Collections.singletonList(d));
-    //}
-
+    
     @Override
     public void onOpen(final WebSocket conn, final ClientHandshake handshake) {
     	System.out.println("onOpen");
@@ -150,7 +199,7 @@ public class WebSocketReceive extends Component {
     	System.out.println("onStart");
     }
 
-    
+    /*
 	public ServerHandshakeBuilder onWebsocketHandshakeReceivedAsServer(
 				WebSocket conn, Draft draft, ClientHandshake request)
 				throws InvalidDataException {
@@ -173,7 +222,7 @@ public class WebSocketReceive extends Component {
 			//}
 			return resp;
 		}
-    
+    */
     @Override
     public void onClose(final WebSocket conn, final int code, final String reason, final boolean remote) {
       //System.out.println("closed " + code + " " + reason + " " + remote);
@@ -257,7 +306,8 @@ public class WebSocketReceive extends Component {
     //  builder.setTransferemasked(false);
     //  conn.sendFrame(frame);
     //}
-
+    
+    /*
     @Override
     public void start() {
       
@@ -266,7 +316,7 @@ public class WebSocketReceive extends Component {
       new Thread(this).start();
     }
 
-    
+    */
 
   }
 

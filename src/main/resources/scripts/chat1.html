@@ -2,8 +2,8 @@
 <html>
 <head>
 <title>WebSocket Example - Chat1</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="shortcut icon" href="/websocket/favicon.ico">
+<meta http-equiv="Content-Type" content="text/shtml; charset=UTF-8">
+//<link rel="shortcut icon" href="../docs/favicon.ico">
 <style>
 #container {
 	border: 1px #999999 solid;
@@ -31,7 +31,8 @@ button {
 	//if ("WebSocket" in window)
 	if (window.WebSocket) {
 
-		var portno = "9003";
+  		//var portno = "9003";
+  		var portno = "8887";
 		var chatClient = new WebSocket("ws://localhost:" + portno + "/websocket/chat");
 		console.log('starting client html');
 
@@ -83,6 +84,10 @@ button {
 		chatClient.send("@}");
 	}
 
+ chatClient.onopen = function(event) {
+		console.log('Connection opened ', event);
+	}
+	
 	// Listen for socket closes
 	chatClient.onclose = function(event) {
 		console.log('Client notified socket has closed', event);
