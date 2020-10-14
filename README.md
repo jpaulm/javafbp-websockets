@@ -11,7 +11,7 @@ General
 
 **Latest release: `javafbp-websockets-1.2.4`** 
 
-The jar file can be obtained from `build/libs/`, and the latest Release;  it will be come available on Maven shortly:
+The jar file can be obtained from `build/libs/`, Releases, and Maven.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
 
@@ -56,7 +56,9 @@ Using SSL
 
 https://stackoverflow.com/questions/5874390/how-do-you-use-https-ssl-on-localhost
 
-Suggestion: submit `chatx` script using Chrome; do `chrome://flags/#allow-insecure-localhost` in Chrome first
+As of now (Oct. 14, 2020), the `chatx` scripts require; do `chrome://flags/#allow-insecure-localhost` in Chrome first
+
+`chat1.html` uses `ws:`; `chat2.html` uses `wss:`. 
 
 Running a test
 ----
@@ -64,15 +66,13 @@ This project has one test network, which runs as a server, communicating with an
 
 For those of you new to Flow-Based Programming, I should stress that this server network is illustrative only - this network is just intended to illustrate the concepts, although there *are* two prewritten, pretested components, which you will use to build your own JavaFBP-WebSockets server:  `WebSocketReceive` and `WebSocketRespond`.  This network also contains a single simple "processing" component - https://github.com/jpaulm/javafbp-websockets/blob/master/src/main/java/com/jpaulmorrison/fbp/examples/components/WebSocketSimProc.java - included to show how your processing logic will handle `open` and `close bracket` IPs, and of course to give you something to run!  Just for fun, I have coded two paths in this component: one which just generates 3 IPs, and one with unpacks a Java `jar` file, based on an incoming "command" string. 
 
-<!--*Two HTML5 scripts* (`chat1` *and* `chat2`) *are provided to allow the software to be tested using multiple concurrent users.*-->
-
 Unpack this project into a folder on your disk.  You can then run the command-line test Server code in the project directory by entering
     
      java -cp "build/libs/javafbp-websockets-x.y.z.jar"  com.jpaulmorrison.fbp.examples.networks.TestWebSockets
     
 where `x.y.z` is the current version number (note the double quotes).
 
-In *nix, replace the ; with :.
+<!--In *nix, replace the ; with :.-->
 
 This will display the message `WebSocketServer starting` on the console.
 
@@ -89,7 +89,7 @@ To run the test:
 
 Eclipse does not allow selecting the browser for the `chatx` scripts, *within* Eclipse, so you need to go into Windows File Explorer, and select a web browser.
 
-There are two `chatx` scripts to allow you to test multiple concurrent users. Let's say you select `chat1.html`:
+There are two `chatx` scripts - see above. Let's say you select `chat1.html`:
 
 At this point you should see something like:
 ![chat1](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Screen.png "Initial output of chat1")
