@@ -36,7 +36,7 @@ Password not set up correctly, so...
 
 - Only runs with Chrome executing client script `chat2.html` (using `wss:`).  `chrome://flags/#allow-insecure-localhost` specified for Chrome.
 
-- `chat1.html` fails with both Firefox and Chrome.
+- `chat1.html` (uses `ws:`) fails with both Firefox and Chrome.
 
 - Port number 9003 used previously - seems to be used by PID 4 - we are now using port no. 8887.
 
