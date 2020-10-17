@@ -9,9 +9,9 @@ General web site on Flow-Based Programming: https://jpaulm.github.io/fbp/ .
 General
 ---
 
-**Latest release: `javafbp-websockets-1.2.4`** 
+**Latest release: `javafbp-websockets-1.2.5`** 
 
-The jar file can be obtained from `build/libs/`, Releases, and Maven.
+The jar file can be obtained from `build/libs/`, Releases <!--, and Maven-->.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
 
@@ -34,9 +34,7 @@ Test Status of latest release
 
 Password not set up correctly, so...
 
-- Only runs with Chrome executing client script `chat2.html` (using `wss:`).  `chrome://flags/#allow-insecure-localhost` specified for Chrome.
-
-- `chat1.html` (uses `ws:`) fails with both Firefox and Chrome.
+- Only runs with Chrome executing client scripts `chatx.html` (using `wss:`).  `chrome://flags/#allow-insecure-localhost` specified for Chrome.
 
 - Port number 9003 used previously - seems to be used by PID 4 - we are now using port no. 8887.
 
@@ -94,9 +92,7 @@ The client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resou
 
 To run the test:
 - start `TestWebSockets`
-- open `src/main/resources/scripts/chat1.html` and/or `src/main/resources/scripts/chat2.html` with your favorite web browser 
-
-Eclipse does not allow selecting the browser for the `chatx` scripts, *within* Eclipse, so you need to go into Windows File Explorer, and select a web browser.
+- open `src/main/resources/scripts/chat1.html` and/or `src/main/resources/scripts/chat2.html` with <!--your favorite web browser--> Chrome 
 
 There are two `chatx` scripts - see above. Let's say you select `chat1.html`:
 
@@ -116,7 +112,7 @@ Fig. 2.
 
 (`Server` and `Client1` have been prepended to the output to show visually where the data comes from and which client the data has to be sent back to.)
 
-Note: if your browser gives you a message saying it does not support Websockets, try using Chrome.
+<!--Note: if your browser gives you a message saying it does not support Websockets, try using Chrome. -->
 
 On your DOS console, or in Eclipse, you will see some trace output, depending on the setting you choose for `SLF4J` (see below).
 
