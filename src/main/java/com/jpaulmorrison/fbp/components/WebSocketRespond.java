@@ -33,6 +33,7 @@ public class WebSocketRespond extends Component {
   protected void execute() throws Exception {
 
 	final Logger log = LoggerFactory.getLogger(WebSocketRespond.class);
+	//WebSocket conn = null;
     while (true) {
       Packet<?> lbr = inport.receive();
       if (lbr == null) {
@@ -75,6 +76,7 @@ public class WebSocketRespond extends Component {
 
     }
     WebSocketReceive.MyWebSocketServer wss = (MyWebSocketServer) getGlobal("WebSocketServer");
+    //conn.send("@{Socket closed@}");
     wss.stop();
   }
 
