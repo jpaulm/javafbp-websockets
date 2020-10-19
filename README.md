@@ -11,13 +11,15 @@ General
 
 **Latest release: `javafbp-websockets-1.2.5`** 
 
-The jar file can be obtained from `build/libs/`, Releases <!--, and Maven-->.  The Maven shield is below.
+The jar file can be obtained from `build/libs/`, and Releases <!--, and Maven-->.  Maven contains the previous release - code will be promoted to Maven when TLS support is complete.  The Maven shield is below.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
 
 This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see the [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) web page - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`. 
 
 The key concept here is that of "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream provides the context information, including an indication of which client sent it.
+
+The underlying code Java-WebSocket does not support a mix of `ws:` and `wss:`, so this is specified in an optional IIP in the network definition: the default (no `OPT` IIP) specifies support for `ws:`; `OPT` IIP specified with value of `"TLS"` specifies `wss:`.
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
@@ -32,10 +34,9 @@ JavaFBP Syntax and Component API:
 Test Status of latest release
 ---
 
-Password not set up correctly, so...
+Password handling not yet set up, so...
 
-- Only runs with Chrome executing client scripts `chatx.html` (using `wss:`).  `chrome://flags/#allow-insecure-localhost` specified for Chrome.
-
+- Supports Chrome executing client scripts `chatx.html` (`chat1` uses `ws:`, `chat2` uses `wss:`).  `chrome://flags/#allow-insecure-localhost` is needed for `chat2`.
 - Port number 9003 used previously - seems to be used by PID 4 - we are now using port no. 8887.
 
 Prerequisites
