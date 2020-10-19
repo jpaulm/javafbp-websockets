@@ -38,9 +38,9 @@ public class TestWebSockets extends Network {
 			component("RD" + i, RandomDelay.class);
 		}
 
-		//initialize(new Integer(9003), "WSRcv.PORT");
-		//initialize(new Integer(443), "WSRcv.PORT");
+		
 		initialize(new Integer(8887), "WSRcv.PORT");
+		//initialize("TLS", "WSRcv.OPT");
 
 
 		connect("WSRcv.OUT", "LBal.IN", 4);

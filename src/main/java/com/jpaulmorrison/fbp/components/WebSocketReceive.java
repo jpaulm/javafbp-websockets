@@ -58,11 +58,12 @@ import org.java_websocket.server.WebSocketServer;
 
 import com.jpaulmorrison.fbp.core.engine.*;
 
-@InPort("PORT")
+@InPorts({@InPort("PORT"), @InPort(value="OPT", optional=true)})
 @OutPort("OUT")
 public class WebSocketReceive extends Component {
 
   private InputPort portPort;
+  private InputPort optPort;
   private OutputPort outPort;
   AtomicBoolean killsw;
   //LinkedList<Packet<?>> ll = null;
@@ -72,7 +73,7 @@ public class WebSocketReceive extends Component {
   
   @Override
   protected void execute() throws Exception {
-	  
+	boolean wss = false;  
 	comp = this;  
 
 	//putGlobal("killsw", new Boolean(false));
@@ -87,6 +88,14 @@ public class WebSocketReceive extends Component {
     int port = i.intValue();
     drop (p);
     portPort.close();
+    
+    p = optPort.receive();
+    if (p != null) {
+    	if (p.getContent().equals("TLS"))
+    		wss = true;   
+    	drop (p);
+    }
+    optPort.close();
 
     //WebSocketServer test = new MyWebSocketServer(port, new Draft_10());
     //WebSocketServer test = new MyWebSocketServer(port, new Draft_6455());
@@ -103,7 +112,7 @@ public class WebSocketReceive extends Component {
    
     try {
     	
-    	 
+    	if (wss) {
         // load up the key store
         String STORETYPE = "JKS";
         String KEYSTORE = Paths.get("src", "test", "java", "org", "java_websocket", "keystore.jks")
@@ -127,7 +136,7 @@ public class WebSocketReceive extends Component {
         
  
         test.setWebSocketFactory(new DefaultSSLWebSocketServerFactory(sslContext));
-        
+    	}
        
         test.setConnectionLostTimeout(0);        
         test.run();
@@ -172,6 +181,7 @@ public class WebSocketReceive extends Component {
   protected void openPorts() {
 
 	portPort = openInput("PORT");
+	optPort = openInput("OPT");
     outPort = openOutput("OUT");
 
   }  
