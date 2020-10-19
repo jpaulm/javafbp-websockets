@@ -40,7 +40,7 @@ public class TestWebSockets extends Network {
 
 		
 		initialize(new Integer(8887), "WSRcv.PORT");
-		//initialize("TLS", "WSRcv.OPT");
+		initialize("TLS", "WSRcv.OPT");
 
 
 		connect("WSRcv.OUT", "LBal.IN", 4);
