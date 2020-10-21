@@ -11,7 +11,7 @@ General
 
 **Latest release: `javafbp-websockets-1.2.5`** 
 
-The jar file can be obtained from `build/libs/`, and Releases <!--, and Maven-->.  Maven contains the previous release - code will be promoted to Maven when TLS support is complete.  The Maven shield is below.
+The jar file can be obtained from `build/libs/`, Releases, and Maven.   The new release should be up on Maven shortly, although the shield (below) will show the new release number earlier.  The Maven shield is below.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
 
@@ -19,7 +19,7 @@ This project comprises some components which support WebSockets for JavaFBP, plu
 
 The key concept here is that of "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream provides the context information, including an indication of which client sent it.
 
-The underlying code Java-WebSocket does not support a mix of `ws:` and `wss:`, so this is specified in an optional IIP in the network definition: the default (no `OPT` IIP) specifies support for `ws:`; `OPT` IIP specified with value of `"TLS"` specifies `wss:`.
+The underlying code (`Java-WebSocket`) does not support a mix of `ws:` and `wss:`, so this is specified in an optional IIP in the network definition: the default (no `OPT` IIP) specifies support for `ws:`; `OPT` IIP cotaining a value of `"TLS"` specifies `wss:`.
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
@@ -37,12 +37,15 @@ Test Status of latest release
 Password handling not yet set up, so...
 
 - Supports Chrome executing client scripts `chatx.html` (`chat1` uses `ws:`, `chat2` uses `wss:`).  `chrome://flags/#allow-insecure-localhost` is needed for `chat2`.
-- Port number 9003 used previously - seems to be used by PID 4 - we are now using port no. 8887.
+
+- As stated above, the test network must specify a value of `"TLS"` in optional IIP `OPT` to support `chat2.html`.
+
+- Port number 9003 used previously - seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
 
 Prerequisites
 ---
 
-This project requires JavaFBP and Java-WebSocket to execute. The latest jar file for JavaFBP-WebSockets now contains these jar files, plus the recently added SLF4J folder (used by Java-WebSocket for logging). The Renovate package keeps track of the current releases of these packages, so the JavaFBP-WebSockets jar file will be automatically be kept up to date.
+This project requires JavaFBP and Java-WebSocket jar files to execute. The latest jar file for JavaFBP-WebSockets now contains these jar files, plus the recently added SLF4J folder (used by Java-WebSocket for logging). The Renovate package keeps track of the current releases of these packages, so the JavaFBP-WebSockets jar file will automatically be kept up to date.
 
 This project used Gradle for (re)building.
 
@@ -64,7 +67,7 @@ Using SSL
 
 https://stackoverflow.com/questions/5874390/how-do-you-use-https-ssl-on-localhost
 
-As of now (Oct. 14, 2020), the `chatx` scripts require; do `chrome://flags/#allow-insecure-localhost` in Chrome first
+As of now (Oct. 14, 2020), the `chat2` script requires that you set the `chrome://flags/#allow-insecure-localhost` option in Chrome first
 
 `chat1.html` uses `ws:`; `chat2.html` uses `wss:`. 
 
@@ -74,7 +77,7 @@ This project has one test network, which runs as a server, communicating with an
 
 For those of you new to Flow-Based Programming, I should stress that this server network is illustrative only - this network is just intended to illustrate the concepts, although there *are* two prewritten, pretested components, which you will use to build your own JavaFBP-WebSockets server:  `WebSocketReceive` and `WebSocketRespond`.  This network also contains a single simple "processing" component - https://github.com/jpaulm/javafbp-websockets/blob/master/src/main/java/com/jpaulmorrison/fbp/examples/components/WebSocketSimProc.java - included to show how your processing logic will handle `open` and `close bracket` IPs, and of course to give you something to run!  Just for fun, I have coded two paths in this component: one which just generates 3 IPs, and one with unpacks a Java `jar` file, based on an incoming "command" string. 
 
-Unpack this project into a folder on your disk.  You can then run the command-line test Server code in the project directory by entering
+To run this test, download the jar file - you can then run the command-line test Server code in the project directory by entering
     
      java -cp "build/libs/javafbp-websockets-x.y.z.jar"  com.jpaulmorrison.fbp.examples.networks.TestWebSockets
     
