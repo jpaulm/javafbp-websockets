@@ -9,9 +9,9 @@ General web site on Flow-Based Programming: https://jpaulm.github.io/fbp/ .
 General
 ---
 
-**Latest release: `javafbp-websockets-1.2.5`** 
+**Latest release: `javafbp-websockets-1.2.6`** 
 
-The jar file can be obtained from `build/libs/`, Releases, and Maven.   The new release should be up on Maven shortly, although the shield (below) will show the new release number earlier.  The Maven shield is below.
+The jar file can be obtained from `build/libs/`, Releases, and Maven.   The new release should be up on Maven shortly, although the shield (below) will show the new release number for a while.  The Maven shield is below.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
 
