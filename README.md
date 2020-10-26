@@ -21,6 +21,8 @@ The key concept here is that of "substreams", where each substream is delimited 
 
 **Note:** The underlying code (`Java-WebSocket`) does not support *mixing* `ws:` and `wss:`, so this is specified in an optional IIP in the network definition: the default (no `OPT` IIP) specifies support for `ws:`; `OPT` IIP containing a value of `"TLS"` specifies `wss:`.
 
+A dummy `keystore.jks` file has been povided so that you can try the test case.
+
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
 For more background information on JavaFBP, see the README on https://github.com/jpaulm/javafbp .
