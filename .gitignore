@@ -12,6 +12,9 @@ temp.data
 target/
 
 
+
+build/docs/javadoc
+
 build/tmp
 build/resources
 build/classes

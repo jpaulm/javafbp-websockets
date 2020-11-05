@@ -36,7 +36,7 @@ apply plugin: 'java-library'
    
 }
 
-version = '1.2.5'
+version = '1.2.6'
 
 group = 'com.jpaulmorrison'
 
@@ -71,9 +71,9 @@ java {
 
 dependencies {		
 	
-	implementation  'com.jpaulmorrison:javafbp:4.1.6' 
-	implementation 'org.java-websocket:Java-WebSocket:1.5.1'
-	implementation 'org.slf4j:slf4j-simple:1.7.25'
+	compileOnly  'com.jpaulmorrison:javafbp:4.1.11' 
+	compileOnly 'org.java-websocket:Java-WebSocket:1.5.1'
+	compileOnly 'org.slf4j:slf4j-simple:1.7.25'
 	
 }
 
@@ -91,11 +91,11 @@ jar {
     archiveBaseName = project.name
     from sourceSets.main.output       
       
-    dependsOn configurations.compileClasspath
+    //dependsOn configurations.compileClasspath
    
-    from {       
-      configurations.compileClasspath.findAll {  it.name.endsWith('jar')  }.collect {   zipTree(it)  }  
-      }
+    //from {       
+    //  configurations.compileClasspath.findAll {  it.name.endsWith('jar')  }.collect {   zipTree(it)  }  
+    //  }
     
       
    
@@ -144,7 +144,7 @@ description = "Create default maven directory structure"
         
             groupId = 'com.jpaulmorrison'
             artifactId = 'javafbp-websockets'       
-            version = '1.2.5'
+            version = '1.2.6'
            
             from components.java
            

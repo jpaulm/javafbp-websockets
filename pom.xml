@@ -18,18 +18,28 @@
       <artifactId>Java-WebSocket</artifactId>
       <version>1.5.1</version>
       <scope>compile</scope>
+      <exclusions>
+      	<exclusion>
+      		<groupId>org.slf4j</groupId>
+      		<artifactId>slf4j-api</artifactId>
+      	</exclusion>
+      </exclusions>
     </dependency>
     <dependency>
-
     	<groupId>com.jpaulmorrison</groupId>
     	<artifactId>javafbp</artifactId>
-    	<version>4.1.6</version>
+    	<version>4.1.11</version>    	
     </dependency>
     <dependency>
     	<groupId>org.slf4j</groupId>
     	<artifactId>slf4j-simple</artifactId>
     	<version>1.7.30</version>
-
+    	<exclusions>
+    		<exclusion>
+    			<groupId>org.slf4j</groupId>
+    			<artifactId>slf4j-api</artifactId>
+    		</exclusion>
+    	</exclusions>
     </dependency>
   </dependencies>
 </project>

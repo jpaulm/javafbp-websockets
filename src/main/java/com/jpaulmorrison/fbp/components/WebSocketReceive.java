@@ -1,5 +1,5 @@
 /*
- * Copyright (C) J.P. Morrison, Enterprises, Ltd. 2009, 2014 All Rights Reserved. 
+ * Copyright (C) J.P. Morrison, Enterprises, Ltd. 2009, 2020, All Rights Reserved. 
  */
 package com.jpaulmorrison.fbp.components;
 
@@ -49,7 +49,7 @@ import javax.net.ssl.TrustManagerFactory;
 import org.java_websocket.WebSocket;
 
 import org.java_websocket.drafts.Draft;
-import org.java_websocket.drafts.Draft_6455;
+//import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.framing.CloseFrame;
 
 import org.java_websocket.handshake.*;

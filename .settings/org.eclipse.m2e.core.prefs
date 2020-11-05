@@ -1,4 +1,4 @@
-activeProfiles=org.slf4j\:slf4j-simple\:1.7.25,com.jpaulmorrison\:javafbp\:4.1.6,org.java-websocket\:Java-WebSocket\:1.5.1
+activeProfiles=
 eclipse.preferences.version=1
-resolveWorkspaceProjects=false
+resolveWorkspaceProjects=true
 version=1

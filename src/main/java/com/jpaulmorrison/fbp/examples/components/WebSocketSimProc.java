@@ -11,6 +11,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeNode;
 
 import com.jpaulmorrison.fbp.core.engine.*;
 /**
@@ -162,14 +163,14 @@ public class WebSocketSimProc extends Component {
         
 	}
 
-	@SuppressWarnings("unchecked")
+
 	private DefaultMutableTreeNode findChild(DefaultMutableTreeNode current,
 			String t) {
 		if (current == null)
 			return null;
-		Enumeration<DefaultMutableTreeNode> e = current.children();
+		Enumeration<TreeNode> e = current.children();
 		while (e.hasMoreElements()) {
-			DefaultMutableTreeNode node = (e.nextElement());
+			DefaultMutableTreeNode node = (DefaultMutableTreeNode)e.nextElement();
 			Object obj = node.getUserObject();
 			if (t.equals((String) obj))
 				return node;
