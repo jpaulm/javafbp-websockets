@@ -9,9 +9,9 @@ General web site on Flow-Based Programming: https://jpaulm.github.io/fbp/ .
 General
 ---
 
-**Latest release: `javafbp-websockets-1.2.5`** 
+**Latest release: `javafbp-websockets-1.2.6`** 
 
-The jar file can be obtained from `build/libs/`, Releases, and Maven.   The new release should be up on Maven shortly, although the shield (below) will show the new release number earlier.  The Maven shield is below.
+The jar file can be obtained from `build/libs/`, Releases, and Maven.   The new release should be up on Maven shortly, although the shield (below) will show the new release number for a while.  The Maven shield is below.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
 
@@ -19,7 +19,9 @@ This project comprises some components which support WebSockets for JavaFBP, plu
 
 The key concept here is that of "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream provides the context information, including an indication of which client sent it.
 
-The underlying code (`Java-WebSocket`) does not support a mix of `ws:` and `wss:`, so this is specified in an optional IIP in the network definition: the default (no `OPT` IIP) specifies support for `ws:`; `OPT` IIP cotaining a value of `"TLS"` specifies `wss:`.
+**Note:** The underlying code (`Java-WebSocket`) does not support *mixing* `ws:` and `wss:`, so this is specified in an optional IIP in the network definition: the default (no `OPT` IIP) specifies support for `ws:`; `OPT` IIP containing a value of `"TLS"` specifies `wss:`.
+
+A dummy `keystore.jks` file has been povided so that you can try the test case.
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
