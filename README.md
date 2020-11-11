@@ -17,9 +17,9 @@ The jar file can be obtained from `build/libs/`, Releases, and Maven.   The new 
 
 This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see the [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) web page - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`. 
 
-The key concept here is that of "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream provides the context information, including an indication of which client sent it.
+The key concept here is that of FBP "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream (right after the `open bracket`) provides the context information, including an indication of which client sent it.  This is also used to direct the output to the correct client.
 
-**Note:** The underlying code (`Java-WebSocket`) does not support *mixing* `ws:` and `wss:`, so this is specified in a file: `C:\Users\user_name\tlsparmfile.txt`.  If it contains `TLS`, this indicates `wss:`; any other value indicates `ws:`.   
+**Note:** The underlying code (`Java-WebSocket`) does not support *mixing* `ws:` and `wss:`, so this is specified in an option file: `C:Users\user_name\tlsparmfile.txt`, which will contain the string `TLS` to specify `wss:`.  Any other value specifies `ws:`.
 
 A dummy `keystore.jks` file has been povided so that you can try the test case.
 
@@ -40,9 +40,9 @@ Password handling not yet set up, so...
 
 - Supports Chrome executing client scripts `chatx.html` (`chat1` uses `ws:`, `chat2` uses `wss:`).  `chrome://flags/#allow-insecure-localhost` is needed for `chat2`.
 
-- As stated above, the test network must specify a value of `"TLS"` in optional IIP `OPT` to support `chat2.html`.
+- As stated above, the test network must specify a value of `TLS` in the user's `tlsparmfile` text file to support `chat2.html` (using Chrome).
 
-- Port number 9003 used previously - seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
+- Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
 
 Prerequisites
 ---
@@ -67,11 +67,13 @@ If you already created an Eclipse project you can run:
 Using SSL
 ----
 
-https://stackoverflow.com/questions/5874390/how-do-you-use-https-ssl-on-localhost
+<!-- https://stackoverflow.com/questions/5874390/how-do-you-use-https-ssl-on-localhost  -->
 
 As of now (Oct. 14, 2020), the `chat2` script requires that you set the `chrome://flags/#allow-insecure-localhost` option in Chrome first
 
 `chat1.html` uses `ws:`; `chat2.html` uses `wss:`. 
+
+For the above reason, `chat2.html` can only be run with Chrome, while `chat1.html` can be run with any browser (tested with Firefox and Chrome).
 
 Running a test
 ----
@@ -81,7 +83,7 @@ For those of you new to Flow-Based Programming, I should stress that this server
 
 To run this test, download the jar file - then position the current directory to your `javafbp-websockets` directory.
 
-Now in DOS, run this command:
+Now in Dos, run this command:
     
      java -jar build\libs\javafbp-websockets-x.y.z.jar
     
@@ -91,7 +93,9 @@ where `x.y.z` is the current version number
 
 This will display the message `WebSocketServer starting` on the console, followed by `server started successfully`.
 
-This particular test case only supports a client HTML5 script called `chat2.html` in `src/main/resources/scripts`.  This script supports two commands which are sent over to the server logic:
+This particular test case supports two client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts`.  As stated above, to run `chat2.html`, the option file: `C:Users\user_name\tlsparmfile.txt` must contain the string `TLS`.  
+
+These scripts in turn support two commands which can be sent over to the server logic - other values will be rejected:
 
 - `complist` will cause the server to display the contents of any selected jar file (specified in the `Data` field), and
 - `namelist` will cause the server to just output 3 names of restaurants in my neighbourhood!
