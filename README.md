@@ -79,28 +79,22 @@ This project has one test network, which runs as a server, communicating with an
 
 For those of you new to Flow-Based Programming, I should stress that this server network is illustrative only - this network is just intended to illustrate the concepts, although there *are* two prewritten, pretested components, which you will use to build your own JavaFBP-WebSockets server:  `WebSocketReceive` and `WebSocketRespond`.  This network also contains a single simple "processing" component - https://github.com/jpaulm/javafbp-websockets/blob/master/src/main/java/com/jpaulmorrison/fbp/examples/components/WebSocketSimProc.java - included to show how your processing logic will handle `open` and `close bracket` IPs, and of course to give you something to run!  Just for fun, I have coded two paths in this component: one which just generates 3 IPs, and one with unpacks a Java `jar` file, based on an incoming "command" string. 
 
-To run this test, download the jar file - you can then run the command-line test Server code in the project directory by entering
+To run this test, download the jar file - then position the current diretory to your `javafbp-websockets` directory.
+
+Now in Dos, run this command:
     
-     java -cp "build/libs/javafbp-websockets-x.y.z.jar"  com.jpaulmorrison.fbp.examples.networks.TestWebSockets
+     java -jar build\libs\javafbp-websockets-x.y.z.jar
     
-where `x.y.z` is the current version number (note the double quotes).
+where `x.y.z` is the current version number
 
 <!--In *nix, replace the ; with :.-->
 
-This will display the message `WebSocketServer starting` on the console.
+This will display the message `WebSocketServer starting` on the console, followed by `server started successfully`.
 
-Alternatively, select Run or Debug under Eclipse.
-
-The client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts` support two commands which are sent over to the server logic:
+This particular test case only supports a client HTML5 script called `chat2.html` in `src/main/resources/scripts`.  This script supports two commands which are sent over to the server logic:
 
 - `complist` will cause the server to display the contents of any selected jar file (specified in the `Data` field), and
 - `namelist` will cause the server to just output 3 names of restaurants in my neighbourhood!
-
-To run the test:
-- start `TestWebSockets`
-- open `src/main/resources/scripts/chat1.html` and/or `src/main/resources/scripts/chat2.html` with <!--your favorite web browser--> Chrome 
-
-There are two `chatx` scripts - see above. Let's say you select `chat1.html`:
 
 At this point you should see something like:
 ![chat1](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Screen.png "Initial output of chat1")
