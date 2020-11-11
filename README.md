@@ -19,7 +19,7 @@ This project comprises some components which support WebSockets for JavaFBP, plu
 
 The key concept here is that of "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream provides the context information, including an indication of which client sent it.
 
-**Note:** The underlying code (`Java-WebSocket`) does not support *mixing* `ws:` and `wss:`, so this is specified in an optional IIP in the network definition: the default (no `OPT` IIP) specifies support for `ws:`; `OPT` IIP containing a value of `"TLS"` specifies `wss:`.
+**Note:** The underlying code (`Java-WebSocket`) does not support *mixing* `ws:` and `wss:`, so this is specified in a file: `C:\Users\user_name\tlsparmfile.txt`.  If it contains `TLS`, this indicates `wss:`; any other value indicates `ws:`.   
 
 A dummy `keystore.jks` file has been povided so that you can try the test case.
 
@@ -81,7 +81,7 @@ For those of you new to Flow-Based Programming, I should stress that this server
 
 To run this test, download the jar file - then position the current directory to your `javafbp-websockets` directory.
 
-Now in Dos, run this command:
+Now in DOS, run this command:
     
      java -jar build\libs\javafbp-websockets-x.y.z.jar
     
