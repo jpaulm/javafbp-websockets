@@ -79,7 +79,7 @@ This project has one test network, which runs as a server, communicating with an
 
 For those of you new to Flow-Based Programming, I should stress that this server network is illustrative only - this network is just intended to illustrate the concepts, although there *are* two prewritten, pretested components, which you will use to build your own JavaFBP-WebSockets server:  `WebSocketReceive` and `WebSocketRespond`.  This network also contains a single simple "processing" component - https://github.com/jpaulm/javafbp-websockets/blob/master/src/main/java/com/jpaulmorrison/fbp/examples/components/WebSocketSimProc.java - included to show how your processing logic will handle `open` and `close bracket` IPs, and of course to give you something to run!  Just for fun, I have coded two paths in this component: one which just generates 3 IPs, and one with unpacks a Java `jar` file, based on an incoming "command" string. 
 
-To run this test, download the jar file - then position the current diretory to your `javafbp-websockets` directory.
+To run this test, download the jar file - then position the current directory to your `javafbp-websockets` directory.
 
 Now in Dos, run this command:
     
