@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jpaulmorrison</groupId>
   <artifactId>javafbp-websockets</artifactId>
-  <version>1.2.5</version>
+  <version>1.2.6</version>
   <inceptionYear>2016</inceptionYear>
   <licenses>
     <license>
@@ -18,13 +18,7 @@
       <artifactId>Java-WebSocket</artifactId>
       <version>1.5.1</version>
       <scope>compile</scope>
-      <exclusions>
-      	<exclusion>
-      		<groupId>org.slf4j</groupId>
-      		<artifactId>slf4j-api</artifactId>
-      	</exclusion>
-      </exclusions>
-    </dependency>
+         </dependency>
     <dependency>
     	<groupId>com.jpaulmorrison</groupId>
     	<artifactId>javafbp</artifactId>
@@ -34,12 +28,7 @@
     	<groupId>org.slf4j</groupId>
     	<artifactId>slf4j-simple</artifactId>
     	<version>1.7.30</version>
-    	<exclusions>
-    		<exclusion>
-    			<groupId>org.slf4j</groupId>
-    			<artifactId>slf4j-api</artifactId>
-    		</exclusion>
-    	</exclusions>
-    </dependency>
+    	<scope>runtime</scope>
+    </dependency>       
   </dependencies>
 </project>

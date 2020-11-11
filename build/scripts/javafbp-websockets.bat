@@ -82,7 +82,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\javafbp-websockets-1.2.6.jar;%APP_HOME%\lib\javafbp-4.1.7.jar;%APP_HOME%\lib\Java-WebSocket-1.5.1.jar;%APP_HOME%\lib\slf4j-simple-1.7.25.jar;%APP_HOME%\lib\gson-2.8.6.jar;%APP_HOME%\lib\slf4j-api-1.7.25.jar
+set CLASSPATH=%APP_HOME%\lib\javafbp-websockets-1.2.6.jar;%APP_HOME%\lib\javafbp-4.1.11.jar;%APP_HOME%\lib\Java-WebSocket-1.5.1.jar;%APP_HOME%\lib\slf4j-simple-1.7.25.jar;%APP_HOME%\lib\slf4j-api-1.7.25.jar
 
 
 @rem Execute javafbp-websockets

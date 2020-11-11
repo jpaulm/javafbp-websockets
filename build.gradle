@@ -31,7 +31,6 @@ apply plugin: 'application'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 apply plugin: 'java-library'
-//apply plugin: 'de.marcphilipp.nexus-publish'  // check it out!
 
    
 }
@@ -71,9 +70,9 @@ java {
 
 dependencies {		
 	
-	compileOnly  'com.jpaulmorrison:javafbp:4.1.11' 
-	compileOnly 'org.java-websocket:Java-WebSocket:1.5.1'
-	compileOnly 'org.slf4j:slf4j-simple:1.7.25'
+	implementation  'com.jpaulmorrison:javafbp:4.1.11' 
+	implementation 'org.java-websocket:Java-WebSocket:1.5.1'
+	implementation 'org.slf4j:slf4j-simple:1.7.25'
 	
 }
 
@@ -91,15 +90,11 @@ jar {
     archiveBaseName = project.name
     from sourceSets.main.output       
       
-    //dependsOn configurations.compileClasspath
+    dependsOn configurations.compileClasspath
    
-    //from {       
-    //  configurations.compileClasspath.findAll {  it.name.endsWith('jar')  }.collect {   zipTree(it)  }  
-    //  }
-    
-      
-   
-     
+    from {       
+     configurations.compileClasspath.findAll {  it.name.endsWith('jar')  }.collect {   zipTree(it)  }  
+     }
 }
 
 
