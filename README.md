@@ -19,9 +19,9 @@ This project comprises some components which support WebSockets for JavaFBP, plu
 
 The key concept here is that of FBP "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream (right after the `open bracket`) provides the context information, including an indication of which client sent it.  This is also used to direct the output to the correct client.
 
-**Note:** The underlying code (`Java-WebSocket`) does not support *mixing* `ws:` and `wss:`, so this is specified in an option file: `C:Users\user_name\tlsparmfile.txt`, which will contain the string `TLS` to specify `wss:`.  Any other value specifies `ws:`.
+**Note:** This code will no longer support `ws:`.  To run the `chat2.html`, use Chrome, and specify `chrome://flags/#allow-insecure-localhost` .
 
-A dummy `keystore.jks` file has been povided so that you can try the test case.
+A dummy `keystore.jks` file has been provided so that you can try the test case.
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
@@ -38,9 +38,7 @@ Test Status of latest release
 
 Password handling not yet set up, so...
 
-- Supports Chrome executing client scripts `chatx.html` (`chat1` uses `ws:`, `chat2` uses `wss:`).  `chrome://flags/#allow-insecure-localhost` is needed for `chat2`.
-
-- As stated above, the test network must specify a value of `TLS` in the user's `tlsparmfile` text file to support `chat2.html` (using Chrome).
+- Run `chat2.html` under Chrome, using `chrome://flags/#allow-insecure-localhost`.
 
 - Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
 
@@ -69,11 +67,7 @@ Using SSL
 
 <!-- https://stackoverflow.com/questions/5874390/how-do-you-use-https-ssl-on-localhost  -->
 
-As of now (Oct. 14, 2020), the `chat2` script requires that you set the `chrome://flags/#allow-insecure-localhost` option in Chrome first
-
-`chat1.html` uses `ws:`; `chat2.html` uses `wss:`. 
-
-For the above reason, `chat2.html` can only be run with Chrome, while `chat1.html` can be run with any browser (tested with Firefox and Chrome).
+As of now (Oct. 14, 2020), the `chatx` scripts require that you set the `chrome://flags/#allow-insecure-localhost` option in Chrome first
 
 Running a test
 ----
@@ -83,7 +77,7 @@ For those of you new to Flow-Based Programming, I should stress that this server
 
 To run this test, download the jar file - then position the current directory to your `javafbp-websockets` directory.
 
-Now in Dos, run this command:
+Now in DOS, run this command:
     
      java -jar build\libs\javafbp-websockets-x.y.z.jar
     
