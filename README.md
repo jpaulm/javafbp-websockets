@@ -21,7 +21,11 @@ The key concept here is that of FBP "substreams", where each substream is delimi
 
 **Note:** This code will no longer support `ws:`.  To run the `chat2.html`, use Chrome, and specify `chrome://flags/#allow-insecure-localhost` .
 
-A dummy `keystore.jks` file has been provided so that you can try the test case.
+To run with this option disabled, you will need a `keystore.jks` file. This can be generated using this command from a `CMD` window:
+
+`keytool -genkey -keyalg RSA -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"`
+
+**This function is not working yet - please use `allow-insecure-localhost` option in Chrome in the meantime. 
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
