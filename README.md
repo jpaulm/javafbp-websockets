@@ -25,6 +25,8 @@ To run with this option disabled, you will need a `keystore.jks` file. This can 
 
 `keytool -genkey -keyalg RSA -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"`
 
+and copy the resulting `keystore.jks` file to `src\main\resources` (subject to change in later releases).
+
 **This function is not working yet - please use `allow-insecure-localhost` option in Chrome in the meantime.** 
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
