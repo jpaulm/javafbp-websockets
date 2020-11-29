@@ -93,14 +93,12 @@ where `x.y.z` is the current version number
 
 This will display the message `WebSocketServer starting` on the console, followed by `server started successfully`.
 
-This particular test case supports two client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts`.  As stated above, to run `chat2.html`, the option file: `C:Users\user_name\tlsparmfile.txt` must contain the string `TLS`.  
-
-These scripts in turn support two commands which can be sent over to the server logic - other values will be rejected:
+This particular test case supports two client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts`.  These scripts in turn support two commands which can be sent over to the server logic - other values will be rejected:
 
 - `complist` will cause the server to display the contents of any selected jar file (specified in the `Data` field), and
 - `namelist` will cause the server to just output 3 names of restaurants in my neighbourhood!
 
-At this point you should see something like:
+Let's say you select `chat1.html` and open with Chrome.  At this point you should see something like:
 ![chat1](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Screen.png "Initial output of chat1")
 
 Fig. 1.
@@ -126,12 +124,6 @@ You can click on `Send` multiple times, before clicking on `Stop WS`.
 
 Some information will be logged on the console - this uses the `SLF4J` tool (http://www.slf4j.org/).  If you want to change the logging level, change the `defaultLogLevel` value in `src\main\resources\simplelogger.properties` .
 
-For some information on how to construct your server program, see the last section of this web page.
-
-Logging
-----
-
-Logging parameters can be specified in `simplelogger.properties`, which can be found in `src/main/resources`.
 
 Closing down your test
 ---------
