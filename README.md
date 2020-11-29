@@ -19,15 +19,15 @@ This project comprises some components which support WebSockets for JavaFBP, plu
 
 The key concept here is that of FBP "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream (right after the `open bracket`) provides the context information, including an indication of which client sent it.  This is also used to direct the output to the correct client.
 
-**Note:** This code will no longer support `ws:`.  To run the `chat2.html`, use Chrome, and specify `chrome://flags/#allow-insecure-localhost` .
+**Note:** This code will no longer support `ws:`.  To run the `chat2.html`, use Chrome, and specify `chrome://flags/#allow-insecure-localhost` as Enabled.
 
-To run with this option disabled, you will need a `keystore.jks` file. This can be generated using this command from a `CMD` window:
+<!-- To run with this option disabled, you will need a `keystore.jks` file. This can be generated using this command from a `CMD` window:
 
 `keytool -genkey -keyalg RSA -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"`
 
 and copy the resulting `keystore.jks` file to `src\main\resources` (subject to change in later releases).
 
-**This function is not working yet - please use `allow-insecure-localhost` option in Chrome in the meantime.** 
+**This function is not working yet - please use `allow-insecure-localhost` option in Chrome in the meantime.**  -->
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
@@ -44,7 +44,7 @@ Test Status of latest release
 
 Password handling not yet set up, so...
 
-- Run `chat2.html` under Chrome, using `chrome://flags/#allow-insecure-localhost`.
+- Run `chat1.html` or `chat2.html` under Chrome, using `chrome://flags/#allow-insecure-localhost`.
 
 - Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
 
