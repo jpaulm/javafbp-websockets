@@ -4,7 +4,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jpaulmorrison</groupId>
   <artifactId>javafbp-websockets</artifactId>
-  <version>1.2.6</version>
+  <version>1.2.7</version>
+   <packaging>jar</packaging>
+ 
+  <name>slf4jconfig-log4j</name>
+  <url>http://maven.apache.org</url>
+ 
   <inceptionYear>2016</inceptionYear>
   <licenses>
     <license>
@@ -25,10 +30,20 @@
     	<version>4.1.11</version>
     </dependency>
     <dependency>
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-simple</artifactId>
+  <version>1.7.25</version>
+  <scope>test</scope>
+    </dependency>
+    <dependency>
     	<groupId>org.slf4j</groupId>
-    	<artifactId>slf4j-simple</artifactId>
-    	<version>1.7.30</version>
-    	<scope>runtime</scope>
-    </dependency>       
+    	<artifactId>slf4j-api</artifactId>
+    	<version>1.7.25</version>
+    </dependency>
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.17</version>
+    </dependency>
   </dependencies>
 </project>

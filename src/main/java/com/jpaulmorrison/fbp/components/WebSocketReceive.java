@@ -33,13 +33,11 @@ import java.io.FileInputStream;
  */
 
 import java.net.InetSocketAddress;
-import java.net.UnknownHostException;
-import java.nio.ByteBuffer;
 import java.nio.file.Paths;
 import java.security.KeyStore;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.net.ssl.KeyManagerFactory;
@@ -47,8 +45,8 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 
 import org.java_websocket.WebSocket;
-
 import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.InvalidDataException;
 //import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.framing.CloseFrame;
 
@@ -63,7 +61,7 @@ import com.jpaulmorrison.fbp.core.engine.*;
 public class WebSocketReceive extends Component {
 
   private InputPort portPort;
-  private InputPort optPort;
+  //private InputPort optPort;
   private OutputPort outPort;
   AtomicBoolean killsw;
   //LinkedList<Packet<?>> ll = null;
@@ -73,7 +71,7 @@ public class WebSocketReceive extends Component {
   
   @Override
   protected void execute() throws Exception {
-	boolean wss = false;  
+	//boolean wss = false;  
 	comp = this;  
 
 	//putGlobal("killsw", new Boolean(false));
@@ -88,7 +86,7 @@ public class WebSocketReceive extends Component {
     int port = i.intValue();
     drop (p);
     portPort.close();
-    
+    /*
     p = optPort.receive();
     if (p != null) {
     	if (p.getContent().equals("TLS"))
@@ -96,7 +94,10 @@ public class WebSocketReceive extends Component {
     	drop (p);
     }
     optPort.close();
+    */
 
+   // wss = true;
+    
     //WebSocketServer test = new MyWebSocketServer(port, new Draft_10());
     //WebSocketServer test = new MyWebSocketServer(port, new Draft_6455());
     WebSocketServer test = new MyWebSocketServer(new InetSocketAddress("localhost", port));
@@ -112,10 +113,10 @@ public class WebSocketReceive extends Component {
    
     try {
     	
-    	if (wss) {
+    	//if (wss) {
         // load up the key store
         String STORETYPE = "JKS";
-        String KEYSTORE = Paths.get("src", "test", "java", "org", "java_websocket", "keystore.jks")
+        String KEYSTORE = Paths.get("src", "main", "resources", "keystore.jks")
             .toString();
         String STOREPASSWORD = "storepassword";
         String KEYPASSWORD = "keypassword";
@@ -124,10 +125,12 @@ public class WebSocketReceive extends Component {
         File kf = new File(KEYSTORE);
         ks.load(new FileInputStream(kf), STOREPASSWORD.toCharArray());
 
-        //KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
-        KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+        KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
+        //KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
         kmf.init(ks, KEYPASSWORD.toCharArray());
-        TrustManagerFactory tmf = TrustManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+        //TrustManagerFactory tmf = TrustManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+        TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509");
+        
         tmf.init(ks);
 
         SSLContext sslContext = null;
@@ -136,7 +139,7 @@ public class WebSocketReceive extends Component {
         
  
         test.setWebSocketFactory(new DefaultSSLWebSocketServerFactory(sslContext));
-    	}
+    	//}
        
         test.setConnectionLostTimeout(0);        
         test.run();
@@ -145,33 +148,9 @@ public class WebSocketReceive extends Component {
     }
     
     
-  // test.setConnectionLostTimeout(0);
+   test.setConnectionLostTimeout(0);
    
-    //test.run();
- 
-   // test.start();
-    /*
-    while (true) {
-
-      try {
-        sleep(500); // sleep for 1/2 sec
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-        outPort.close();
-        test.stop();
-        // handle the exception...        
-        return;
-      }
-      //Boolean killsw = (Boolean) getGlobal("killsw");
-      if (killsw.get()) {
-    	// see also http://stackoverflow.com/questions/4812686/closing-websocket-correctly-html5-javascript
-    	outPort.close();
-        test.stop();
-        return;
-      }
-    }
-    */
-   
+     
   }
 
   /* (non-Javadoc)
@@ -181,12 +160,12 @@ public class WebSocketReceive extends Component {
   protected void openPorts() {
 
 	portPort = openInput("PORT");
-	optPort = openInput("OPT");
+	//optPort = openInput("OPT");
     outPort = openOutput("OUT");
 
   }  
 
-  class MyWebSocketServer extends WebSocketServer {
+  class MyWebSocketServer extends WebSocketServer {  // indirectly implements Runnable
 
     //private static int counter = 0;
 
@@ -194,18 +173,18 @@ public class WebSocketReceive extends Component {
     
    
     
-    public MyWebSocketServer(final int port, final Draft d) throws UnknownHostException {
-        super(new InetSocketAddress(port), Collections.singletonList(d));
-      }
+   // public MyWebSocketServer(final int port, final Draft d) throws UnknownHostException {
+   //     super(new InetSocketAddress(port), Collections.singletonList(d));
+   //   }
 
    // public MyWebSocketServer(final int port) throws UnknownHostException {
    //   super(new InetSocketAddress(port));
    // }
 
     
-	public MyWebSocketServer(final InetSocketAddress address, final Draft d) {
-     super(address, Collections.singletonList(d));
-    }
+	//public MyWebSocketServer(final InetSocketAddress address, final Draft d) {
+   //  super(address, Collections.singletonList(d));
+   // }
 
 	public MyWebSocketServer(final InetSocketAddress address) {
 	     super(address);
@@ -224,7 +203,6 @@ public class WebSocketReceive extends Component {
 	}
 
 	
-
 	@Override
 	public void onError(WebSocket conn, Exception ex) {
 		System.err.println("an error occurred on connection " + conn.getRemoteSocketAddress()  + ":" + ex);
@@ -234,15 +212,32 @@ public class WebSocketReceive extends Component {
 	public void onStart() {
 		System.out.println("server started successfully");
 	}
-
+/*
+	@Override
+	public ServerHandshakeBuilder onWebsocketHandshakeReceivedAsServer(WebSocket conn, Draft draft,
+		      ClientHandshake request) throws InvalidDataException {
+		    System.out.println(request);
+		    //    ServerHandshakeBuilder builder = super
+			//            .onWebsocketHandshakeReceivedAsServer(conn, draft, request);    
+		   return new HandshakeImpl1Server();
+		   // return builder;
+		  }
+	
+	@Override
+	public void onWebsocketHandshakeReceivedAsClient(WebSocket conn, ClientHandshake request,
+		      ServerHandshake response) throws InvalidDataException {
+		//To overwrite
+		System.out.println(request + ": " + response);
+		  }
+*/
 
     /*
 	 * Make sure that the substream comes out of a single port of a single process, all together...
 	 */
     
-		@SuppressWarnings("rawtypes")
-		@Override
-		public void onMessage(final WebSocket conn, final String message) {
+	@SuppressWarnings("rawtypes")
+	@Override
+	public void onMessage(final WebSocket conn, final String message) {
 
 			//WebSocketReceive wsr = (WebSocketReceive) comp;
 			//OutputPort outPort = wsr.getOutport();
@@ -292,34 +287,18 @@ public class WebSocketReceive extends Component {
 			ll.add(p2);
 			//outPort.send(p2);
 							
-			}
+	}
 
-		 
 
-    @Override
-    public void onMessage(final WebSocket conn, final ByteBuffer blob) {
-    	System.out.println(blob);
-      conn.send(blob);
-    }
+
+   //@Override
+   //public void onMessage(final WebSocket conn, final ByteBuffer blob) {
+  // System.out.println(blob);
+   //conn.send(blob);
+   //}
     
-    //public void onWebsocketMessageFragment(final WebSocket conn, final Framedata frame) {
-    //	System.out.println(frame);
-    //  FrameBuilder builder = (FrameBuilder) frame;
-    //  builder.setTransferemasked(false);
-    //  conn.sendFrame(frame);
-    //}
-    
-    /*
-    @Override
-    public void start() {
-      
-      comp = (Component) Thread.currentThread();
-
-      new Thread(this).start();
-    }
-
-    */
-
+	
   }
-
+ 
+ 
 }

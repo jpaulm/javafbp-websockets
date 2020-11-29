@@ -33,7 +33,8 @@ button {
 
   		//var portno = "9003";
   		var portno = "8887";
-		var chatClient = new WebSocket("ws://localhost:" + portno + "/websocket/chat");
+		var chatClient = new WebSocket("wss://localhost:" + portno + "/websocket/chat");
+		console.log(chatClient);
 		console.log('starting client html');
 
 		chatClient.onmessage = function(evt) {
@@ -112,7 +113,7 @@ button {
 </script>
 </head>
 <body>
-	<h1>WebSockets Example - Chat1</h1>
+	<h1>WebSockets Example - Chat2</h1>
 	
 	<p>
 		Command: <input type="text" id="message" name="message" />
@@ -122,11 +123,9 @@ button {
 	</p>
 	<button type="button" id="send" onclick="send()">Send</button>
 	<button type="button" id="stopws" onclick="stopws()">Stop WS</button>
-	
 	<ul id="container">
 
 	</ul>
-
 </body>
 
 </html>

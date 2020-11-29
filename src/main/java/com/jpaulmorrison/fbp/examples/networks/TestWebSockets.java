@@ -3,7 +3,6 @@
  */
 package com.jpaulmorrison.fbp.examples.networks;
 
-import com.jpaulmorrison.fbp.core.components.io.ReadFile;
 
 /* 
  * Useful info:  http://stackoverflow.com/questions/18900187/processing-how-to-send-data-through-websockets-to-javascript-application
@@ -37,7 +36,7 @@ public class TestWebSockets extends Network {
 		int multiplexNo = 6;
 		component("WSRcv", WebSocketReceive.class);
 		component("LBal", LoadBalance.class);
-		component("TLSParmRead", ReadFile.class);
+		//component("TLSParmRead", ReadFile.class);
 		
 		for (int i = 0; i < multiplexNo; i++) {
 			component("Process" + i, WebSocketSimProc.class);
@@ -47,12 +46,7 @@ public class TestWebSockets extends Network {
 
 		
 		initialize(Integer.valueOf(8887), "WSRcv.PORT");
-		//initialize("TLS", "WSRcv.OPT");
-		connect("TLSParmRead.OUT", "WSRcv.OPT");
-		initialize("C:\\Users" + File.separator + System.getProperty("user.name") + File.separator + "tlsparmfile.txt", "TLSParmRead.SOURCE");
-		connect("TLSParmRead.*", "WSRcv.*");
-
-
+		
 		connect("WSRcv.OUT", "LBal.IN", 4);
 		for (int i = 0; i < multiplexNo; i++) {
 			connect("LBal.OUT[" + i + "]", "RD" + i + ".IN", 4);

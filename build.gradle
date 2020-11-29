@@ -35,7 +35,7 @@ apply plugin: 'java-library'
    
 }
 
-version = '1.2.6'
+version = '1.2.7'
 
 group = 'com.jpaulmorrison'
 
@@ -139,7 +139,7 @@ description = "Create default maven directory structure"
         
             groupId = 'com.jpaulmorrison'
             artifactId = 'javafbp-websockets'       
-            version = '1.2.6'
+            version = '1.2.7'
            
             from components.java
            

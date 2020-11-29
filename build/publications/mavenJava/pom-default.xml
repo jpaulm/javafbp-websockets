@@ -9,7 +9,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jpaulmorrison</groupId>
   <artifactId>javafbp-websockets</artifactId>
-  <version>1.2.5</version>
+  <version>1.2.6</version>
   <name>JavaFBP-WebSockets</name>
   <description>JavaFBP support for web sockets</description>
   <url>https://github.com/jpaulm/javafbp-websockets</url>
@@ -35,7 +35,7 @@
     <dependency>
       <groupId>com.jpaulmorrison</groupId>
       <artifactId>javafbp</artifactId>
-      <version>4.1.6</version>
+      <version>4.1.11</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
