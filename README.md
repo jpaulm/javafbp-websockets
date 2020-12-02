@@ -11,7 +11,7 @@ General
 
 **Latest release: `javafbp-websockets-1.2.6`** 
 
-**Note: `wss:` is not working in client `chatx.html` files - change to `ws:` for the time being when using the jar file.**
+**Note: Jar file test is not currently working!**
 
 The jar file can be obtained from `build/libs/`, and Releases.  Maven still contains release 1.2 6. <!--  and Maven.   The new release should be up on Maven shortly, although the shield (below) will show the new release number for a while. --> The Maven shield is below.
 
