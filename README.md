@@ -11,6 +11,8 @@ General
 
 **Latest release: `javafbp-websockets-1.2.7`** 
 
+**Note: `wss:` not working in client `chatx.html` files - change to `ws:` for the time being.**
+
 The jar file can be obtained from `build/libs/`, and Releases.  Maven still contains release 1.2 6. <!--  and Maven.   The new release should be up on Maven shortly, although the shield (below) will show the new release number for a while. --> The Maven shield is below.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
