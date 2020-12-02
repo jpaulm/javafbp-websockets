@@ -9,7 +9,7 @@ General web site on Flow-Based Programming: https://jpaulm.github.io/fbp/ .
 General
 ---
 
-**Latest release: `javafbp-websockets-1.2.7`** 
+**Latest release: `javafbp-websockets-1.2.6`** 
 
 **Note: `wss:` is not working in client `chatx.html` files - change to `ws:` for the time being when using the jar file.**
 
