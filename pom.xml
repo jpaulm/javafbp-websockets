@@ -6,10 +6,10 @@
   <artifactId>javafbp-websockets</artifactId>
   <version>1.2.7</version>
    <packaging>jar</packaging>
- 
+ <!-- 
   <name>slf4jconfig-log4j</name>
   <url>http://maven.apache.org</url>
- 
+ -->
   <inceptionYear>2016</inceptionYear>
   <licenses>
     <license>
@@ -65,7 +65,7 @@
   <artifactId>slf4j-jdk14</artifactId>
   <version>1.7.30</version>
 </dependency>
--->
+--> 
 <dependency> 
   <groupId>ch.qos.logback</groupId>
   <artifactId>logback-classic</artifactId>

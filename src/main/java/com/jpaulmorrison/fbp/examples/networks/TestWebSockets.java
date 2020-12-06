@@ -45,7 +45,7 @@ public class TestWebSockets extends Network {
 		}
 
 		
-		initialize(Integer.valueOf(8887), "WSRcv.PORT");
+		initialize(Integer.valueOf(8887), "WSRcv.PORT"); 
 		
 		connect("WSRcv.OUT", "LBal.IN", 4);
 		for (int i = 0; i < multiplexNo; i++) {
