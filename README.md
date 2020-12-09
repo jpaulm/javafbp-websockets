@@ -21,13 +21,11 @@ This project comprises some components which support WebSockets for JavaFBP, plu
 
 The key concept here is that of FBP "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream (right after the `open bracket`) provides the context information, including an indication of which client sent it.  This is also used to direct the output to the correct client.
 
-**Note:** This code only supports `wss:`, not `ws:`, in clients `chat1.html` or `chat2.html`, in `...\GitHub\javafbp-websockets\src\main\resources\scripts`. To run these clients, use Chrome, create a self-signed certificate called keystore.jks, and store it in `c:\users\<user>\AppData\Local\JavaFBP-WebSockets\security`.
+**Note:** This code only supports `wss:`, not `ws:`, in clients `chat1.html` or `chat2.html`, in `...\GitHub\javafbp-websockets\src\main\resources\scripts`. To run these clients, use Chrome, create a self-signed certificate called keystore.jks, indicate that it is a trusted certificate, and store it in `c:\users\<user>\AppData\Local\JavaFBP-WebSockets\security`.
 
 The `keystore.jks` file can be generated using this command from a `CMD` window:
 
-`keytool -genkey -keyalg RSA -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"`
-
-and copying the resulting `keystore.jks` file to ``c:\users\<user>\AppData\Local\JavaFBP-WebSockets\security`.
+`keytool -genkey -keyalg RSA -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"`, substituting as appropriate in `-dname`, and copying the resulting `keystore.jks` file to `c:\users\<user>\AppData\Local\JavaFBP-WebSockets\security`.
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
