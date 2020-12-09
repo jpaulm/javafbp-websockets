@@ -42,10 +42,6 @@ JavaFBP Syntax and Component API:
 Test Status of latest release
 ---
 
-Password handling not yet set up, so...
-
-- Run `chat1.html` or `chat2.html` under Chrome, using `chrome://flags/#allow-insecure-localhost`.
-
 - Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
 
 Prerequisites
@@ -68,12 +64,6 @@ If you already created an Eclipse project you can run:
 
 -->
 
-Using SSL
-----
-
-<!-- https://stackoverflow.com/questions/5874390/how-do-you-use-https-ssl-on-localhost  -->
-
-As of now (Oct. 14, 2020), the `chatx` scripts require that you set the `chrome://flags/#allow-insecure-localhost` option in Chrome first
 
 Running a test
 ----
@@ -98,7 +88,7 @@ This particular test case supports two client HTML5 scripts called `chat1.html` 
 - `complist` will cause the server to display the contents of any selected jar file (specified in the `Data` field), and
 - `namelist` will cause the server to just output 3 names of restaurants in my neighbourhood!
 
-Let's say you select `chat1.html` and open with Chrome.  At this point you should see something like:
+Let's say you select `chat1.html` and Open With Chrome.  At this point you should see something like:
 ![chat1](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Screen.png "Initial output of chat1")
 
 Fig. 1.
