@@ -11,25 +11,23 @@ General
 
 **Latest release: `javafbp-websockets-1.2.7`** 
 
-**Note: Jar file test requires Chrome option `chrome://flags/#allow-insecure-localhost` to be Enabled.**
+**Note: Jar file test only runs with Chrome**
 
 The jar file can be obtained from `build/libs/`, and Releases.  Maven still contains release 1.2 6. <!--  and Maven.   The new release should be up on Maven shortly, although the shield (below) will show the new release number for a while. --> The Maven shield is below.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
 
-This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are basically **@tootallnate**'s AutobahnServerTest code - see the [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) web page - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`. 
+This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are based on **@tootallnate**'s AutobahnServerTest code - see the [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) web page - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`. 
 
 The key concept here is that of FBP "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream (right after the `open bracket`) provides the context information, including an indication of which client sent it.  This is also used to direct the output to the correct client.
 
-**Note:** This code only supports `wss:`, not `ws:`, in clients `chat1.html` or `chat2.html`, in `...\GitHub\javafbp-websockets\src\main\resources\scripts`. To run these clients, use Chrome, and specify `chrome://flags/#allow-insecure-localhost` as Enabled.
+**Note:** This code only supports `wss:`, not `ws:`, in clients `chat1.html` or `chat2.html`, in `...\GitHub\javafbp-websockets\src\main\resources\scripts`. To run these clients, use Chrome, create a self-signed certificate called keystore.jks, and store it in `c:\users\<user>\AppData\Local\JavaFBP-WebSockets\security`.
 
-<!-- To run with this option disabled, you will need a `keystore.jks` file. This can be generated using this command from a `CMD` window:
+The `keystore.jks` file can be generated using this command from a `CMD` window:
 
 `keytool -genkey -keyalg RSA -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"`
 
-and copy the resulting `keystore.jks` file to `src\main\resources` (subject to change in later releases).
-
-**This function is not working yet - please use `allow-insecure-localhost` option in Chrome in the meantime.**  -->
+and copying the resulting `keystore.jks` file to ``c:\users\<user>\AppData\Local\JavaFBP-WebSockets\security`.
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
