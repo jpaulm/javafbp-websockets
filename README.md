@@ -13,7 +13,7 @@ General
 
 **Note: Jar file test only runs with Chrome**
 
-The jar file can be obtained from `build/libs/`, and Releases.  Maven still contains release 1.2 6. <!--  and Maven.   The new release should be up on Maven shortly, although the shield (below) will show the new release number for a while. --> The Maven shield is below.
+The jar file can be obtained from `build/libs/`, Releases, and Maven.   The new release should be up on Maven shortly (there is a period when the shield shows the new release number, but it is not yet up on Maven). The Maven shield is below.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
 
@@ -21,7 +21,7 @@ This project comprises some components which support WebSockets for JavaFBP, plu
 
 The key concept here is that of FBP "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream (right after the `open bracket`) provides the context information, including an indication of which client sent it.  This is also used to direct the output to the correct client.
 
-**Note:** This code only supports `wss:`, not `ws:`, in clients `chat1.html` or `chat2.html`, in `...\GitHub\javafbp-websockets\src\main\resources\scripts`. To run these clients, use Chrome, create a self-signed certificate called `keystore.jks`, indicate that it is a **trusted** certificate, and store it in `c:\users\<user>\AppData\Local\JavaFBP-WebSockets\security`.
+**Note:** This code only supports `wss:`, not `ws:`, in clients `chat1.html` or `chat2.html`, in `...\GitHub\javafbp-websockets\src\main\resources\scripts`. To run these clients, use Chrome, create a self-signed certificate called `keystore.jks`, indicate that it is a **trusted** certificate, and store it in `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security` (Windows, of course).
 
 The `keystore.jks` file can be generated using this command from a `CMD` window:
 
