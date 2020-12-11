@@ -25,7 +25,7 @@ The key concept here is that of FBP "substreams", where each substream is delimi
 
 The `keystore.jks` file can be generated using this command from a `CMD` window:
 
-`keytool -genkey -keyalg RSA -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"`, substituting as appropriate in `-dname`, and copying the resulting `keystore.jks` file to `c:\users\<user>\AppData\Local\JavaFBP-WebSockets\security`.
+`keytool -genkey -keyalg RSA -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"`, substituting as appropriate in `-dname`, and copying the resulting `keystore.jks` file to `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security`.
 
 If you have trouble getting your certificate accepted, you can indicate to Chrome that it should accept an invalid certificate, by entering `chrome://flags/#allow-insecure-localhost` in the Chrome command line.
 
