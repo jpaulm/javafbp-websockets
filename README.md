@@ -112,7 +112,7 @@ Now click on `Stop WS`, and the application will close down.
 
 You can click on `Send` multiple times, before clicking on `Stop WS`.
 
-Some information will be logged on the console - this uses the `SLF4J` tool (http://www.slf4j.org/).  If you want to change the logging level, change the Root level value in `src\log4j2.xml`:
+Some information will be logged on the console - this uses the Apache logging `log4j` tool (plus LogBack?).  If you want to change the logging level, change the Root level value in `src\log4j2.xml`:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <Configuration status="WARN">
