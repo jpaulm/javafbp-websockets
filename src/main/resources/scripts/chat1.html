@@ -32,8 +32,7 @@ button {
 	if (window.WebSocket) {
 
   		var portno = "8887";
-  		//var portno = "443";
-		var chatClient = new WebSocket("wss://localhost:" + portno  /* + "/websocket/chat" */);
+		var chatClient = new WebSocket("wss://localhost:" + portno  + "/websocket/chat" );
 		console.log("ready state: " + chatClient.readyState);
 		console.log('starting client html');
 
@@ -110,6 +109,10 @@ button {
 		chatClient.send("@kill");
 
 	}
+	
+	//function onError =  function(event) {
+	//	console.log('Client error', event);
+	//}
 </script>
 </head>
 <body>

@@ -124,7 +124,7 @@ public class WebSocketReceive extends Component {
         //String KEYSTORE = Paths.get("src", "main", "resources", "keystore.jks")
         //    .toString();
         String KEYSTORE = "c:\\Users\\" + System.getProperty("user.name") +
-        		"\\Appdata\\Local\\JavaFBP-WebSockets\\security\\keystore.jks";
+       		"\\Appdata\\Local\\JavaFBP-WebSockets\\security\\keystore.jks";        
         
         System.out.println(KEYSTORE);		
         String STOREPASSWORD = "storepassword";
@@ -151,7 +151,7 @@ public class WebSocketReceive extends Component {
         //sslParameters.setNeedClientAuth(true); 	??????????	
         
         
-        SSLEngine engine = sslContext.createSSLEngine();
+        // SSLEngine engine = sslContext.createSSLEngine();
         //List<String> ciphers = new ArrayList<String>(Arrays.asList(engine.getEnabledCipherSuites()));
         //ciphers.remove("TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256");
         //List<String> protocols = new ArrayList<String>(Arrays.asList(engine.getEnabledProtocols()));
@@ -178,8 +178,9 @@ public class WebSocketReceive extends Component {
             if (killsw.get()) {
           	// see also http://stackoverflow.com/questions/4812686/closing-websocket-correctly-html5-javascript
           	outPort.close();
-              test.stop();
-              return;
+          	System.out.println("Closed 'outPort'");
+            test.stop();
+            return;
             }
           }
         
