@@ -168,7 +168,9 @@ Finally, I thought I would include a schematic of the server side of a Brokerage
 
 ![Brokerage App Schematic](https://jpaulm.github.io/fbp/EB2a.jpg "Schematic for Server Side of Brokerage Application (expand blocks, add caches, multiplexing)")
 
-It is of interest because it shows additional paths through the network, but to make a full-fledged app, it will need caches, subnets to be expanded, and parts can be multiplexed for performance.  The client side is represented only by the little stick figures - obviously they do not result in any code being generated (in *this* network)...
+It is of interest because it shows additional paths through the network, but to make a full-fledged app, it will need caches, subnets to be expanded, and parts can be multiplexed for performance.  The processes called "Back-end" communicate with offline (usually batch) functions, so their resulting outputs have to be coordinated with the requests sent to them.  
+
+The client side is represented only by the little stick figures - obviously they do not result in any code being generated (in *this* network)...
 
 
 Constructing a server program.
