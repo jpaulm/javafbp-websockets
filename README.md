@@ -164,13 +164,19 @@ Note that LoadBalance in JavaFBP has been updated to be sensitive to substreams 
 
 There is also a video on [YouTube](https://youtu.be/IvTAexROKSA) . 
 
+Finally, I thought I would include a schematic of the server side of a Brokerage package I worked on a few years ago...  
+
+![Brokerage App Schematic](https://jpaulm.github.io/fbp/EB2a.jpg "Schematic for Server Side of Brokerage Application (expand blocks, add caches, multiplexing)")
+
+It is of interest because it shows additional paths through the network, but to make a full-fledged app, it will need caches, subnets to be expanded, and parts can be multiplexed for performance.  The client side is represented only by the little stick figures - obviously they do not result in any code being generated (in *this* network)...
+
 
 Constructing a server program.
 ---
 
 As you can see from Fig. 3. above, the server code is basically a U-shape, with a `Receive` block at the top or start, and a `Respond` block at the bottom or end.  
 
-If this were control flow, you might think that each process is invoked and then returns.  Instead, in FBP, each process is a separate machine that **keeps running** as long as it is fed requests from the client or clients - and all the processes comprising the "U" run concurrently! `Receive` doesn't just run once and then terminate - it sits and waits for data to arrive from WebSockets, passes it on, and goes back to waiting patiently.  Same for `Respond`: its job is to wait for data to come from the processing logic, send it to WebSockets and go back to waiting - same for any other blocks on the server side.  Different mental image - I just wanted to stress that!
+If this were control flow, you might think that each process is invoked and then returns.  Instead, in FBP, each process is a separate machine that *keeps running* as long as it is fed requests from the client or clients - and all the processes comprising the "U" run concurrently! `Receive` doesn't just run once and then terminate - it sits and waits for data to arrive from WebSockets, passes it on, and goes back to waiting patiently.  Same for `Respond`: its job is to wait for data to come from the processing logic, send it to WebSockets and go back to waiting - same for any other blocks on the server side.  Different mental image - I just wanted to stress that!
 
 As described above, communication within the server is mediated by what are called "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`. The first IP of each substream provides the context information, including an indication of which client sent it.  This means that any processes within the server have to "understand" substreams.  Of course, between the `Receive` and `Respond`, you can have any pattern of processes and subnets that accepts a substream and outputs another one!
 
