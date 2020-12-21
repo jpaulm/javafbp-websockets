@@ -126,7 +126,7 @@ public class WebSocketReceive extends Component {
         String KEYSTORE = "c:\\Users\\" + System.getProperty("user.name") +
        		"\\Appdata\\Local\\JavaFBP-WebSockets\\security\\keystore.jks";        
         
-        System.out.println(KEYSTORE);		
+        //System.out.println(KEYSTORE);		
         String STOREPASSWORD = "storepassword";
         String KEYPASSWORD = "keypassword";
 
@@ -178,7 +178,7 @@ public class WebSocketReceive extends Component {
             if (killsw.get()) {
           	// see also http://stackoverflow.com/questions/4812686/closing-websocket-correctly-html5-javascript
           	outPort.close();
-          	System.out.println("Closed 'outPort'");
+          	//System.out.println("Closed 'outPort'");
             test.stop();
             return;
             }
