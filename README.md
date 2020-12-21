@@ -21,7 +21,7 @@ This project comprises some components which support WebSockets for JavaFBP, plu
 
 The key concept here is that of FBP "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream (right after the `open bracket`) provides the context information, including an indication of which client sent it.  This is also used to direct the output to the correct client.
 
-**Note:** This code only supports `wss:`, not `ws:`, in clients `chat1.html` or `chat2.html`, in `...\GitHub\javafbp-websockets\src\main\resources\scripts`. To run these clients, use Chrome, create a self-signed certificate called `keystore.jks`, indicate that it is a **trusted** certificate, and store it in `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security` (Windows, of course).
+**Note:** This code only supports `wss:`, not `ws:`, in clients `chat1.html` or `chat2.html`, in `...\GitHub\javafbp-websockets\src\main\resources\scripts`. To run these clients, use Chrome, create a self-signed certificate called `keystore.jks`, indicate that it is a **trusted** certificate (for Windows use MMC), and store it in `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security` (Windows, of course).
 
 The `keystore.jks` file can be generated using this command from a `CMD` window:
 
