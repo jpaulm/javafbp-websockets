@@ -9,7 +9,7 @@ General web site on Flow-Based Programming: https://jpaulm.github.io/fbp/ .
 General
 ---
 
-**Latest release: `javafbp-websockets-1.2.7`** 
+**Latest release: `javafbp-websockets-1.2.8`** 
 
 **Note: Jar file test only runs with Chrome**
 
