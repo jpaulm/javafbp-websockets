@@ -3,6 +3,8 @@ JavaFBP-WebSockets
 
 ### JavaFBP Support for WebSockets 
 
+This project uses JavaFBP for the server side, HTML5 and JavaScript for the clients.
+
 General web site on Flow-Based Programming: https://jpaulm.github.io/fbp/ .
 
 
