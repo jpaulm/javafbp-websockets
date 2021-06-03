@@ -3,7 +3,7 @@ JavaFBP-WebSockets
 
 ### JavaFBP Support for WebSockets 
 
-This project uses JavaFBP for the server side, HTML5 and JavaScript for the clients.
+This project uses JavaFBP for the server side, HTML5 and JavaScript for the clients.  It uses modules from **@tootallnate**'s Java-WebSocket GitHub project - see the [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) web page. 
 
 General web site on Flow-Based Programming: https://jpaulm.github.io/fbp/ .
 
@@ -19,7 +19,7 @@ The jar file can be obtained from `build/libs/`, and Releases. Maven has the pre
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
 
-This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are based on **@tootallnate**'s AutobahnServerTest code - see the [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) web page - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`. 
+This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are based on the "AutobahnServerTest" code on the [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) web page - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`. 
 
 The key concept here is that of FBP "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream (right after the `open bracket`) provides the context information, including an indication of which client sent it.  This is also used to direct the output to the correct client.
 
