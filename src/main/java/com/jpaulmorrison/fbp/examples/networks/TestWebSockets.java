@@ -14,8 +14,6 @@ package com.jpaulmorrison.fbp.examples.networks;
 import com.jpaulmorrison.fbp.core.components.routing.LoadBalance;
 import com.jpaulmorrison.fbp.core.components.routing.RandomDelay;
 
-import java.io.File;
-
 import com.jpaulmorrison.fbp.components.WebSocketReceive;
 import com.jpaulmorrison.fbp.components.WebSocketRespond;
 import com.jpaulmorrison.fbp.core.engine.Network;

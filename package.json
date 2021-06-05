@@ -1,0 +1,31 @@
+{
+  "name": "javafbp-websockets",
+  "version": "1.2.8",
+  "description": "Client-server project using JavaFBP for server, and JavaScript/HTML for clients ",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpaulm/javafbp-websockets.git"
+  },
+  "keywords": [
+    "fbp",
+    "flow-based-programming",
+    "websockets",
+    "html5"
+  ],
+  "author": "J. Paul Morrison",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpaulm/javafbp-websockets/issues"
+  },
+  "homepage": "https://github.com/jpaulm/javafbp-websockets",
+  "dependencies": {
+    "assemblyscript": "^0.18.11",
+    "javafbp": "^4.1.11",
+    "snyk": "^1.425.4"
+  },
+  "directories": {
+    "doc": "docs",
+    "scripts": "src/main/resources/scripts/"
+  },
+  "snyk": true
+}

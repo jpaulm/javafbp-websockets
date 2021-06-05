@@ -168,6 +168,7 @@ public class WebSocketSimProc extends Component {
 			String t) {
 		if (current == null)
 			return null;
+		@SuppressWarnings("unchecked")
 		Enumeration<TreeNode> e = current.children();
 		while (e.hasMoreElements()) {
 			DefaultMutableTreeNode node = (DefaultMutableTreeNode)e.nextElement();

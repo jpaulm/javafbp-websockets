@@ -32,7 +32,11 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 apply plugin: 'java-library'
 
-   
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked"
+    }
+}
 }
 
 version = '1.2.8'
@@ -63,10 +67,10 @@ repositories {
 
 
 	
-java {       
-     withSourcesJar()
-     withJavadocJar()
-}
+//java {       
+ //    withSourcesJar()
+ //    withJavadocJar()
+//}
 
 dependencies {		
 	
@@ -89,14 +93,14 @@ jar {
       
        
     //baseName = project.name + '-all'
-    archiveBaseName = project.name
+    //archiveBaseName = project.name
     from sourceSets.main.output       
       
     dependsOn configurations.compileClasspath
    
-    from {       
-     configurations.compileClasspath.findAll {  it.name.endsWith('jar')  }.collect {   zipTree(it)  }  
-     }
+    //from {       
+    // configurations.compileClasspath.findAll {  it.name.endsWith('jar')  }.collect {   zipTree(it)  }  
+    // }
 }
 
 
@@ -141,7 +145,7 @@ description = "Create default maven directory structure"
         
             groupId = 'com.jpaulmorrison'
             artifactId = 'javafbp-websockets'       
-            version = '1.2.8'
+            version = project.version
            
             from components.java
            

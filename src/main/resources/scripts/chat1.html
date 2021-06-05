@@ -32,10 +32,24 @@ button {
 	if (window.WebSocket) {
 
   		var portno = "8887";
-		var chatClient = new WebSocket("wss://localhost:" + portno  + "/websocket/chat" );
+		var chatClient = new WebSocket("ws://localhost:" + portno  + "/websocket/chat" );
+		var message = document.getElementById("message");
+		//var jarfile = document.getElementById("jarfile");
 		console.log("ready state: " + chatClient.readyState);
 		console.log('starting client html');
-
+		
+		document.addEventListener("keyup", function(event) {
+         // Number 13 is the "Enter" key on the keyboard
+         if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            
+            // Trigger the button element with a click
+            document.getElementById("send").click();
+         }
+     }); 
+     
+		
 		chatClient.onmessage = function(evt) {
 			var container = document.getElementById("container");
 			//console.log(typeof evt.data);			
@@ -58,6 +72,7 @@ button {
 		alert("WebSocket NOT supported by your Browser!");
 	}
 
+    
 	function send() {
 
 		var message = document.getElementById("message");
@@ -84,7 +99,7 @@ button {
 		chatClient.send("@}");
 	}
 
- chatClient.onopen = function(event) {
+     chatClient.onopen = function(event) {
 		console.log('Connection opened ', event);
 	}
 	
@@ -107,28 +122,32 @@ button {
 	function stopws() {
 
 		chatClient.send("@kill");
-
+		console.log('Server being closed down', event);
+		var status = document.getElementById("status");
+		status.innerHTML = "<b>End of dialog</b>";
 	}
 	
-	//function onError =  function(event) {
-	//	console.log('Client error', event);
-	//}
+	
 </script>
 </head>
 <body>
 	<h1>WebSockets Example - Chat1</h1>
 	
 	<p>
-		Command: <input type="text" id="message" name="message" />
+		Command: <input type="text" id="message" name="message" ></input>
 	</p>
 	<p>
 		Data: <input type="text" id="jarfile" name="jarfile" />
+	</p>
+	<p>
+		Status: <output type="text" id="status" name="status" ></output>
 	</p>
 	<button type="button" id="send" onclick="send()">Send</button>
 	<button type="button" id="stopws" onclick="stopws()">Stop WS</button>
 	<ul id="container">
 
 	</ul>
+	
 </body>
 
 </html>

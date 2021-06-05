@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>WebSocket Example - Chat2</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/shtml; charset=UTF-8">
 //<link rel="shortcut icon" href="favicon.ico">
 <style>
 #container {
@@ -36,6 +36,20 @@ button {
 		var chatClient = new WebSocket("wss://localhost:" + portno  + "/websocket/chat" );
 		//alert(chatClient);
 
+	var message = document.getElementById("message");
+		//var jarfile = document.getElementById("jarfile");
+		console.log("ready state: " + chatClient.readyState);
+		console.log('starting client html');
+		
+		document.addEventListener("keyup", function(event) {
+         // Number 13 is the "Enter" key on the keyboard
+         if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click             
+            document.getElementById("send").click();
+         }
+     }); 
 		chatClient.onmessage = function(evt) {
 			var container = document.getElementById("container");
 			//alert(typeof evt.data);			
@@ -111,6 +125,9 @@ button {
 
 		chatClient.send("@kill");
 
+console.log('Server being closed down', event);
+		var status = document.getElementById("status");
+		status.innerHTML = "<b>End of dialog</b>";
 	}
 </script>
 </head>
@@ -123,12 +140,14 @@ button {
 	<p>
 		Data: <input type="text" id="jarfile" name="jarfile" />
 	</p>
+<p>
+		Status: <output type="text" id="status" name="status" ></output>
+	</p>
 	<button type="button" id="send" onclick="send()">Send</button>
 	<button type="button" id="stopws" onclick="stopws()">Stop WS</button>
 	<ul id="container">
-
 	</ul>
-</body>
+	</body>
 
 </html>
 
