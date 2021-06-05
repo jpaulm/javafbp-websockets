@@ -3,7 +3,7 @@ JavaFBP-WebSockets
 
 ### JavaFBP Support for WebSockets 
 
-This project uses [JavaFBP](https://github.com/jpaulm/javafbp) for the server side, HTML5 and JavaScript for the clients.  It uses modules from **@tootallnate**'s Java-WebSocket GitHub project - see the [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) web page. 
+This project uses [JavaFBP](https://github.com/jpaulm/javafbp) for the server side, HTML5 and JavaScript for the clients.  It also uses modules from **@tootallnate**'s Java-WebSocket GitHub project - see the [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) web page. 
 
 General web site on Flow-Based Programming: https://jpaulm.github.io/fbp/ .
 
@@ -13,23 +13,30 @@ General
 
 **Latest release: `javafbp-websockets-1.2.8`** 
 
-**Note: Jar file test only runs with Chrome**
+The jar file can be obtained from `build/libs/`, and Releases. Maven contains a previous release. <!--, and Maven.   The new release should be up on Maven shortly (there is a period when the shield shows the new release number, but it is not yet up on Maven).  The Maven shield is below.
 
-The jar file can be obtained from `build/libs/`, and Releases. Maven has the previous release.  <!--, and Maven.   The new release should be up on Maven shortly (there is a period when the shield shows the new release number, but it is not yet up on Maven). --> The Maven shield is below.
-
-[![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22)
+[![Maven Central](https://img.shields.io/maven-central/v/com.jpaulmorrison/javafbp-websockets.svg?label=JavaFBP-WebSockets)](https://search.maven.org/search?q=g:%22com.jpaulmorrison%22%20AND%20a:%22javafbp-websockets%22) -->
 
 This project comprises some components which support WebSockets for JavaFBP, plus a test case to illustrate their use.  The components are based on the "AutobahnServerTest" code on the [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) web page - split into two JavaFBP components: `WebSocketReceive` and `WebSocketRespond`. 
 
 The key concept here is that of FBP "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream (right after the `open bracket`) provides the context information, including an indication of which client sent it.  This is also used to direct the output to the correct client.
 
-**Note:** This code only supports `wss:`, not `ws:`, in clients `chat1.html` or `chat2.html`, in `...\GitHub\javafbp-websockets\src\main\resources\scripts`. To run these clients, use Chrome, create a self-signed certificate called `keystore.jks`, indicate that it is a **trusted** certificate (for Windows use MMC), and store it in `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security` (Windows, of course).
+**Note:** I have included two client scripts: `chat1.html` (using `ws:`) and `chat2.html` (using `wss:`), in `...\GitHub\javafbp-websockets\src\main\resources\scripts`. 
+
+`chat1` works with the test server (`TestWebSockets.java`), using both Firefox and Chrome as the client browser.
+
+<!-- `chat2` is partially working using Chrome as the client browser, provided you have specified `chrome://flags/#allow-insecure-localhost` (Enable) in the Chrome command line.-->
+`chat2` is not working!
+
+You may notice a large amount of unused code in the JavaFBP components, esp. in `WebSocketReceive.java`- this is intended for eventual use supporting certificates - help would be appreciated in getting it working!
+
+<!-- To run these clients, use Chrome, create a self-signed certificate called `keystore.jks`, indicate that it is a **trusted** certificate (for Windows use MMC), and store it in `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security` (Windows, of course).
 
 The `keystore.jks` file can be generated using this command from a `CMD` window:
 
 `keytool -genkey -keyalg RSA -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"`, substituting as appropriate in `-dname`, and copying the resulting `keystore.jks` file to `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security`.
 
-If you have trouble getting your certificate accepted, you can indicate to Chrome that it should accept an invalid certificate, by entering `chrome://flags/#allow-insecure-localhost` in the Chrome command line.
+If you have trouble getting your certificate accepted, you can indicate to Chrome that it should accept an invalid certificate, by entering `chrome://flags/#allow-insecure-localhost` in the Chrome command line. -->
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
