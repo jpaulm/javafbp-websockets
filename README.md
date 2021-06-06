@@ -24,7 +24,7 @@ This project comprises some components which support WebSockets for JavaFBP, plu
 
 The key concept here is that of FBP "substreams", where each substream is delimited by special Information Packets (IPs): `open bracket` and `close bracket`.  The first IP of each substream (right after the `open bracket`) provides the context information, including an indication of which client sent it.  This is also used to direct the output to the correct client.
 
-**Note:** I have included two client scripts: `chat1.html` (using `ws:`) and `chat2.html` (using `wss:`), in `...\GitHub\javafbp-websockets\src\main\resources\scripts`. 
+**Note:** I have included two client scripts: `chat1.html` (using `ws:`) and `chat2.html` (using `wss:`), in `...\GitHub\javafbp-websockets\src\main\resources\scripts` - see below: **Running a test**. 
 
 `chat1` works with the test server (`TestWebSockets.java`), using both Firefox and Chrome as the client browser.
 
