@@ -42,13 +42,18 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 
 import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft_6455;
+
+import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.drafts.Draft_6455;
+import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.CloseFrame;
 
 import org.java_websocket.handshake.*;
 import org.java_websocket.server.DefaultSSLWebSocketServerFactory;
 import org.java_websocket.server.WebSocketServer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -91,7 +96,7 @@ public class WebSocketReceive extends Component {
 		optPort.close();
 
 		InetSocketAddress isa = new InetSocketAddress("localhost", port);
-		WebSocketServer test = new MyWebSocketServer(isa, new Draft_6455());
+		MyWebSocketServer test = new MyWebSocketServer(isa, new Draft_6455());
 		// Draft 17 - Hybi 17/RFC 6455 and is currently supported by Chrome16+ and IE10.
 		// Draft 10 - Hybi 10. This draft is supported by Chrome15 and Firefox6-9.
 
@@ -243,19 +248,23 @@ public class WebSocketReceive extends Component {
 			System.out.println("server started successfully");
 		}
 
-		/*
-		 * @Override public ServerHandshakeBuilder
-		 * onWebsocketHandshakeReceivedAsServer(WebSocket conn, Draft draft,
-		 * ClientHandshake request) throws InvalidDataException {
-		 * System.out.println(request); // ServerHandshakeBuilder builder = super //
-		 * .onWebsocketHandshakeReceivedAsServer(conn, draft, request); return new
-		 * HandshakeImpl1Server(); // return builder; }
-		 * 
-		 * @Override public void onWebsocketHandshakeReceivedAsClient(WebSocket conn,
-		 * ClientHandshake request, ServerHandshake response) throws
-		 * InvalidDataException { //To overwrite System.out.println(request + ": " +
-		 * response); }
-		 */
+		
+		  @Override
+		  
+		  public ServerHandshakeBuilder  onWebsocketHandshakeReceivedAsServer(WebSocket conn, Draft draft,
+				  ClientHandshake request) throws InvalidDataException {
+		  System.out.println(request); 
+		  ServerHandshakeBuilder builder = super.onWebsocketHandshakeReceivedAsServer(conn, draft, request);
+		  return new  HandshakeImpl1Server(); // return builder; 
+		  }
+		  
+		  @Override 
+		  public void onWebsocketHandshakeReceivedAsClient(WebSocket conn,
+		  ClientHandshake request, ServerHandshake response) throws InvalidDataException { 
+			  //To overwrite 
+			  System.out.println(request + ": " +   response); 
+			  }
+		 
 
 		/*
 		 * Make sure that the substream comes out of a single port of a single process,
