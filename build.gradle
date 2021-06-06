@@ -96,11 +96,11 @@ jar {
     //archiveBaseName = project.name
     from sourceSets.main.output       
       
-    dependsOn configurations.compileClasspath
+   dependsOn configurations.compileClasspath
    
-    //from {       
-    // configurations.compileClasspath.findAll {  it.name.endsWith('jar')  }.collect {   zipTree(it)  }  
-    // }
+    from {       
+       configurations.compileClasspath.findAll {  it.name.endsWith('jar')  }.collect {   zipTree(it)  }  
+    }
 }
 
 
