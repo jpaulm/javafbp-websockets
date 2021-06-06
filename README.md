@@ -126,6 +126,8 @@ Now click on `Stop WS`, and the application will close down.
 
 You can click on `Send` multiple times, before clicking on `Stop WS`.
 
+Log4j Logging
+-------
 Some information will be logged on the console - this uses the Apache logging `log4j` tool (plus LogBack?).  If you want to change the logging level, change the Root level value in `src\log4j2.xml`:
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -142,9 +144,9 @@ Some information will be logged on the console - this uses the Apache logging `l
       </Loggers>
     </Configuration>
     
-JavaFBP tracing:
-
-Since this application uses JavaFBP, JvaFBP tracing is controlled by the `JavaFBPProperties.xml` file in your `<user>` directory.
+JavaFBP tracing
+------
+Since this application uses JavaFBP, JavaFBP tracing is controlled by the `JavaFBPProperties.xml` file in your `<user>` directory.
 
 
 Closing down your test
