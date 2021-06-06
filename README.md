@@ -141,6 +141,10 @@ Some information will be logged on the console - this uses the Apache logging `l
         </Root>
       </Loggers>
     </Configuration>
+    
+JavaFBP tracing:
+
+Since this application uses JavaFBP, JvaFBP tracing is controlled by the `JavaFBPProperties.xml` file in your `<user>` directory.
 
 
 Closing down your test
