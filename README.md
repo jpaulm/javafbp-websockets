@@ -104,6 +104,8 @@ This particular test case supports two client HTML5 scripts called `chat1.html` 
 - `complist` will cause the server to display the contents of any selected jar file (specified in the `Data` field), and
 - `namelist` will cause the server to just output 3 names of restaurants in my neighbourhood!
 
+**These scripts apparently have to be submitteed from the File Explorer - they do not seem to work when submitted from the Eclipse file list.**
+
 Let's say you select `chat1.html` and Open With Chrome.  At this point you should see something like:
 ![chat1](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/Screen.png "Initial output of chat1")
 
