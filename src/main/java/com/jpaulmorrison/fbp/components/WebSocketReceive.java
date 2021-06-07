@@ -43,10 +43,7 @@ import javax.net.ssl.TrustManagerFactory;
 
 import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft_6455;
-
-import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
-import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.CloseFrame;
 
@@ -70,7 +67,7 @@ public class WebSocketReceive extends Component {
 	// LinkedList<Packet<?>> ll = null;
 	HashMap<WebSocket, LinkedList<Packet<?>>> hm = null;
 
-	Component comp = null;
+	Component comp = null;  //  JavaFBP Component
 
 	@Override
 	protected void execute() throws Exception {
@@ -248,22 +245,23 @@ public class WebSocketReceive extends Component {
 			System.out.println("server started successfully");
 		}
 
-		
-		  @Override
-		  
-		  public ServerHandshakeBuilder  onWebsocketHandshakeReceivedAsServer(WebSocket conn, Draft draft,
-				  ClientHandshake request) throws InvalidDataException {
-		  System.out.println(request); 
-		  ServerHandshakeBuilder builder = super.onWebsocketHandshakeReceivedAsServer(conn, draft, request);
-		  return new  HandshakeImpl1Server(); // return builder; 
-		  }
-		  
-		  @Override 
-		  public void onWebsocketHandshakeReceivedAsClient(WebSocket conn,
-		  ClientHandshake request, ServerHandshake response) throws InvalidDataException { 
-			  //To overwrite 
-			  System.out.println(request + ": " +   response); 
-			  }
+		@Override
+
+		public ServerHandshakeBuilder onWebsocketHandshakeReceivedAsServer(WebSocket conn, Draft draft,
+				ClientHandshake request) throws InvalidDataException {
+			System.out.println(request);
+			String val = request.getFieldValue("Connection");
+			System.out.println("Connection: " + val);
+			ServerHandshakeBuilder builder = super.onWebsocketHandshakeReceivedAsServer(conn, draft, request);
+			return new HandshakeImpl1Server(); // return builder;
+		}
+
+		@Override
+		public void onWebsocketHandshakeReceivedAsClient(WebSocket conn, ClientHandshake request,
+				ServerHandshake response) throws InvalidDataException {
+			// To overwrite
+			System.out.println(request + ": " + response);
+		}
 		 
 
 		/*
