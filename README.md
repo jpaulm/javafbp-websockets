@@ -11,7 +11,7 @@ General web site on Flow-Based Programming: https://jpaulm.github.io/fbp/ .
 General
 ---
 
-**Latest release: `javafbp-websockets-1.2.8`** 
+**Latest release: `javafbp-websockets-1.3.0`** 
 
 The jar file can be obtained from `build/libs/`, and Releases. Maven contains a previous release. 
 
