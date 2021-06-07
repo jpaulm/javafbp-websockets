@@ -26,12 +26,7 @@ The key concept here is that of FBP "substreams", where each substream is delimi
 
 **Note:** I have included two client scripts: `chat1.html` (using `ws:`) and `chat2.html` (using `wss:`), in `...\GitHub\javafbp-websockets\src\main\resources\scripts` - see below: **Running a test**. 
 
-`chat1` works with the test server (`TestWebSockets.java`), using both Firefox and Chrome as the client browser.
-
-<!-- `chat2` is partially working using Chrome as the client browser, provided you have specified `chrome://flags/#allow-insecure-localhost` (Enable) in the Chrome command line.-->
-`chat2` is not working!
-
-You may notice a large amount of unused code in the JavaFBP components, esp. in `WebSocketReceive.java`- this is intended for eventual use supporting certificates - help would be appreciated in getting it working!
+Unfortunately, the JavaFBP network has to be modified to distinguish between these two cases:  the optional port `OPT` on the `WebSocketReceive` component instance has to be specify an IIP (Initial Information Packet) containing the string `"TLS"` to handle the WSS protocol.  For Test Status, see below.
 
 <!-- To run these clients, use Chrome, create a self-signed certificate called `keystore.jks`, indicate that it is a **trusted** certificate (for Windows use MMC), and store it in `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security` (Windows, of course).
 
@@ -55,8 +50,8 @@ Test Status of latest release
 ---
 
 - Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
-- Client script using `ws:` working for both Firefox and Chrome browsers
-<!-- - Client script using `wss:` working for Chrome browser, provided `chrome://flags/#allow-insecure-localhost` is enabled for Chrome. -->
+- Client script using `ws:` working when `OPT` port is *not* connected to `WebSocketReceive` component - for both Firefox and Chrome browsers
+- Client script using `wss:` working when `OPT` port *is* connected to `WebSocketReceive` component and specifies `"TLS"` - for Chrome browser, provided `chrome://flags/#allow-insecure-localhost` is enabled for Chrome. 
 
 Prerequisites
 ---
