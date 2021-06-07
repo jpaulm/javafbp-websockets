@@ -26,15 +26,15 @@ The key concept here is that of FBP "substreams", where each substream is delimi
 
 **Note:** I have included two client scripts: `chat1.html` (using `ws:`) and `chat2.html` (using `wss:`), in `...\GitHub\javafbp-websockets\src\main\resources\scripts` - see below: **Running a test**. 
 
-Unfortunately, the JavaFBP network has to be modified to distinguish between these two cases:  the optional port `OPT` on the `WebSocketReceive` component instance has to be specify an IIP (Initial Information Packet) containing the string `"TLS"` to handle the WSS protocol.  For Test Status, see below.
+Unfortunately, the JavaFBP network has to be modified to distinguish between these two cases `ws:` and `wss:`:  the optional port `OPT` on the `WebSocketReceive` component instance has to specify an IIP (Initial Information Packet) containing the string `"TLS"` to handle the WSS protocol.  For Test Status, see below.
 
 <!-- To run these clients, use Chrome, create a self-signed certificate called `keystore.jks`, indicate that it is a **trusted** certificate (for Windows use MMC), and store it in `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security` (Windows, of course).
 
 The `keystore.jks` file can be generated using this command from a `CMD` window:
 
-`keytool -genkey -keyalg RSA -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"`, substituting as appropriate in `-dname`, and copying the resulting `keystore.jks` file to `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security`.
+`keytool -genkey -keyalg RSA -validity 3650 -keystore "keystore.jks" -storepass "storepassword" -keypass "keypassword" -alias "default" -dname "CN=127.0.0.1, OU=MyOrgUnit, O=MyOrg, L=MyCity, S=MyRegion, C=MyCountry"`, substituting as appropriate in `-dname`, and copying the resulting `keystore.jks` file to `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security`. -->
 
-If you have trouble getting your certificate accepted, you can indicate to Chrome that it should accept an invalid certificate, by entering `chrome://flags/#allow-insecure-localhost` in the Chrome command line. -->
+The Chrome command `chrome://flags/#allow-insecure-localhost` (Enabled) indicates to Chrome that the security certificate is invalid - if you figure out how to create a valid security certifcate, please let me know (in Issue #35)!  
 
 For video on interactive systems, with demo of JavaFBP-WebSockets, click on https://youtu.be/IvTAexROKSA .
 
