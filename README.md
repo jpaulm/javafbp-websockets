@@ -50,8 +50,10 @@ Test Status of latest release
 ---
 
 - Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
-- Client script using `ws:` working when `OPT` port is *not* connected to `WebSocketReceive` component - for both Firefox and Chrome browsers
+- Client script using `ws:` working whether or not `OPT` port (with value `"TLS"`) is connected to `WebSocketReceive` component - for both Firefox and Chrome browsers
+<!-- 
 - Client script using `wss:` working when `OPT` port *is* connected to `WebSocketReceive` component and specifies `"TLS"` - for Chrome browser, provided `chrome://flags/#allow-insecure-localhost` is enabled for Chrome. 
+-->
 
 Prerequisites
 ---
