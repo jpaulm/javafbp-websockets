@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/jpaulm/javafbp-websockets",
   "dependencies": {
-    "assemblyscript": "^0.18.11",
     "javafbp": "^4.1.11",
     "snyk": "^1.425.4"
   },

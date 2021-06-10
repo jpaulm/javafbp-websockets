@@ -32,11 +32,14 @@ button {
 	if (window.WebSocket) {
 
   		var portno = "8887";
-		var chatClient = new WebSocket("ws://localhost:" + portno  + "/websocket/chat" );
-		var message = document.getElementById("message");
+		var chatClient = new WebSocket("ws://localhost:" + portno  + "/websocket/chat");
+		console.log(chatClient);
+		//var message = document.getElementById("message");
 		//var jarfile = document.getElementById("jarfile");
 		console.log("ready state: " + chatClient.readyState);
 		console.log('starting client html');
+		
+		//var x = getKeys(chatClient);
 		
 		document.addEventListener("keyup", function(event) {
          // Number 13 is the "Enter" key on the keyboard
@@ -48,6 +51,15 @@ button {
             document.getElementById("send").click();
          }
      }); 
+     
+   var getKeys = function(obj){
+     var keys = [];
+     for(var key in obj){
+        keys.push(key);
+        console.log(key);
+     }
+     return keys;
+    }
      
 		
 		chatClient.onmessage = function(evt) {

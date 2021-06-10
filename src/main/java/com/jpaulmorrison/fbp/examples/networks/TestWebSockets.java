@@ -44,7 +44,7 @@ public class TestWebSockets extends Network {
 
 		
 		initialize(Integer.valueOf(8887), "WSRcv.PORT"); 
-		initialize("TLS", "WSRcv.OPT"); 
+		//initialize("TLS", "WSRcv.OPT"); 
 		
 		connect("WSRcv.OUT", "LBal.IN", 4);
 		for (int i = 0; i < multiplexNo; i++) {
@@ -58,6 +58,7 @@ public class TestWebSockets extends Network {
   public static void main(final String[] argv) throws Exception {
     Network net = new TestWebSockets();
     //net.runTimeReqd = false;
+    System.out.println("Job starting");
     net.go();
   }
 
