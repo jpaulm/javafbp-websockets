@@ -51,9 +51,7 @@ Test Status of latest release
 
 - Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
 - Client script using `ws:` working with `OPT` port (with value `"TLS"`) **not** connected to `WebSocketReceive` component - for both Firefox and Chrome browsers
-- For some reason, this won't run directly from the `.jar` file, but
-     java -jar build/libs/javafbp-websockets-1.3.0.jar
-works!
+- For some reason, this won't run directly from the `.jar` file, but `java -jar build/libs/javafbp-websockets-1.3.0.jar` works!
 <!-- 
 - Client script using `wss:` working when `OPT` port *is* connected to `WebSocketReceive` component and specifies `"TLS"` - for Chrome browser, provided `chrome://flags/#allow-insecure-localhost` is enabled for Chrome. 
 -->
