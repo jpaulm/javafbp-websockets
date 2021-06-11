@@ -3,15 +3,15 @@
   "component": {
     "group": "com.jpaulmorrison",
     "module": "javafbp-websockets",
-    "version": "1.2.7",
+    "version": "1.3.0",
     "attributes": {
       "org.gradle.status": "release"
     }
   },
   "createdBy": {
     "gradle": {
-      "version": "6.5.1",
-      "buildId": "z2mnwlljlbfkbkskwi7gu4f2wq"
+      "version": "6.7.1",
+      "buildId": "4mg266nz65gsjafg62odyumcoa"
     }
   },
   "variants": [
@@ -26,13 +26,13 @@
       },
       "files": [
         {
-          "name": "javafbp-websockets-1.2.7.jar",
-          "url": "javafbp-websockets-1.2.7.jar",
-          "size": 2506714,
-          "sha512": "635ad9c78981232cfce6a41c1f96d869783dcd070412e96040d8e6e858c0e8248c4a1e0346f622aa5a978917f7edf2db017beb4374b3ff11c1fb4b32c81e9327",
-          "sha256": "9384a6eebda285a9f97135d342467c13b317274b0d02e8c17bc8d4b888bdb54a",
-          "sha1": "fc1dd5fc5c53f3ba533745e44bcb914af875276d",
-          "md5": "f5ac6b8fa3cedb5da90036c47dd5e54c"
+          "name": "javafbp-websockets-1.3.0.jar",
+          "url": "javafbp-websockets-1.3.0.jar",
+          "size": 2510802,
+          "sha512": "d98c417670202ee5c91c3deb89bcc10a5d7781fa62cd64ffd466e2a59ada8f531ec8a10bb4ea0e18dc2a36ec1b6c8970e9589d8f56d2582559de71c9027c0a01",
+          "sha256": "73951f88206b360f2061e28ea316f9d9e2a24e6321339e185fac32ce0fca9178",
+          "sha1": "b0c0a1c7f63053e84ba0fba9119b64fad87babaa",
+          "md5": "860b16216dda80c887d4f317f0b6e3b3"
         }
       ]
     },
@@ -84,53 +84,13 @@
       ],
       "files": [
         {
-          "name": "javafbp-websockets-1.2.7.jar",
-          "url": "javafbp-websockets-1.2.7.jar",
-          "size": 2506714,
-          "sha512": "635ad9c78981232cfce6a41c1f96d869783dcd070412e96040d8e6e858c0e8248c4a1e0346f622aa5a978917f7edf2db017beb4374b3ff11c1fb4b32c81e9327",
-          "sha256": "9384a6eebda285a9f97135d342467c13b317274b0d02e8c17bc8d4b888bdb54a",
-          "sha1": "fc1dd5fc5c53f3ba533745e44bcb914af875276d",
-          "md5": "f5ac6b8fa3cedb5da90036c47dd5e54c"
-        }
-      ]
-    },
-    {
-      "name": "sourcesElements",
-      "attributes": {
-        "org.gradle.category": "documentation",
-        "org.gradle.dependency.bundling": "external",
-        "org.gradle.docstype": "sources",
-        "org.gradle.usage": "java-runtime"
-      },
-      "files": [
-        {
-          "name": "javafbp-websockets-1.2.7-sources.jar",
-          "url": "javafbp-websockets-1.2.7-sources.jar",
-          "size": 13334,
-          "sha512": "8b7b42fa2932d590e64e0df4705d902a1695acc6859ea1b2df039b0c17a5a1ee597113bebe6ddb3701024bbf9724c9fab9d17c7c08bc2a9e29490a1b0e4a7c9a",
-          "sha256": "28c56d5c33a3f62fe1ab3546ddd0ac6f884775dc7208e32591560ccb13e3a7ac",
-          "sha1": "6868c671709d34a72358b5d86333277d2d94c363",
-          "md5": "3d136168d88989fbd3d52bf13bae306a"
-        }
-      ]
-    },
-    {
-      "name": "javadocElements",
-      "attributes": {
-        "org.gradle.category": "documentation",
-        "org.gradle.dependency.bundling": "external",
-        "org.gradle.docstype": "javadoc",
-        "org.gradle.usage": "java-runtime"
-      },
-      "files": [
-        {
-          "name": "javafbp-websockets-1.2.7-javadoc.jar",
-          "url": "javafbp-websockets-1.2.7-javadoc.jar",
-          "size": 42721,
-          "sha512": "1a74c62974aeb4d6cd9335ee61a524feb640c69fc2caf9bbd705104190cb3a849feb77755a2c2b7eb7b465e7d99cc9d462180004f9ead9ecd3f886de470e7883",
-          "sha256": "2f6537309c72e2044ab8daa5ad5b7282bb86e2c3ac59a18c6a33f18e798217bc",
-          "sha1": "0814a6441d7cc8360832cabe35cafa3f002673fe",
-          "md5": "575a52fbc4f690b829be549699d23d98"
+          "name": "javafbp-websockets-1.3.0.jar",
+          "url": "javafbp-websockets-1.3.0.jar",
+          "size": 2510802,
+          "sha512": "d98c417670202ee5c91c3deb89bcc10a5d7781fa62cd64ffd466e2a59ada8f531ec8a10bb4ea0e18dc2a36ec1b6c8970e9589d8f56d2582559de71c9027c0a01",
+          "sha256": "73951f88206b360f2061e28ea316f9d9e2a24e6321339e185fac32ce0fca9178",
+          "sha1": "b0c0a1c7f63053e84ba0fba9119b64fad87babaa",
+          "md5": "860b16216dda80c887d4f317f0b6e3b3"
         }
       ]
     }

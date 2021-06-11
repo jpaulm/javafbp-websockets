@@ -94,15 +94,15 @@ jar {
        
     //baseName = project.name + '-all'
     //archiveBaseName = project.name
-    from sourceSets.main.output       
+    //from sourceSets.main.output       
       
-   dependsOn configurations.compileClasspath
-   
+   dependsOn configurations.compileClasspath   
     from {       
-       configurations.compileClasspath.findAll {  it.name.endsWith('jar')  }.collect {   zipTree(it)  }  
-    }
+      configurations.compileClasspath.findAll {  it.name.endsWith('jar')  }.collect {   zipTree(it)  }  
+     }
+     
+     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
-
 
 if (JavaVersion.current().isJava8Compatible()) {   
         tasks.withType(Javadoc) {
