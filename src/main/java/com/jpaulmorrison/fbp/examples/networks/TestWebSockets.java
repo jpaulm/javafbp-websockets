@@ -62,7 +62,7 @@ public class TestWebSockets extends Network {
     //net.runTimeReqd = false;
     if (argv.length >= 1 && argv[0].toUpperCase().equals("TLS")) {  
     	System.out.println("Job starting - TLS");
-    	arg = argv[0];
+    	arg = argv[0].toUpperCase();
     }
     else {
     	//arg = "TLS";  //fudge
