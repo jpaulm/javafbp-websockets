@@ -30,8 +30,9 @@ button {
 <script>
 	//if ("WebSocket" in window)
 	if (window.WebSocket) {
-
-  		var portno = "8887";
+	var portno = "8887";
+	
+	  		
 		var chatClient = new WebSocket("ws://localhost:" + portno  + "/websocket/chat");
 		console.log(chatClient);
 		//var message = document.getElementById("message");
@@ -52,6 +53,7 @@ button {
          }
      }); 
      
+     /*
    var getKeys = function(obj){
      var keys = [];
      for(var key in obj){
@@ -60,7 +62,7 @@ button {
      }
      return keys;
     }
-     
+    */ 
 		
 		chatClient.onmessage = function(evt) {
 			var container = document.getElementById("container");

@@ -82,7 +82,7 @@ public class WebSocketReceive extends Component /* WebSocketServer */ {
 	Component comp = null;  //  JavaFBP Component
 	MyWebSocketServer test = null;
 	WebSocketServerFactory wsf = null;
-	WebSocketServerFactory wsf2 = null;
+	//WebSocketServerFactory wsf2 = null;
 
 	//@Override
 	protected void execute() throws Exception {
@@ -114,8 +114,7 @@ public class WebSocketReceive extends Component /* WebSocketServer */ {
 		System.out.println("WebSocketServer starting");
 		putGlobal("WebSocketServer", test);
 		
-        
-		
+        		
 		try {
 			if (wssOpt) {
 				// load up the key store
@@ -218,9 +217,7 @@ public class WebSocketReceive extends Component /* WebSocketServer */ {
 		// Component comp = null;
 
 		final Logger log = LoggerFactory.getLogger(WebSocketReceive.class);
-	  private BlockingQueue<ByteBuffer> buffers;
-	  private final AtomicInteger queuesize = new AtomicInteger(0);
-
+	  
 		// public MyWebSocketServer(final int port, final Draft d) throws
 		// UnknownHostException {
 		// super(new InetSocketAddress(port), Collections.singletonList(d));
@@ -234,13 +231,19 @@ public class WebSocketReceive extends Component /* WebSocketServer */ {
 			super(address, Collections.singletonList(d));
 		}
 
-		//public MyWebSocketServer(final InetSocketAddress address) {
-		//	super(address);
-		//}
+		public MyWebSocketServer(final InetSocketAddress address) {
+			super(address);
+		}
 
-		 
+		
 		@Override
-
+		public void onWebsocketHandshakeReceivedAsClient(WebSocket conn, ClientHandshake request,
+				ServerHandshake response) throws InvalidDataException {
+			// To overwrite
+			System.out.println(request + ": " + response);
+		}
+		
+		@Override
 		public ServerHandshakeBuilder onWebsocketHandshakeReceivedAsServer(WebSocket conn, Draft draft,
 				ClientHandshake request) throws InvalidDataException {
 			ServerHandshakeBuilder builder = super
@@ -282,19 +285,8 @@ public class WebSocketReceive extends Component /* WebSocketServer */ {
 		@Override
 		public void onStart() {
 			System.out.println("server started successfully");
+			
 		}
-
-		
-  
-		@Override
-		public void onWebsocketHandshakeReceivedAsClient(WebSocket conn, ClientHandshake request,
-				ServerHandshake response) throws InvalidDataException {
-			// To overwrite
-			System.out.println(request + ": " + response);
-		}
-		
-		
-		
 		
 		/*
 		public void doDecode(WebSocketImpl ws, ByteBuffer buf) throws InterruptedException {

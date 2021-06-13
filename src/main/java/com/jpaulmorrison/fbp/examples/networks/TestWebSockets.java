@@ -28,7 +28,8 @@ import com.jpaulmorrison.fbp.examples.components.WebSocketSimProc;
 
 public class TestWebSockets extends Network {
 
-  @Override
+	static String arg = null;
+	@Override
 	protected void define() {
 
 		int multiplexNo = 6;
@@ -44,7 +45,8 @@ public class TestWebSockets extends Network {
 
 		
 		initialize(Integer.valueOf(8887), "WSRcv.PORT"); 
-		//initialize("TLS", "WSRcv.OPT"); 
+		if (arg != null)
+			initialize(arg, "WSRcv.OPT"); 
 		
 		connect("WSRcv.OUT", "LBal.IN", 4);
 		for (int i = 0; i < multiplexNo; i++) {
@@ -56,10 +58,17 @@ public class TestWebSockets extends Network {
 	}
 
   public static void main(final String[] argv) throws Exception {
-    Network net = new TestWebSockets();
+    Network test = new TestWebSockets();
     //net.runTimeReqd = false;
-    System.out.println("Job starting");
-    net.go();
+    if (argv.length >= 1 && argv[0].toUpperCase().equals("TLS")) {  
+    	System.out.println("Job starting - TLS");
+    	arg = argv[0];
+    }
+    else {
+    	//arg = "TLS";  //fudge
+    	System.out.println("Job starting - Plain Text");
+    }
+    
+    test.go();
   }
-
 }
