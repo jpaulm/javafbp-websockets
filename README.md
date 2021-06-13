@@ -26,7 +26,7 @@ The key concept here is that of FBP "substreams", where each substream is delimi
 
 **Note:** I have included two client scripts: `chat1.html` (using `ws:`) and `chat2.html` (using `wss:`), in `...\GitHub\javafbp-websockets\src\main\resources\scripts` - see below: **Running a test**. 
 
-Unfortunately, the JavaFBP network has to be modified to distinguish between these two cases `ws:` and `wss:`:  the optional port `OPT` on the `WebSocketReceive` component instance has to specify an IIP (Initial Information Packet) containing the string `"TLS"` to handle the WSS protocol.  For Test Status, see below.
+The underlying software [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) does not support WS and WSS on the same run, so you have to specify which option you are running - TLS or non-TLS (plain text) - by means of a run-time argument - see below. For Test Status, see below.
 
 <!-- To run these clients, use Chrome, create a self-signed certificate called `keystore.jks`, indicate that it is a **trusted** certificate (for Windows use MMC), and store it in `c:\Users\<user>\AppData\Local\JavaFBP-WebSockets\security` (Windows, of course).
 
@@ -50,11 +50,13 @@ Test Status of latest release
 ---
 
 - Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
+
 - Client script using `ws:` working with `OPT` port (with value `"TLS"`) **not** connected to `WebSocketReceive` component - for both Firefox and Chrome browsers
+ 
 - For some reason, this won't run directly from the `.jar` file, but `java -jar build/libs/javafbp-websockets-1.3.0.jar` works!
-<!-- 
-- Client script using `wss:` working when `OPT` port *is* connected to `WebSocketReceive` component and specifies `"TLS"` - for Chrome browser, provided `chrome://flags/#allow-insecure-localhost` is enabled for Chrome. 
--->
+  
+- Client scripts both working with Chrome browser, provided `chrome://flags/#allow-insecure-localhost` is enabled for Chrome. 
+ 
 
 Prerequisites
 ---
@@ -87,9 +89,12 @@ The current server network also includes a random delay (from 0 to 2 seconds) in
 
 To run this test, download the jar file - then position the current directory to your `javafbp-websockets` directory.
 
-Now in DOS, run this command:
+Now in DOS, run these commands:
     
-     java -jar build\libs\javafbp-websockets-x.y.z.jar
+- plain text: `java -jar build\libs\javafbp-websockets-x.y.z.jar`
+
+- TLS:        `java -jar build\libs\javafbp-websockets-x.y.z.jar tls`
+
     
 where `x.y.z` is the current version number
 
@@ -97,7 +102,7 @@ where `x.y.z` is the current version number
 
 This will display the message `WebSocketServer starting` on the console, followed by `server started successfully`.
 
-This particular test case supports two client HTML5 scripts called `chat1.html` and `chat2.html` in `src/main/resources/scripts`.  These scripts in turn support two commands which can be sent over to the server logic - other values will be rejected:
+This particular test case supports two client HTML5 scripts called `chat1.html` (using `ws:`) and `chat2.html` (using `wss:`) in `src/main/resources/scripts`.  These scripts in turn support two commands which can be sent over to the server logic - other values will be rejected:
 
 - `complist` will cause the server to display the contents of any selected jar file (specified in the `Data` field), and
 - `namelist` will cause the server to just output 3 names of restaurants in my neighbourhood!
