@@ -66,16 +66,7 @@ If you already created an Eclipse project you can run:
 
 -->
 
-Test Status of latest release
----
 
-- Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
-
-- For some reason, this won't run directly from the `.jar` file, but `java -jar build/libs/javafbp-websockets-1.3.0.jar` works!
-
-- These scripts apparently have to be submitted from the File Explorer - they do not seem to work when submitted from the Eclipse file list.
-
-  
 
 Running a test
 ----
@@ -105,12 +96,20 @@ This particular test case supports two client HTML5 scripts called `chat1.html` 
 - `complist` will cause the server to display the contents of any selected jar file (specified in the `Data` field), and
 - `namelist` will cause the server to just output 3 names of restaurants in my neighbourhood!
 
-Results
+Test Status of latest release
 ---
 
-Client script `chat1` works with Firefox and Chrome; `chat2` works with Chrome browser, provided `chrome://flags/#allow-insecure-localhost` is enabled for Chrome. 
+- Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
 
-Sample Output
+- For some reason, this won't run directly from the `.jar` file, but `java -jar build/libs/javafbp-websockets-1.3.0.jar` works!
+
+- These scripts apparently have to be submitted from the File Explorer - they do not seem to work when submitted from the Eclipse file list.  
+
+- Client script `chat1` works with Firefox and Chrome; 
+ 
+- Client script `chat2` works with Chrome browser, provided `chrome://flags/#allow-insecure-localhost` is enabled for Chrome. 
+
+Sample Run Output
 ---
 
 Let's say you select `chat1.html` and Open With Chrome.  At this point you should see something like:
