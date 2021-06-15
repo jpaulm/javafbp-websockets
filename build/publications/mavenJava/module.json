@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.7.1",
-      "buildId": "4mg266nz65gsjafg62odyumcoa"
+      "buildId": "jejq37xegrdkjg2s3kp6if3g5i"
     }
   },
   "variants": [
@@ -28,11 +28,11 @@
         {
           "name": "javafbp-websockets-1.3.0.jar",
           "url": "javafbp-websockets-1.3.0.jar",
-          "size": 2510802,
-          "sha512": "d98c417670202ee5c91c3deb89bcc10a5d7781fa62cd64ffd466e2a59ada8f531ec8a10bb4ea0e18dc2a36ec1b6c8970e9589d8f56d2582559de71c9027c0a01",
-          "sha256": "73951f88206b360f2061e28ea316f9d9e2a24e6321339e185fac32ce0fca9178",
-          "sha1": "b0c0a1c7f63053e84ba0fba9119b64fad87babaa",
-          "md5": "860b16216dda80c887d4f317f0b6e3b3"
+          "size": 2510913,
+          "sha512": "1ee43913bf667bfc44e6bd90b2906cdf3b75f3b7c25b73604de0c28c05529a8e3bc0eb73a3fd0936f4d873bf508ca96e3380469af9e3796393300d429d0157c3",
+          "sha256": "c64bdb0a485c4a77b65f92f5ce67e2d27579a3abd1bab912fef96ef2dc76aa58",
+          "sha1": "4f0c1113a13fae81179d6959ddf51b7b202776fc",
+          "md5": "73c8850954462a755a092579b3a88c28"
         }
       ]
     },
@@ -86,11 +86,11 @@
         {
           "name": "javafbp-websockets-1.3.0.jar",
           "url": "javafbp-websockets-1.3.0.jar",
-          "size": 2510802,
-          "sha512": "d98c417670202ee5c91c3deb89bcc10a5d7781fa62cd64ffd466e2a59ada8f531ec8a10bb4ea0e18dc2a36ec1b6c8970e9589d8f56d2582559de71c9027c0a01",
-          "sha256": "73951f88206b360f2061e28ea316f9d9e2a24e6321339e185fac32ce0fca9178",
-          "sha1": "b0c0a1c7f63053e84ba0fba9119b64fad87babaa",
-          "md5": "860b16216dda80c887d4f317f0b6e3b3"
+          "size": 2510913,
+          "sha512": "1ee43913bf667bfc44e6bd90b2906cdf3b75f3b7c25b73604de0c28c05529a8e3bc0eb73a3fd0936f4d873bf508ca96e3380469af9e3796393300d429d0157c3",
+          "sha256": "c64bdb0a485c4a77b65f92f5ce67e2d27579a3abd1bab912fef96ef2dc76aa58",
+          "sha1": "4f0c1113a13fae81179d6959ddf51b7b202776fc",
+          "md5": "73c8850954462a755a092579b3a88c28"
         }
       ]
     }

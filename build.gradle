@@ -67,10 +67,10 @@ repositories {
 
 
 	
-//java {       
- //    withSourcesJar()
- //    withJavadocJar()
-//}
+java {       
+     withSourcesJar()
+     withJavadocJar()
+}
 
 dependencies {		
 	
