@@ -28,7 +28,7 @@
     <dependency>
     	<groupId>com.jpaulmorrison</groupId>
     	<artifactId>javafbp</artifactId>
-    	<version>4.1.11</version>
+    	<version>4.1.12</version>
     </dependency>
     <dependency>
   <groupId>org.slf4j</groupId>
