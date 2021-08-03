@@ -172,7 +172,7 @@ where the counts are respectively: creates, normal drops, sends, non-null receiv
 Some diagrams
 ---
 
-Here is a diagram of this simple server network, together with the client, shown schematically:
+Here is a diagram of this simple server network, together with the client, shown schematically. **Note: This is not a true DrawFBP network**, as the left-hand side is just a schematic, but the idea is to give you an overview...
 
 ![ClientServer](https://github.com/jpaulm/javafbp-websockets/blob/master/docs/ClientServer.png "Diagram of Client and Server Network")
 
