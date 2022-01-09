@@ -136,7 +136,7 @@ You can click on `Send` multiple times, before clicking on `Stop WS`.
 
 Log4j Logging
 -------
-Some information will be logged on the console - this uses the Apache logging `log4j` tool (plus LogBack?).  If you want to change the logging level, change the Root level value in `src\log4j2.xml`:
+Some information will be logged on the console - this uses the Apache logging tool (`logback`), via the `slf4j` interface.  If you want to change the logging level, change the Root level value in `logback.xml` in the `classpath`:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <Configuration status="WARN">
