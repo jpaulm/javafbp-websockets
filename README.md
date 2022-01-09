@@ -134,7 +134,7 @@ Now click on `Stop WS`, and the application will close down.
 
 You can click on `Send` multiple times, before clicking on `Stop WS`.
 
-Log4j Logging
+LogBack Logging
 -------
 Some information will be logged on the console - this uses the Apache logging tool (`logback`), via the `slf4j` interface.  If you want to change the logging level, change the Root level value in `logback.xml` in the `classpath`:
 
