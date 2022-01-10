@@ -11,7 +11,7 @@ General web site on Flow-Based Programming: https://jpaulm.github.io/fbp/ .
 General
 ---
 
-**Latest release: `javafbp-websockets-1.3.0`** 
+**Latest release: `javafbp-websockets-1.3.1`** 
 
 The jar file can be obtained from `build/libs/`, Releases and Maven.   The new release should be up on Maven shortly (there is a period when the shield shows the new release number, but it is not yet up on Maven).  The Maven shield is below.
 
@@ -47,7 +47,7 @@ JavaFBP Syntax and Component API:
 Prerequisites
 ---
 
-This project requires JavaFBP and Java-WebSocket jar files to execute. The latest jar file for JavaFBP-WebSockets now contains these jar files, plus the recently added SLF4J folder (used by Java-WebSocket for logging). The Renovate package keeps track of the current releases of these packages, so the JavaFBP-WebSockets jar file will automatically be kept up to date.
+This project requires JavaFBP and Java-WebSocket jar files to execute. The latest jar file for JavaFBP-WebSockets now contains these jar files, plus the recently added SLF4J and LogBack folders (used by Java-WebSocket for logging). The Renovate package keeps track of the current releases of these packages, so the JavaFBP-WebSockets jar file will automatically be kept up to date.
 
 This project used Gradle for (re)building.
 
@@ -99,7 +99,7 @@ Test Status of latest release
 
 - Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
 
-- For some reason, this won't run directly from the `.jar` file, but `java -jar build/libs/javafbp-websockets-1.3.0.jar` works!
+- For some reason, this won't run directly from the `.jar` file, but `java -jar build/libs/javafbp-websockets-1.3.1.jar` works!
 
 - These scripts apparently have to be submitted from the File Explorer - they do not seem to work when submitted from the Eclipse file list.  
 
@@ -136,7 +136,7 @@ You can click on `Send` multiple times, before clicking on `Stop WS`.
 
 LogBack Logging
 -------
-Some information will be logged on the console - this uses the Apache logging tool (`logback`), via the `slf4j` interface.  If you want to change the logging level, change the Root level value in `logback.xml` in the `classpath`:
+Some information will be logged on the console - this uses the Apache logging tool LogBack, via the `slf4j` interface.  If you want to change the logging level, change the Root level value in `logback.xml` in the `classpath`:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <Configuration status="WARN">
@@ -151,6 +151,8 @@ Some information will be logged on the console - this uses the Apache logging to
         </Root>
       </Loggers>
     </Configuration>
+    
+Copy this into your `build.libs` folder.    
     
 JavaFBP tracing
 ------
