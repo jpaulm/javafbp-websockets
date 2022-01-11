@@ -3,7 +3,7 @@
   "component": {
     "group": "com.jpaulmorrison",
     "module": "javafbp-websockets",
-    "version": "1.3.0",
+    "version": "1.3.3",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.7.1",
-      "buildId": "jejq37xegrdkjg2s3kp6if3g5i"
+      "buildId": "adl7g6tlkbgsjhz6xcg36q3jou"
     }
   },
   "variants": [
@@ -26,13 +26,13 @@
       },
       "files": [
         {
-          "name": "javafbp-websockets-1.3.0.jar",
-          "url": "javafbp-websockets-1.3.0.jar",
-          "size": 2510913,
-          "sha512": "1ee43913bf667bfc44e6bd90b2906cdf3b75f3b7c25b73604de0c28c05529a8e3bc0eb73a3fd0936f4d873bf508ca96e3380469af9e3796393300d429d0157c3",
-          "sha256": "c64bdb0a485c4a77b65f92f5ce67e2d27579a3abd1bab912fef96ef2dc76aa58",
-          "sha1": "4f0c1113a13fae81179d6959ddf51b7b202776fc",
-          "md5": "73c8850954462a755a092579b3a88c28"
+          "name": "javafbp-websockets-1.3.3.jar",
+          "url": "javafbp-websockets-1.3.3.jar",
+          "size": 1269008,
+          "sha512": "e0a03aa066189d0b005756f3531214a3605159b9dafebc5f4cd4a332708f29cf442ccb853bf350e045867fca24bee1988fa62ab0be6c4ee92d4b113e30216822",
+          "sha256": "446ce83502e4a909665f043fc3c6c08bfc12a05c3dea3ccc9938def07eac192f",
+          "sha1": "88f0be186244b3b595700f16926fdda21c24aefc",
+          "md5": "71cae29452a09686c3addb1f64543360"
         }
       ]
     },
@@ -50,47 +50,80 @@
           "group": "com.jpaulmorrison",
           "module": "javafbp",
           "version": {
-            "requires": "4.1.11"
+            "requires": "4.1.12"
           }
         },
         {
           "group": "org.java-websocket",
           "module": "Java-WebSocket",
           "version": {
-            "requires": "1.5.1"
+            "requires": "1.5.2"
           }
         },
         {
           "group": "org.slf4j",
           "module": "slf4j-simple",
           "version": {
-            "requires": "1.7.25"
+            "requires": "2.0.0-alpha5"
           }
         },
         {
-          "group": "org.apache.logging.log4j",
-          "module": "log4j-api",
+          "group": "ch.qos.logback",
+          "module": "logback-classic",
           "version": {
-            "requires": "2.14.0"
-          }
-        },
-        {
-          "group": "org.apache.logging.log4j",
-          "module": "log4j-core",
-          "version": {
-            "requires": "2.14.0"
+            "requires": "1.3.0-alpha10"
           }
         }
       ],
       "files": [
         {
-          "name": "javafbp-websockets-1.3.0.jar",
-          "url": "javafbp-websockets-1.3.0.jar",
-          "size": 2510913,
-          "sha512": "1ee43913bf667bfc44e6bd90b2906cdf3b75f3b7c25b73604de0c28c05529a8e3bc0eb73a3fd0936f4d873bf508ca96e3380469af9e3796393300d429d0157c3",
-          "sha256": "c64bdb0a485c4a77b65f92f5ce67e2d27579a3abd1bab912fef96ef2dc76aa58",
-          "sha1": "4f0c1113a13fae81179d6959ddf51b7b202776fc",
-          "md5": "73c8850954462a755a092579b3a88c28"
+          "name": "javafbp-websockets-1.3.3.jar",
+          "url": "javafbp-websockets-1.3.3.jar",
+          "size": 1269008,
+          "sha512": "e0a03aa066189d0b005756f3531214a3605159b9dafebc5f4cd4a332708f29cf442ccb853bf350e045867fca24bee1988fa62ab0be6c4ee92d4b113e30216822",
+          "sha256": "446ce83502e4a909665f043fc3c6c08bfc12a05c3dea3ccc9938def07eac192f",
+          "sha1": "88f0be186244b3b595700f16926fdda21c24aefc",
+          "md5": "71cae29452a09686c3addb1f64543360"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "javafbp-websockets-1.3.3-sources.jar",
+          "url": "javafbp-websockets-1.3.3-sources.jar",
+          "size": 16136,
+          "sha512": "3967adf6cc9506d324171aaaeab9385d7b2c99a87ca4752bcec796a35a33559975601c968dca9c503640cc347bcdc46b1fc91b4bc79243b7e2e7913b04a817a9",
+          "sha256": "9358d98a7fad1bad32b59f5aafc5be4d8056be2e0eefb7ed9239056f95ead46a",
+          "sha1": "4336c704556539f27e2b1005b1a7631a3c47c0ce",
+          "md5": "d41a158b0338e0cc283e7e0e445f162c"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "javafbp-websockets-1.3.3-javadoc.jar",
+          "url": "javafbp-websockets-1.3.3-javadoc.jar",
+          "size": 45224,
+          "sha512": "71a7c380277f8b08b37b4629b927cea4c93aa4856ff3aa3f3211308f4185c28b4ed03cc49f4b479d5804667f508cd88447a2cc26eb0982a9562f8f17d58a769a",
+          "sha256": "497670e54e591803297cdf8f138f28dd3a16b28b558befec70b1d392515f9ab1",
+          "sha1": "e97e31ea0f27629abe9e65660de4a45e38633f94",
+          "md5": "71c9e082cf2d728319c808fbfd8db8ce"
         }
       ]
     }
