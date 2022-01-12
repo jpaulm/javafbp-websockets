@@ -67,7 +67,7 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\javafbp-websockets-1.3.3.jar;%APP_HOME%\lib\javafbp-4.1.12.jar;%APP_HOME%\lib\Java-WebSocket-1.5.2.jar;%APP_HOME%\lib\slf4j-simple-2.0.0-alpha5.jar;%APP_HOME%\lib\logback-classic-1.3.0-alpha10.jar;%APP_HOME%\lib\slf4j-api-2.0.0-alpha5.jar;%APP_HOME%\lib\logback-core-1.3.0-alpha10.jar
+set CLASSPATH=%APP_HOME%\lib\javafbp-websockets-1.3.4.jar;%APP_HOME%\lib\javafbp-4.1.12.jar;%APP_HOME%\lib\Java-WebSocket-1.5.2.jar;%APP_HOME%\lib\slf4j-simple-2.0.0-alpha5.jar;%APP_HOME%\lib\logback-classic-1.3.0-alpha10.jar;%APP_HOME%\lib\slf4j-api-2.0.0-alpha5.jar;%APP_HOME%\lib\logback-core-1.3.0-alpha10.jar
 
 
 @rem Execute javafbp-websockets
