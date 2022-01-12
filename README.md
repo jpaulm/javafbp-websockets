@@ -157,7 +157,7 @@ Some information will be logged on the console - this uses the Apache LogBack to
       </Loggers>
     </Configuration>
     
-Copy this into your `build.libs` folder.    
+Copy this into your `build.libs` folder, or wherever your `jar` file is..    
     
 JavaFBP tracing
 ------
