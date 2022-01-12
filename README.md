@@ -11,7 +11,7 @@ General web site on Flow-Based Programming: https://jpaulm.github.io/fbp/ .
 General
 ---
 
-**Latest release: `javafbp-websockets-1.3.2`** 
+**Latest release: `javafbp-websockets-1.3.3`** 
 
 The jar file can be obtained from `build/libs/`, Releases and Maven.   The new release should be up on Maven shortly (there is a period when the shield shows the new release number, but it is not yet up on Maven).  The Maven shields are below.
 
@@ -81,6 +81,8 @@ Now in DOS, run these commands:
     
 - plain text: `java -jar build\libs\javafbp-websockets-x.y.z.jar`
 
+OR
+
 - TLS:        `java -jar build\libs\javafbp-websockets-x.y.z.jar tls`
 
     
@@ -95,12 +97,14 @@ This particular test case supports two client HTML5 scripts called `chat1.html` 
 - `complist` will cause the server to display the contents of any selected jar file (specified in the `Data` field), and
 - `namelist` will cause the server to just output 3 names of restaurants in my neighbourhood!
 
+Locate the script you want (`chat1` or `chat2`) in `src\main\resources\scripts', and open with Chrome.  Then enter `complist` or `namelist`.  Input and output will apear on the console.   When you are done, click on `Stop WS`.
+
 Test Status of latest release
 ---
 
 - Port number 9003 was used previously - however it now seems to be used by PID 4 - so we are now using port no. 8887 in the test (as suggested by `Java-WebSocket`).
 
-- For some reason, this won't run directly from the `.jar` file, but `java -jar build/libs/javafbp-websockets-1.3.1.jar` works!
+- For some reason, this won't run directly from the `.jar` file, but `java -jar build/libs/javafbp-websockets-1.3.3.jar` works!
 
 - These scripts apparently have to be submitted from the File Explorer - they do not seem to work when submitted from the Eclipse file list.  
 
