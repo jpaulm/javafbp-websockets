@@ -108,7 +108,9 @@ button {
 		chatClient.send("@{");		
 
 		chatClient.send("{Client1: " + message.value + "}");
-		chatClient.send("{Client1: " + jarfile.value + "}");
+		        if (message.value.trim() == "complist")  {
+		  chatClient.send("{Client1: " + jarfile.value + "}");
+                }
 		
 		chatClient.send("@}");
 	}
