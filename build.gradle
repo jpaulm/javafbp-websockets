@@ -75,7 +75,7 @@ java {
 dependencies {		
 	
 
-	implementation  'com.jpaulmorrison:javafbp:4.1.12' 
+	implementation  'com.jpaulmorrison:javafbp:4.1.13' 
 	implementation 'org.java-websocket:Java-WebSocket:1.5.2'
 	implementation 'org.slf4j:slf4j-simple:2.0.0-alpha7'
 	implementation 'ch.qos.logback:logback-classic:1.3.0-alpha14'	
